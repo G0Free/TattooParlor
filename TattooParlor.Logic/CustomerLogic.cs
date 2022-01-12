@@ -19,13 +19,14 @@ namespace TattooParlor.Logic
             this.customerRepo = repo;
         }
 
-       /* public CustomerLogic(ICustomerRepository customerRepo, ITattooRepository tattooRepo, IJobsDoneRepository jobRepo)
-        {
-            this.customerRepo = customerRepo;
-            this.tattooRepo = tattooRepo;
-            this.jobRepo = jobRepo;
-        }*/
+        /* public CustomerLogic(ICustomerRepository customerRepo, ITattooRepository tattooRepo, IJobsDoneRepository jobRepo)
+         {
+             this.customerRepo = customerRepo;
+             this.tattooRepo = tattooRepo;
+             this.jobRepo = jobRepo;
+         }*/
 
+        #region CRUD methods
         //Create
         public void AddNewCustomer(Customer customer)
         {
@@ -74,6 +75,9 @@ namespace TattooParlor.Logic
         public void DeleteCustomer(int id)
         {
             customerRepo.DeleteCustomer(id);
-        }        
+        }
+        #endregion
+
+
     }
 }

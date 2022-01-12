@@ -16,6 +16,7 @@ namespace TattooParlor.Logic
             this.tattooRepo = tattooRepo;
         }
 
+        #region CRUD methods
         //Create
         public void AddNewTattoo(Tattoo tattoo)
         {
@@ -53,5 +54,8 @@ namespace TattooParlor.Logic
         {
             tattooRepo.DeleteTatto(id);
         }
+        #endregion
+
+
     }
 }
