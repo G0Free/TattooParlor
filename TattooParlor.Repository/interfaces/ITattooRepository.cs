@@ -7,7 +7,7 @@ using TattooParlor.Models;
 
 namespace TattooParlor.Repository
 {
-    interface ITattooRepository : IRepository<Tattoo>
+    public interface ITattooRepository : IRepository<Tattoo>
     {
         void ChangeFantasyName(int id, string newName);
         void AddNewTatto(Tattoo tattoo);

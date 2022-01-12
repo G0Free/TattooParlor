@@ -7,7 +7,7 @@ using TattooParlor.Models;
 
 namespace TattooParlor.Repository
 {
-    interface ICustomerRepository : IRepository<Customer>
+    public interface ICustomerRepository : IRepository<Customer>
     {
         void ChangeFirstName(int id, string newFirstName);
         void ChangeLastName(int id, string newLastName);

@@ -7,7 +7,7 @@ using TattooParlor.Models;
 
 namespace TattooParlor.Repository
 {
-    interface IJobsDoneRepository : IRepository<JobsDone>
+    public interface IJobsDoneRepository : IRepository<JobsDone>
     {
         void ChangeJobDate(int id, DateTime newJobDate);
         void ChangeCost(int id, int newCost);
