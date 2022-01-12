@@ -66,10 +66,11 @@ namespace TattooParlor.Data
            {
                entity
                .HasOne(job => job.customer)
-               .
+               .WithMany()
+               .HasForeignKey(job => job.customerId)
+               .HasForeignKey(job => job.TattooId)
+               .OnDelete(DeleteBehavior.ClientSetNull);
            }
-
-
                 );
 
             modelBuilder.Entity<Customer>().HasData(customer1, customer2, customer3);
