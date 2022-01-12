@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TattooParlor.Repository
 {
-    class CustomerRepository
+    class CustomerRepository : Repository<>
     {
     }
 }
