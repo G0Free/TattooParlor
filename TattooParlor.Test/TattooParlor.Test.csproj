@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TattooParlor.Logic\TattooParlor.Logic.csproj" />
+    <ProjectReference Include="..\TattooParlor.Models\TattooParlor.Models.csproj" />
+    <ProjectReference Include="..\TattooParlor.Repository\TattooParlor.Repository.csproj" />
+  </ItemGroup>
+
+</Project>
