@@ -11,20 +11,20 @@ namespace TattooParlor.Logic
     public class CustomerLogic : ICustomerLogic
     {
         ICustomerRepository customerRepo;
-        ITattooRepository tattooRepo;
-        IJobsDoneRepository jobRepo;
+        //ITattooRepository tattooRepo;
+        //IJobsDoneRepository jobRepo;
 
         public CustomerLogic(ICustomerRepository repo)
         {
             this.customerRepo = repo;
         }
 
-        public CustomerLogic(ICustomerRepository customerRepo, ITattooRepository tattooRepo, IJobsDoneRepository jobRepo)
+       /* public CustomerLogic(ICustomerRepository customerRepo, ITattooRepository tattooRepo, IJobsDoneRepository jobRepo)
         {
             this.customerRepo = customerRepo;
             this.tattooRepo = tattooRepo;
             this.jobRepo = jobRepo;
-        }
+        }*/
 
         //Create
         public void AddNewCustomer(Customer customer)
@@ -49,21 +49,22 @@ namespace TattooParlor.Logic
         }
 
         //Update
+        public void UpdateCustomer(Customer customer)
+        {
+            customerRepo.UpdateCustomer(customer);
+        }
         public void ChangeBirthYear(int id, int newBirthYear)
         {
             customerRepo.ChangeBirthYear(id, newBirthYear);
         }
-
         public void ChangeEmail(int id, string newEmail)
         {
             customerRepo.ChangeEmail(id, newEmail);
         }
-
         public void ChangeFirstName(int id, string newFirstName)
         {
             customerRepo.ChangeFirstName(id, newFirstName);
         }
-
         public void ChangeLastName(int id, string newLastName)
         {
             customerRepo.ChangeLastName(id, newLastName);
@@ -73,15 +74,6 @@ namespace TattooParlor.Logic
         public void DeleteCustomer(int id)
         {
             customerRepo.DeleteCustomer(id);
-        }
-
-        
-
-        
-
-        public void UpdateCustomer(Customer customer)
-        {
-            throw new NotImplementedException();
-        }
+        }        
     }
 }
