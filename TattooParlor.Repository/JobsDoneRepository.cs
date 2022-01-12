@@ -14,20 +14,34 @@ namespace TattooParlor.Repository
         {
 
         }
-
+        
+        //Create
         public void AddNewJobsDone(JobsDone newJobsDone)
         {
             ctx.Add(newJobsDone);
             ctx.SaveChanges();
         }
 
+        //Read
+        public override JobsDone GetOne(int id)
+        {
+            return GetAll().FirstOrDefault(x => x.JobId == id);
+        }
+
+        //Update
+        public void UpdateJobsDone(JobsDone jobsDone)
+        {
+            var toUpdate = GetOne(jobsDone.JobId);
+            toUpdate.Cost = jobsDone.Cost;
+            toUpdate.jobDate = jobsDone.jobDate;
+            ctx.SaveChanges();
+        }
         public void ChangeCost(int id, int newCost)
         {
             var tattoo = GetOne(id);
             tattoo.Cost = newCost;
             ctx.SaveChanges();
         }
-
         public void ChangeJobDate(int id, DateTime newJobDate)
         {
             var tattoo = GetOne(id);
@@ -35,23 +49,11 @@ namespace TattooParlor.Repository
             ctx.SaveChanges();
         }
 
+        //Delete
         public void DeleteJobsDone(int id)
         {
             var toDelete = GetOne(id);
             ctx.Remove(toDelete);
-            ctx.SaveChanges();
-        }
-
-        public override JobsDone GetOne(int id)
-        {
-            return GetAll().FirstOrDefault(x => x.JobId == id);
-        }
-
-        public void UpdateJobsDone(JobsDone jobsDone)
-        {
-            var toUpdate = GetOne(jobsDone.JobId);
-            toUpdate.Cost = jobsDone.Cost;
-            toUpdate.jobDate = jobsDone.jobDate;
             ctx.SaveChanges();
         }
     }

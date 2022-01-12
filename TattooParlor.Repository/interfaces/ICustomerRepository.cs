@@ -9,12 +9,17 @@ namespace TattooParlor.Repository
 {
     public interface ICustomerRepository : IRepository<Customer>
     {
+        //Create
+        void AddNewCustomer(Customer customer);
+
+        //Update
+        void UpdateCustomer(Customer customer);
         void ChangeFirstName(int id, string newFirstName);
         void ChangeLastName(int id, string newLastName);
         void ChangeEmail(int id, string newEmail);
-        void ChangeBirthYear(int id, int newBirthYear);
-        void AddNewCustomer(Customer customer);
-        void UpdateCustomer(Customer customer);
+        void ChangeBirthYear(int id, int newBirthYear);       
+        
+        //Delete
         void DeleteCustomer(int id);
     }
 }

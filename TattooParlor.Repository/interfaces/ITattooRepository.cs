@@ -9,9 +9,14 @@ namespace TattooParlor.Repository
 {
     public interface ITattooRepository : IRepository<Tattoo>
     {
-        void ChangeFantasyName(int id, string newName);
+        //Create
         void AddNewTatto(Tattoo tattoo);
+
+        //Update
         void UpdateTatto(Tattoo tattoo);
+        void ChangeFantasyName(int id, string newName);
+        
+        //Delete
         void DeleteTatto(int id);
     }
 }

@@ -15,12 +15,29 @@ namespace TattooParlor.Repository
             //done
         }
 
+        //Create
         public void AddNewCustomer(Customer customer)
         {
             ctx.Add(customer);
             ctx.SaveChanges();
         }
 
+        //Read
+        public override Customer GetOne(int id)
+        {
+            return GetAll().FirstOrDefault(x => x.CustomerId == id);
+        }
+
+        //Update
+        public void UpdateCustomer(Customer customer)
+        {
+            var toUpdate = GetOne(customer.CustomerId);
+            toUpdate.FirstName = customer.FirstName;
+            toUpdate.LastName = customer.LastName;
+            toUpdate.BirthYear = customer.BirthYear;
+            toUpdate.Email = customer.Email;
+            ctx.SaveChanges();
+        }
         public void ChangeBirthYear(int id, int newBirthYear)
         {
             var customer = GetOne(id);
@@ -49,25 +66,11 @@ namespace TattooParlor.Repository
             ctx.SaveChanges();
         }
 
+        //Delete
         public void DeleteCustomer(int id)
         {
             var toDelete = GetOne(id);
             ctx.Remove(toDelete);
-            ctx.SaveChanges();
-        }
-
-        public override Customer GetOne(int id)
-        {
-            return GetAll().FirstOrDefault(x => x.CustomerId == id);
-        }
-
-        public void UpdateCustomer(Customer customer)
-        {
-            var toUpdate = GetOne(customer.CustomerId);
-            toUpdate.FirstName = customer.FirstName;
-            toUpdate.LastName = customer.LastName;
-            toUpdate.BirthYear = customer.BirthYear;
-            toUpdate.Email = customer.Email;
             ctx.SaveChanges();
         }
     }

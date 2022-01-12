@@ -9,10 +9,16 @@ namespace TattooParlor.Repository
 {
     public interface IJobsDoneRepository : IRepository<JobsDone>
     {
-        void ChangeJobDate(int id, DateTime newJobDate);
-        void ChangeCost(int id, int newCost);
+        //Create
         void AddNewJobsDone(JobsDone newJobsDone);
+
+        //Update
         void UpdateJobsDone(JobsDone jobsDone);
+        void ChangeJobDate(int id, DateTime newJobDate);
+        void ChangeCost(int id, int newCost);        
+        
+
+        //Delete
         void DeleteJobsDone(int id);
     }
 }
