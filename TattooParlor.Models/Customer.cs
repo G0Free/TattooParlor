@@ -21,5 +21,6 @@ namespace TattooParlor.Models
 
         public string MainData => $"[{CustomerId}] : {FirstName} {LastName} Email: {Email} Birthyear: {BirthYear}";
 
+
     }
 }

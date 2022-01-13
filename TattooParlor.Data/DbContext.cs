@@ -32,22 +32,22 @@ namespace TattooParlor.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             #region Customers
-            Customer customer1 = new Customer() { FirstName = "Adam", LastName = "Test", Email = "adam.test@testemail.com", BirthYear = 1998 };
-            Customer customer2 = new Customer() { FirstName = "Ben", LastName = "Smith", Email = "ben.smith@gmail.com", BirthYear = 1983 };
-            Customer customer3 = new Customer() { FirstName = "Elliot", LastName = "Alderson", Email = "fsociety@ecorp.com", BirthYear = 1986 };
+            Customer customer1 = new Customer() { CustomerId = 1,  FirstName = "Adam", LastName = "Test", Email = "adam.test@testemail.com", BirthYear = 1998 };
+            Customer customer2 = new Customer() { CustomerId = 2, FirstName = "Ben", LastName = "Smith", Email = "ben.smith@gmail.com", BirthYear = 1983 };
+            Customer customer3 = new Customer() { CustomerId = 3, FirstName = "Elliot", LastName = "Alderson", Email = "fsociety@ecorp.com", BirthYear = 1986 };
             #endregion
 
             #region Tattoos
-            Tattoo tattoo1 = new Tattoo() { FantasyName = "BigSpider" };
-            Tattoo tattoo2 = new Tattoo() { FantasyName = "SmallHeart" };
-            Tattoo tattoo3 = new Tattoo() { FantasyName = "BigSpider" };
+            Tattoo tattoo1 = new Tattoo() { TattoId = 1, FantasyName = "BigSpider" };
+            Tattoo tattoo2 = new Tattoo() { TattoId = 2, FantasyName = "SmallHeart" };
+            Tattoo tattoo3 = new Tattoo() { TattoId = 3, FantasyName = "BigSpider" };
             #endregion
 
             #region JobsDones
-            JobsDone jobsDone1 = new JobsDone() { Cost = 14000, jobDate = new DateTime(2021, 01, 04) };
-            JobsDone jobsDone2 = new JobsDone() { Cost = 10000, jobDate = new DateTime(2021, 05, 12) };
-            JobsDone jobsDone3 = new JobsDone() { Cost = 25000, jobDate = new DateTime(2021, 05, 23) };
-            JobsDone jobsDone4 = new JobsDone() { Cost = 12000, jobDate = new DateTime(2021, 10, 11) };
+            JobsDone jobsDone1 = new JobsDone() { JobId = 1, Cost = 14000, jobDate = new DateTime(2021, 01, 04) };
+            JobsDone jobsDone2 = new JobsDone() { JobId = 2, Cost = 10000, jobDate = new DateTime(2021, 05, 12) };
+            JobsDone jobsDone3 = new JobsDone() { JobId = 3, Cost = 25000, jobDate = new DateTime(2021, 05, 23) };
+            JobsDone jobsDone4 = new JobsDone() { JobId = 4, Cost = 12000, jobDate = new DateTime(2021, 10, 11) };
             #endregion
 
             #region ForeignKeySet
