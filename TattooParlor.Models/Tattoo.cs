@@ -16,6 +16,7 @@ namespace TattooParlor.Models
         public int TattoId { get; set; }
         public string FantasyName { get; set; }
 
+        [NotMapped]
         public string MainData => $"[{TattoId}] : Fantasyname: {FantasyName}";
     }
 }

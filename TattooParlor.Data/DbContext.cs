@@ -44,7 +44,7 @@ namespace TattooParlor.Data
             #endregion
 
             #region Tattoos
-            Tattoo tattoo1 = new Tattoo() { TattoId = 1, FantasyName = "BigSpider" };
+            Tattoo tattoo1 = new Tattoo() { TattoId = 1,  FantasyName = "BigSpider" };
             Tattoo tattoo2 = new Tattoo() { TattoId = 2, FantasyName = "SmallHeart" };
             Tattoo tattoo3 = new Tattoo() { TattoId = 3, FantasyName = "BigSpider" };
             #endregion

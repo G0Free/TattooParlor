@@ -31,6 +31,8 @@ namespace TattooParlor.Models
 
         public DateTime jobDate { get; set; }
         public int Cost { get; set; }
+
+        [NotMapped]
         public string MainData => $"[{JobId}] : CustomerId: {customerId} | TattooId: {TattooId} | Date: {jobDate} | Cost: {Cost}";
     }
 }

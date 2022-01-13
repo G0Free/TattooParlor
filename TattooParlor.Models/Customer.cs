@@ -19,6 +19,7 @@ namespace TattooParlor.Models
         public string Email { get; set; }
         public int BirthYear { get; set; }
 
+        [NotMapped]
         public string MainData => $"[{CustomerId}] : {FirstName} {LastName} | Email: {Email} | Birthyear: {BirthYear}";
 
 
