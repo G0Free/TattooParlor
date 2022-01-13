@@ -18,22 +18,32 @@ namespace TattooParlor.Client
                 .Add(">> LIST ALL CUSTOMERS", () => ListAllCustomers(rserv))
                 .Add(">> LIST ALL TATTOOS", () => ListAllTattoo(rserv))
                 .Add(">> LIST ALL JOBS DONE", () => ListAllJobsDone(rserv))
+                
+                .Add("", () => Console.WriteLine())
 
                 .Add(">> CUSTOMER BY ID", () => CustomerById(rserv))
                 .Add(">> TATTOO BY ID", () => TattooById(rserv))
                 .Add(">> JOBS BY ID", () => JobsById(rserv))
 
+                .Add("", () => Console.WriteLine())
+
                 .Add(">> ADD NEW CUSTOMER", () => AddNewCustomer(rserv))
                 .Add(">> ADD NEW TATTOO", () => AddNewTattoo(rserv))
                 .Add(">> ADD NEW JOB", () => AddNewJob(rserv))
+
+                .Add("", () => Console.WriteLine())
 
                 .Add(">> DELETE A CUSTOMER", () => DeleteCustomerById(rserv))
                 .Add(">> DELETE A TATTOO", () => DeleteTattooById(rserv))
                 .Add(">> DELETE A JOB", () => DeleteJobById(rserv))
 
+                .Add("", () => Console.WriteLine())
+
                 .Add(">> COUNT ALL JOBS BY ONE CUSTOMER", () => CountAllJobsByOneCustomer(rserv))
                 .Add(">> LIST ALL JOBS BY ONE CUSTOMER", () => GetAllJobsByOneCustomer(rserv))
-                
+
+                .Add("", () => Console.WriteLine())
+
                 .Add(">> EXIT", ConsoleMenu.Close)
                 ;
 
@@ -280,7 +290,14 @@ namespace TattooParlor.Client
 
             Console.WriteLine("ID:");
             int choosenId = int.Parse(Console.ReadLine());
-            IList<JobsDone> result = (IList<JobsDone>)rserv.Get<JobsDone>(choosenId, "stat/GetAllJobsByOneCustomer");
+
+            Console.Clear();
+
+            var customer = rserv.Get<Customer>(choosenId, "customer");
+            Console.WriteLine(customer.MainData);
+            Console.WriteLine();
+           
+            var result = rserv.Get<IList<JobsDone>>(choosenId, "stat/GetAllJobsByOneCustomer");
             Console.WriteLine($"Number of results: {result.Count}");
             Console.WriteLine();
             foreach (var item in result)
@@ -302,6 +319,8 @@ namespace TattooParlor.Client
             int choosenId = int.Parse(Console.ReadLine());
 
             var result = rserv.Get<JobsDone>(choosenId, "stat/CountAllJobsByOneCustomer");
+            Console.WriteLine(result);
+
 
             Console.WriteLine();
             Console.WriteLine("Press the enter key to continue!");

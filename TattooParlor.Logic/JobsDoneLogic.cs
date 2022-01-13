@@ -73,7 +73,7 @@ namespace TattooParlor.Logic
         public int CountAllJobsByOneCustomer(int id)
         {
             IList<JobsDone> alljobsby = GetAllJobsByOneCustomer(id);
-            return alljobsby.Count();
+            return alljobsby.Count;
         }
 
         #endregion
