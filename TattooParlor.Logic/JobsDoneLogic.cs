@@ -60,6 +60,22 @@ namespace TattooParlor.Logic
         }
         #endregion
 
+        #region non-CRUD methods
 
+        public IList<JobsDone> GetAllJobsByOneCustomer(int id)
+        {
+            var q = from x in jobRepo.GetAll()
+                    where x.customerId == id
+                    select x;
+            return q.ToList();
+        }
+
+        public int CountAllJobsByOneCustomer(int id)
+        {
+            IList<JobsDone> alljobsby = GetAllJobsByOneCustomer(id);
+            return alljobsby.Count();
+        }
+
+        #endregion
     }
 }

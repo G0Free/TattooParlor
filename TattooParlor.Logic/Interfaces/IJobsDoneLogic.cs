@@ -9,6 +9,7 @@ namespace TattooParlor.Logic
 {
     public interface IJobsDoneLogic
     {
+        #region CRUD methods
         //Create
         void AddNewJobsDone(JobsDone jobsDone);
 
@@ -25,5 +26,14 @@ namespace TattooParlor.Logic
 
         //Delete
         void DeleteJobsDone(int id);
+        #endregion
+
+        #region non-CRUD methods
+
+        int CountAllJobsByOneCustomer(int id);
+
+        IList<JobsDone> GetAllJobsByOneCustomer(int id);
+
+        #endregion
     }
 }

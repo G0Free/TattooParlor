@@ -29,6 +29,9 @@ namespace TattooParlor.Client
                 .Add(">> DELETE A CUSTOMER", () => DeleteCustomerById(rserv))
                 .Add(">> DELETE A TATTOO", () => DeleteTattooById(rserv))
                 .Add(">> DELETE A JOB", () => DeleteJobById(rserv))
+
+                .Add(">> COUNT ALL JOBS BY ONE CUSTOMER ", () => CountAllJobsByOneCustomer(rserv))
+                .Add(">> ")
                 
                 .Add(">> EXIT", ConsoleMenu.Close)
                 ;
@@ -36,6 +39,7 @@ namespace TattooParlor.Client
             menu.Show();
         }
 
+        #region LISTS
         private static void ListAllCustomers(RestService rserv)
         {
             Console.Clear();
@@ -83,7 +87,9 @@ namespace TattooParlor.Client
             Console.WriteLine("Press the enter key to continue!");
             Console.ReadLine();
         }
+        #endregion
 
+        #region SEARCH
         private static void CustomerById(RestService rserv)
         {
             Console.Clear();
@@ -135,7 +141,9 @@ namespace TattooParlor.Client
             Console.WriteLine("Press the enter key to continue!");
             Console.ReadLine();
         }
+        #endregion
 
+        #region ADD
         private static void AddNewCustomer(RestService rserv)
         {
             Console.Clear();
@@ -204,7 +212,9 @@ namespace TattooParlor.Client
             Console.WriteLine("Press the enter key to continue!");
             Console.ReadLine();
         }
+        #endregion
 
+        #region DELETE
         private static void DeleteCustomerById(RestService rserv)
         {
             Console.Clear();
@@ -258,5 +268,37 @@ namespace TattooParlor.Client
             Console.WriteLine("Press the enter key to continue!");
             Console.ReadLine();
         }
+        #endregion
+
+        #region non-CRUDs
+        private static void GetAllJobsByOneCustomer(RestService rserv)
+        {
+            Console.Clear();
+            Console.WriteLine("\n:: LIST ALL JOBS BY ONE CUSTOMER   ::\n");
+
+            Console.WriteLine("ID:");
+            int choosenId = int.Parse(Console.ReadLine());
+            var result = rserv.Get<JobsDone>(choosenId, "stat/GetAllJobsByOneCustomer");
+
+            foreach (var item in result)
+            {
+                Console.WriteLine(item.);
+            }
+        }
+
+        private static void CountAllJobsByOneCustomer(RestService rserv)
+        {
+            Console.Clear();
+            Console.WriteLine("\n:: COUNT ALL JOBS BY ONE CUSTOMER   ::\n");
+
+            Console.WriteLine("ID:");
+            int choosenId = int.Parse(Console.ReadLine());
+
+            var result = rserv.Get<JobsDone>(choosenId, "stat/CountAllJobsByOneCustomer");
+        }
+
+        
+
+        #endregion
     }
 }
