@@ -25,9 +25,9 @@ namespace TattooParlor.Logic
             this.tattooRepo = tattooRepo;
         }
 
-            #region CRUD methods
-            //Create
-            public void AddNewJobsDone(JobsDone jobsDone)
+        #region CRUD methods
+        //Create
+        public void AddNewJobsDone(JobsDone jobsDone)
         {
             jobRepo.AddNewJobsDone(jobsDone);
         }
@@ -85,7 +85,7 @@ namespace TattooParlor.Logic
             var q = from x in jobRepo.GetAll()
                     where x.customerId == id
                     select x;
-            
+
             return q.Count();
         }
 
