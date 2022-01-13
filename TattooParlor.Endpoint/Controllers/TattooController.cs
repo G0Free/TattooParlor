@@ -38,7 +38,7 @@ namespace TattooParlor.Endpoint.Controllers
         // POST: /tattoo
         [HttpPost]
         public void Post([FromBody] Tattoo value)
-        {
+        {            
             tattooLogic.AddNewTattoo(value);
         }
 
