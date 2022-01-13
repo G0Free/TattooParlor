@@ -23,7 +23,7 @@ namespace TattooParlor.Client
                 .Add(">> JOBS BY ID", () => JobsById(rserv))
 
                 .Add(">> ADD NEW CUSTOMER", () => AddNewCustomer(rserv))
-                .Add(">> ADD NEW TATTO", () => AddNewTattoo(rserv))
+                .Add(">> ADD NEW TATTOO", () => AddNewTattoo(rserv))
                 .Add(">> ADD NEW JOB", () => AddNewJob(rserv))
 
                 .Add(">> DELETE A CUSTOMER", () => DeleteCustomerById(rserv))
@@ -128,6 +128,10 @@ namespace TattooParlor.Client
             Console.WriteLine(choosenJob.MainData);
 
             Console.WriteLine();
+            Console.WriteLine(choosenJob.customer.MainData);
+            Console.WriteLine(choosenJob.tattoo.MainData);
+
+            Console.WriteLine();
             Console.WriteLine("Press the enter key to continue!");
             Console.ReadLine();
         }
@@ -136,10 +140,7 @@ namespace TattooParlor.Client
         {
             Console.Clear();
 
-            Customer customer = new Customer();
-
-            Console.WriteLine("ID:");
-            customer.CustomerId = int.Parse(Console.ReadLine());
+            Customer customer = new Customer();          
 
             Console.WriteLine("Firstname:");
             customer.FirstName = Console.ReadLine();
@@ -164,10 +165,7 @@ namespace TattooParlor.Client
         {
             Console.Clear();
 
-            Tattoo tattoo = new Tattoo();
-
-            Console.WriteLine("ID:");
-            tattoo.TattoId = int.Parse(Console.ReadLine());
+            Tattoo tattoo = new Tattoo();          
 
             Console.WriteLine("Fantasy name:");
             tattoo.FantasyName = Console.ReadLine();
@@ -184,15 +182,17 @@ namespace TattooParlor.Client
 
             JobsDone job = new JobsDone();
 
-            Console.WriteLine("ID:");
-            job.JobsDoneId = int.Parse(Console.ReadLine());
-
+            ListAllCustomers(rserv);
             Console.WriteLine("CustomerID:");
             job.customerId = int.Parse(Console.ReadLine());
 
+            Console.Clear();
+
+            ListAllTattoo(rserv);
             Console.WriteLine("TattooID:");
             job.TattooId = int.Parse(Console.ReadLine());
 
+            Console.Clear();
             Console.WriteLine("Date:");
             job.jobDate = DateTime.Parse(Console.ReadLine());
 

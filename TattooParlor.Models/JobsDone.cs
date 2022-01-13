@@ -15,15 +15,16 @@ namespace TattooParlor.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)] 
         public int JobsDoneId { get; set; }
 
+
         [ForeignKey(nameof(Customer))]
-        public int customerId { get; set; }
+        public int? customerId { get; set; }
 
         [NotMapped]
         public virtual Customer customer { get; set; }
 
 
         [ForeignKey(nameof(Tattoo))]
-        public int TattooId { get; set; }
+        public int? TattooId { get; set; }
 
         [NotMapped]
         public virtual Tattoo tattoo { get; set; }

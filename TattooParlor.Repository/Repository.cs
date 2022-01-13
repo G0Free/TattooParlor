@@ -10,7 +10,7 @@ namespace TattooParlor.Repository
     public abstract class Repository<T> : IRepository<T> where T : class
     {
         protected DbContext ctx;
-        public Repository(DbContext ctx)
+        protected Repository(DbContext ctx)
         {
             this.ctx = ctx;
         }

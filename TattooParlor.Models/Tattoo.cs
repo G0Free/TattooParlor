@@ -17,6 +17,11 @@ namespace TattooParlor.Models
         public string FantasyName { get; set; }
 
         [NotMapped]
+        public virtual JobsDone jobsDone { get; set; }        
+        [ForeignKey(nameof(jobsDone))]
+        public int? jobsDoneId { get; set; }
+
+        [NotMapped]
         public string MainData => $"[{TattoId}] : Fantasyname: {FantasyName}";
     }
 }

@@ -20,6 +20,11 @@ namespace TattooParlor.Models
         public int BirthYear { get; set; }
 
         [NotMapped]
+        public virtual JobsDone JobsDone { get; set; }
+        [ForeignKey(nameof(JobsDone))]
+        public int? JobsDoneId { get; set; }
+
+        [NotMapped]
         public string MainData => $"[{CustomerId}] : {FirstName} {LastName} | Email: {Email} | Birthyear: {BirthYear}";
 
 

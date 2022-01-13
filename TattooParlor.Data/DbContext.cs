@@ -73,12 +73,40 @@ namespace TattooParlor.Data
            {
                entity
                .HasOne(job => job.customer)
-
                .WithMany()
-               .HasForeignKey(job => job.customerId)
-               .HasForeignKey(job => job.TattooId)
+               .HasForeignKey(job => job.customerId)               
                .OnDelete(DeleteBehavior.ClientSetNull);               
            }
+                );
+
+            modelBuilder.Entity<JobsDone>(entity =>
+            {
+                entity
+                .HasOne(job => job.tattoo)
+                .WithMany()               
+                .HasForeignKey(job => job.TattooId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+            }
+                );
+
+            modelBuilder.Entity<Tattoo>(entity =>
+            {
+                entity
+                .HasOne(tattoo => tattoo.jobsDone)
+                .WithMany()
+                .HasForeignKey(tattoo => tattoo.jobsDoneId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+            }
+                );
+
+            modelBuilder.Entity<Customer>(entity =>
+            {
+                entity
+                .HasOne(customer => customer.JobsDone)
+                .WithMany()
+                .HasForeignKey(customer => customer.JobsDoneId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+            }
                 );
 
             modelBuilder.Entity<Customer>().HasData(customer1, customer2, customer3);
