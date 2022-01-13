@@ -25,6 +25,10 @@ namespace TattooParlor.Client
                 .Add(">> ADD NEW CUSTOMER", () => AddNewCustomer(rserv))
                 .Add(">> ADD NEW TATTO", () => AddNewTattoo(rserv))
                 .Add(">> ADD NEW JOB", () => AddNewJob(rserv))
+
+                .Add(">> DELETE A CUSTOMER", () => DeleteCustomerById(rserv))
+                .Add(">> DELETE A TATTOO", () => DeleteTattooById(rserv))
+                .Add(">> DELETE A JOB", () => DeleteJobById(rserv))
                 
                 .Add(">> EXIT", ConsoleMenu.Close)
                 ;
@@ -201,5 +205,58 @@ namespace TattooParlor.Client
             Console.ReadLine();
         }
 
+        private static void DeleteCustomerById(RestService rserv)
+        {
+            Console.Clear();
+
+            ListAllCustomers(rserv);
+
+            Console.WriteLine("ID:");
+            int choosenId = int.Parse(Console.ReadLine());
+
+            var choosenItem = rserv.Get<Customer>(choosenId, "customer");
+            Console.WriteLine(choosenItem.MainData + " got deleted");
+
+            rserv.Delete(choosenId, "customer");
+            Console.WriteLine();
+            Console.WriteLine("Press the enter key to continue!");
+            Console.ReadLine();
+        }
+
+        private static void DeleteTattooById(RestService rserv)
+        {
+            Console.Clear();
+
+            ListAllTattoo(rserv);
+
+            Console.WriteLine("ID:");
+            int choosenId = int.Parse(Console.ReadLine());
+
+            var choosenItem = rserv.Get<Tattoo>(choosenId, "tattoo");
+            Console.WriteLine(choosenItem.MainData + " got deleted");
+
+            rserv.Delete(choosenId, "tattoo");
+            Console.WriteLine();
+            Console.WriteLine("Press the enter key to continue!");
+            Console.ReadLine();
+        }
+
+        private static void DeleteJobById(RestService rserv)
+        {
+            Console.Clear();
+
+            ListAllJobsDone(rserv);
+
+            Console.WriteLine("ID:");
+            int choosenId = int.Parse(Console.ReadLine());
+
+            var choosenItem = rserv.Get<JobsDone>(choosenId, "jobsdone");
+            Console.WriteLine(choosenItem.MainData + " got deleted");
+
+            rserv.Delete(choosenId, "jobsdone");
+            Console.WriteLine();
+            Console.WriteLine("Press the enter key to continue!");
+            Console.ReadLine();
+        }
     }
 }
