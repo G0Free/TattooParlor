@@ -15,5 +15,7 @@ namespace TattooParlor.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int TattoId { get; set; }
         public string FantasyName { get; set; }
+
+        public string MainData => $"[{TattoId}] : Fantasyname: {FantasyName}";
     }
 }

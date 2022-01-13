@@ -24,10 +24,11 @@ namespace TattooParlor.Models
         [ForeignKey(nameof(Tattoo))]
         public int TattooId { get; set; }
         [NotMapped]
-        public Tattoo  tattoo{ get; set; }
+        public Tattoo tattoo { get; set; }
 
 
         public DateTime jobDate { get; set; }
         public int Cost { get; set; }
+        public string MainData => $"[{JobId}] : CustomerId: {customerId} TattooId: {TattooId} Date: {jobDate} Cost: {Cost}";
     }
 }
