@@ -11,20 +11,20 @@ namespace TattooParlor.Logic
     public class CustomerLogic : ICustomerLogic
     {
         ICustomerRepository customerRepo;
-        //ITattooRepository tattooRepo;
-        //IJobsDoneRepository jobRepo;
+        IJobsDoneRepository jobRepo;
+        ITattooRepository tattooRepo;
 
         public CustomerLogic(ICustomerRepository repo)
         {
             this.customerRepo = repo;
         }
 
-        /* public CustomerLogic(ICustomerRepository customerRepo, ITattooRepository tattooRepo, IJobsDoneRepository jobRepo)
+         public CustomerLogic(ICustomerRepository customerRepo, IJobsDoneRepository jobRepo, ITattooRepository tattooRepo)
          {
              this.customerRepo = customerRepo;
-             this.tattooRepo = tattooRepo;
              this.jobRepo = jobRepo;
-         }*/
+             this.tattooRepo = tattooRepo;
+         }
 
         #region CRUD methods
         //Create

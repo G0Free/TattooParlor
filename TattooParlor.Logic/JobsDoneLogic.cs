@@ -9,16 +9,25 @@ using TattooParlor.Repository;
 namespace TattooParlor.Logic
 {
     public class JobsDoneLogic : IJobsDoneLogic
-    {        
+    {
+        ICustomerRepository customerRepo;
         IJobsDoneRepository jobRepo;
+        ITattooRepository tattooRepo;
         public JobsDoneLogic(IJobsDoneRepository jobRepo)
         {
             this.jobRepo = jobRepo;
         }
 
-        #region CRUD methods
-        //Create
-        public void AddNewJobsDone(JobsDone jobsDone)
+        public JobsDoneLogic(ICustomerRepository customerRepo, IJobsDoneRepository jobRepo, ITattooRepository tattooRepo)
+        {
+            this.customerRepo = customerRepo;
+            this.jobRepo = jobRepo;
+            this.tattooRepo = tattooRepo;
+        }
+
+            #region CRUD methods
+            //Create
+            public void AddNewJobsDone(JobsDone jobsDone)
         {
             jobRepo.AddNewJobsDone(jobsDone);
         }

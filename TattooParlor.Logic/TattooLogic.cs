@@ -10,9 +10,18 @@ namespace TattooParlor.Logic
 {
     public class TattooLogic : ITattooLogic
     {
+        ICustomerRepository customerRepo;
+        IJobsDoneRepository jobRepo;
         ITattooRepository tattooRepo;
         public TattooLogic(ITattooRepository tattooRepo)
         {
+            this.tattooRepo = tattooRepo;
+        }
+
+        public TattooLogic(ICustomerRepository customerRepo, IJobsDoneRepository jobRepo, ITattooRepository tattooRepo)
+        {
+            this.customerRepo = customerRepo;
+            this.jobRepo = jobRepo;
             this.tattooRepo = tattooRepo;
         }
 
