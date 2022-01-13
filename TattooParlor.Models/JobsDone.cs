@@ -12,8 +12,8 @@ namespace TattooParlor.Models
     public class JobsDone
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int JobId { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)] 
+        public int JobsDoneId { get; set; }
 
         [ForeignKey(nameof(Customer))]
         public int customerId { get; set; }
@@ -33,6 +33,6 @@ namespace TattooParlor.Models
         public int Cost { get; set; }
 
         [NotMapped]
-        public string MainData => $"[{JobId}] : CustomerId: {customerId} | TattooId: {TattooId} | Date: {jobDate} | Cost: {Cost}";
+        public string MainData => $"[{JobsDoneId}] : CustomerId: {customerId} | TattooId: {TattooId} | Date: {jobDate} | Cost: {Cost}";
     }
 }

@@ -29,28 +29,28 @@ namespace TattooParlor.Endpoint.Controllers
             return jobsDoneLogic.GetAllJobsDone();
         }
 
-        // GET /jobsdone/5
+        // GET: /jobsdone/5
         [HttpGet("{id}")]
         public JobsDone Get(int id)
         {
             return jobsDoneLogic.GetJobsDoneById(id);
         }
 
-        // POST jobsdone
+        // POST: /jobsdone
         [HttpPost]
         public void Post([FromBody] JobsDone value)
         {
             jobsDoneLogic.AddNewJobsDone(value);
         }
 
-        // PUT /jobsdone
+        // PUT: /jobsdone
         [HttpPut]
         public void Put([FromBody] JobsDone value)
         {
             jobsDoneLogic.UpdateJobsDone(value);
         }
 
-        // DELETE /jobsdone/5
+        // DELETE: /jobsdone/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

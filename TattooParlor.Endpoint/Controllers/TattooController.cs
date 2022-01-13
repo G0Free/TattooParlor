@@ -28,28 +28,28 @@ namespace TattooParlor.Endpoint.Controllers
             return tattooLogic.GetAllTattoes();
         }
 
-        // GET tattoo/5
+        // GET: /tattoo/5
         [HttpGet("{id}")]
         public Tattoo Get(int id)
         {
             return tattooLogic.GetTattooById(id);
         }
 
-        // POST /tattoo
+        // POST: /tattoo
         [HttpPost]
         public void Post([FromBody] Tattoo value)
         {
             tattooLogic.AddNewTattoo(value);
         }
 
-        // PUT /tattoo
+        // PUT: /tattoo
         [HttpPut]
         public void Put([FromBody] Tattoo value)
         {
             tattooLogic.UpdateTattoo(value);
         }
 
-        // DELETE /tattoo/5
+        // DELETE: /tattoo/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

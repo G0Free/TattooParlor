@@ -50,10 +50,10 @@ namespace TattooParlor.Data
             #endregion
 
             #region JobsDones
-            JobsDone jobsDone1 = new JobsDone() { JobId = 1, Cost = 14000, jobDate = new DateTime(2021, 01, 04) };
-            JobsDone jobsDone2 = new JobsDone() { JobId = 2, Cost = 10000, jobDate = new DateTime(2021, 05, 12) };
-            JobsDone jobsDone3 = new JobsDone() { JobId = 3, Cost = 25000, jobDate = new DateTime(2021, 05, 23) };
-            JobsDone jobsDone4 = new JobsDone() { JobId = 4, Cost = 12000, jobDate = new DateTime(2021, 10, 11) };
+            JobsDone jobsDone1 = new JobsDone() { JobsDoneId = 1, Cost = 14000, jobDate = new DateTime(2021, 01, 04) };
+            JobsDone jobsDone2 = new JobsDone() { JobsDoneId = 2, Cost = 10000, jobDate = new DateTime(2021, 05, 12) };
+            JobsDone jobsDone3 = new JobsDone() { JobsDoneId = 3, Cost = 25000, jobDate = new DateTime(2021, 05, 23) };
+            JobsDone jobsDone4 = new JobsDone() { JobsDoneId = 4, Cost = 12000, jobDate = new DateTime(2021, 10, 11) };
             #endregion
 
             #region ForeignKeySet
@@ -72,11 +72,12 @@ namespace TattooParlor.Data
             modelBuilder.Entity<JobsDone>(entity =>
            {
                entity
-               .HasOne(job => job.customer)               
+               .HasOne(job => job.customer)
+
                .WithMany()
-               .HasForeignKey(job => job.customerId)               
+               .HasForeignKey(job => job.customerId)
                .HasForeignKey(job => job.TattooId)
-               .OnDelete(DeleteBehavior.ClientSetNull);
+               .OnDelete(DeleteBehavior.ClientSetNull);               
            }
                 );
 

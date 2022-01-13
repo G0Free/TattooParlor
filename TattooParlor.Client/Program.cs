@@ -185,7 +185,7 @@ namespace TattooParlor.Client
             JobsDone job = new JobsDone();
 
             Console.WriteLine("ID:");
-            job.JobId = int.Parse(Console.ReadLine());
+            job.JobsDoneId = int.Parse(Console.ReadLine());
 
             Console.WriteLine("CustomerID:");
             job.customerId = int.Parse(Console.ReadLine());

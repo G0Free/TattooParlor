@@ -25,13 +25,13 @@ namespace TattooParlor.Repository
         //Read
         public override JobsDone GetOne(int id)
         {
-            return GetAll().FirstOrDefault(x => x.JobId == id);
+            return GetAll().FirstOrDefault(x => x.JobsDoneId == id);
         }
 
         //Update
         public void UpdateJobsDone(JobsDone jobsDone)
         {
-            var toUpdate = GetOne(jobsDone.JobId);
+            var toUpdate = GetOne(jobsDone.JobsDoneId);
             toUpdate.Cost = jobsDone.Cost;
             toUpdate.jobDate = jobsDone.jobDate;
             ctx.SaveChanges();
