@@ -8,7 +8,7 @@ using TattooParlor.Models;
 
 namespace TattooParlor.Repository
 {
-    class TattooRepository : Repository<Tattoo>, ITattooRepository
+    public class TattooRepository : Repository<Tattoo>, ITattooRepository
     {
         public TattooRepository(DbContext ctx) : base(ctx)
         {

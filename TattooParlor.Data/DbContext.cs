@@ -8,7 +8,7 @@ using TattooParlor.Models;
 
 namespace TattooParlor.Data
 {
-    class CompanyContext : DbContext
+    public class CompanyContext : DbContext
     {
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<JobsDone> JobsDones { get; set; }
