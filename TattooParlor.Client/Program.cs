@@ -298,9 +298,17 @@ namespace TattooParlor.Client
             Console.WriteLine();
            
             var result = rserv.Get<IList<JobsDone>>(choosenId, "stat/GetAllJobsByOneCustomer");
-            Console.WriteLine($"Number of results: {result.Count}");
-            Console.WriteLine();
+
+            Console.WriteLine($"Number of results: {result.Count}");            
+            List<Tattoo> tattoos = new List<Tattoo>();
             foreach (var item in result)
+            {
+                tattoos.Add(item.tattoo);
+                Console.WriteLine(item.MainData);
+            }
+
+            Console.WriteLine("\nTattoos:");
+            foreach (var item in tattoos)
             {
                 Console.WriteLine(item.MainData);
             }
@@ -318,8 +326,9 @@ namespace TattooParlor.Client
             Console.WriteLine("ID:");
             int choosenId = int.Parse(Console.ReadLine());
 
-            var result = rserv.Get<JobsDone>(choosenId, "stat/CountAllJobsByOneCustomer");
-            Console.WriteLine(result);
+            var result = rserv.Get<int>(choosenId, "stat/CountAllJobsByOneCustomer");
+
+            Console.WriteLine($"The result is: {result}");
 
 
             Console.WriteLine();
