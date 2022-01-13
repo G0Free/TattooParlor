@@ -43,6 +43,26 @@ namespace TattooParlor.Client
             }
             return items;
         }
+
+
+
+
+
+        public List<T> Get<T>(string id, string endpoint)
+        {
+            List<T> items = new List<T>();
+            HttpResponseMessage response = client.GetAsync(endpoint + "/" + id.ToString()).GetAwaiter().GetResult();
+            if (response.IsSuccessStatusCode)
+            {
+                items = response.Content.ReadAsAsync<List<T>>().GetAwaiter().GetResult();
+            }
+            return items;
+        }
+
+
+
+
+
         public T GetSingle<T>(string endpoint)
         {
             T item = default(T);
