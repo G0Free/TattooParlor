@@ -16,7 +16,13 @@ namespace TattooParlor.Client
             var menu = new ConsoleMenu()
                 .Add(">> LIST ALL CUSTOMERS", () => ListAllCustomers(rserv))
                 .Add(">> LIST ALL TATTOOS", () => ListAllTattoo(rserv))
-                .Add(">> LIST ALL JOBS DONE", () => ListAllJobsDone(rserv))                
+                .Add(">> LIST ALL JOBS DONE", () => ListAllJobsDone(rserv))
+
+                .Add(">> CUSTOMER BY ID", () => CustomerById(rserv))
+                .Add(">> TATTOO BY ID", () => TattooById(rserv))
+                .Add(">> JOBS BY ID", () => JobsById(rserv))
+
+                .Add(">> ADD NEW CUSTOMER", () => AddNewCustomer(rserv))
                 
                 .Add(">> EXIT", ConsoleMenu.Close)
                 ;
@@ -71,5 +77,83 @@ namespace TattooParlor.Client
             Console.WriteLine("Press the enter key to continue!");
             Console.ReadLine();
         }
+
+        private static void CustomerById(RestService rserv)
+        {
+            Console.Clear();
+            Console.WriteLine("\n:: CUSTOMER BY ID ::\n");
+
+            Console.WriteLine("ID:");
+            int choosenId = int.Parse(Console.ReadLine());
+
+            var choosenCustomer = rserv.Get<Customer>(choosenId, "customer");
+            Console.WriteLine(choosenCustomer.MainData);
+
+            Console.WriteLine();
+            Console.WriteLine("Press the enter key to continue!");
+            Console.ReadLine();
+        }
+
+        private static void TattooById(RestService rserv)
+        {
+            Console.Clear();
+            Console.WriteLine("\n:: TATTOO BY ID ::\n");
+
+            Console.WriteLine("ID:");
+            int choosenId = int.Parse(Console.ReadLine());
+
+            var choosenTattoo = rserv.Get<Tattoo>(choosenId, "tattoo");
+            Console.WriteLine(choosenTattoo.MainData);
+
+            Console.WriteLine();
+            Console.WriteLine("Press the enter key to continue!");
+            Console.ReadLine();
+        }
+
+        private static void JobsById(RestService rserv)
+        {
+            Console.Clear();
+            Console.WriteLine("\n:: JOBS BY ID ::\n");
+
+            Console.WriteLine("ID:");
+            int choosenId = int.Parse(Console.ReadLine());
+
+            var choosenJob = rserv.Get<JobsDone>(choosenId, "jobsdone");
+            Console.WriteLine(choosenJob.MainData);
+
+            Console.WriteLine();
+            Console.WriteLine("Press the enter key to continue!");
+            Console.ReadLine();
+        }
+
+        private static void AddNewCustomer(RestService rserv)
+        {
+            Console.Clear();
+
+            Customer customer = new Customer();
+
+            Console.WriteLine("ID:");
+            customer.CustomerId = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Firstname:");
+            customer.FirstName = Console.ReadLine();
+
+            Console.WriteLine("Lastname:");
+            customer.LastName = Console.ReadLine();
+
+            Console.WriteLine("Email:");
+            customer.Email = Console.ReadLine();
+
+            Console.WriteLine("Birthyear:");
+            customer.BirthYear = int.Parse(Console.ReadLine());
+
+            rserv.Post<Customer>(customer, "customer");
+
+            Console.WriteLine();
+            Console.WriteLine("Press the enter key to continue!");
+            Console.ReadLine();
+        }
+
+
     }
 }

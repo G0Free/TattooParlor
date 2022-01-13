@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace TattooParlor.Models
 {
-    [Table("JobsDone")]
+    [Table("JobsDones")]
     public class JobsDone
     {
         [Key]
@@ -17,18 +17,20 @@ namespace TattooParlor.Models
 
         [ForeignKey(nameof(Customer))]
         public int customerId { get; set; }
+
         [NotMapped]
-        public Customer customer { get; set; }
+        public virtual Customer customer { get; set; }
 
 
         [ForeignKey(nameof(Tattoo))]
         public int TattooId { get; set; }
+
         [NotMapped]
-        public Tattoo tattoo { get; set; }
+        public virtual Tattoo tattoo { get; set; }
 
 
         public DateTime jobDate { get; set; }
         public int Cost { get; set; }
-        public string MainData => $"[{JobId}] : CustomerId: {customerId} TattooId: {TattooId} Date: {jobDate} Cost: {Cost}";
+        public string MainData => $"[{JobId}] : CustomerId: {customerId} | TattooId: {TattooId} | Date: {jobDate} | Cost: {Cost}";
     }
 }

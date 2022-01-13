@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace TattooParlor.Models
 {
-    [Table("Customers")]
+    [Table("Tattoes")]
     public class Tattoo
     {
         [Key]

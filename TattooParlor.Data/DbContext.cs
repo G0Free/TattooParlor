@@ -34,11 +34,11 @@ namespace TattooParlor.Data
             }
         }
 
-        
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             #region Customers
-            Customer customer1 = new Customer() { CustomerId = 1,  FirstName = "Adam", LastName = "Test", Email = "adam.test@testemail.com", BirthYear = 1998 };
+            Customer customer1 = new Customer() { CustomerId = 1, FirstName = "Adam", LastName = "Test", Email = "adam.test@testemail.com", BirthYear = 1998 };
             Customer customer2 = new Customer() { CustomerId = 2, FirstName = "Ben", LastName = "Smith", Email = "ben.smith@gmail.com", BirthYear = 1983 };
             Customer customer3 = new Customer() { CustomerId = 3, FirstName = "Elliot", LastName = "Alderson", Email = "fsociety@ecorp.com", BirthYear = 1986 };
             #endregion
@@ -68,12 +68,13 @@ namespace TattooParlor.Data
             jobsDone4.TattooId = tattoo3.TattoId;
             #endregion
 
+          
             modelBuilder.Entity<JobsDone>(entity =>
            {
                entity
-               .HasOne(job => job.customer)
+               .HasOne(job => job.customer)               
                .WithMany()
-               .HasForeignKey(job => job.customerId)
+               .HasForeignKey(job => job.customerId)               
                .HasForeignKey(job => job.TattooId)
                .OnDelete(DeleteBehavior.ClientSetNull);
            }
