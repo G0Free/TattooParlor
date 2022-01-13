@@ -26,7 +26,7 @@ namespace TattooParlor.Endpoint.Controllers
 
         // GET: stat/GetAllJobsByOneCustomer
         [HttpGet("{id}")]
-        IList<JobsDone> GetAllJobsByOneCustomer(int id)
+        public IList<JobsDone> GetAllJobsByOneCustomer(int id)
         {
             return jobLogic.GetAllJobsByOneCustomer(id);
         }
