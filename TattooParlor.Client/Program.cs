@@ -23,6 +23,8 @@ namespace TattooParlor.Client
                 .Add(">> JOBS BY ID", () => JobsById(rserv))
 
                 .Add(">> ADD NEW CUSTOMER", () => AddNewCustomer(rserv))
+                .Add(">> ADD NEW TATTO", () => AddNewTattoo(rserv))
+                .Add(">> ADD NEW JOB", () => AddNewJob(rserv))
                 
                 .Add(">> EXIT", ConsoleMenu.Close)
                 ;
@@ -154,6 +156,50 @@ namespace TattooParlor.Client
             Console.ReadLine();
         }
 
+        private static void AddNewTattoo(RestService rserv)
+        {
+            Console.Clear();
+
+            Tattoo tattoo = new Tattoo();
+
+            Console.WriteLine("ID:");
+            tattoo.TattoId = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Fantasy name:");
+            tattoo.FantasyName = Console.ReadLine();
+
+            rserv.Post<Tattoo>(tattoo, "tattoo");
+            Console.WriteLine();
+            Console.WriteLine("Press the enter key to continue!");
+            Console.ReadLine();
+        }
+
+        private static void AddNewJob(RestService rserv)
+        {
+            Console.Clear();
+
+            JobsDone job = new JobsDone();
+
+            Console.WriteLine("ID:");
+            job.JobId = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("CustomerID:");
+            job.customerId = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("TattooID:");
+            job.TattooId = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Date:");
+            job.jobDate = DateTime.Parse(Console.ReadLine());
+
+            Console.WriteLine("Cost:");
+            job.Cost = int.Parse(Console.ReadLine());
+
+            rserv.Post<JobsDone>(job, "jobsdone");
+            Console.WriteLine();
+            Console.WriteLine("Press the enter key to continue!");
+            Console.ReadLine();
+        }
 
     }
 }
