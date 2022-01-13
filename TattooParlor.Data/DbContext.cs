@@ -18,8 +18,12 @@ namespace TattooParlor.Data
         {
             this.Database.EnsureCreated();
         }
+        public CompanyContext(DbContextOptions<CompanyContext> options) : base(options)
+        {
 
-        public CompanyContext(DbContextOptionsBuilder optionsBuilder)
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
@@ -29,6 +33,8 @@ namespace TattooParlor.Data
                     .UseSqlServer(connectionString);
             }
         }
+
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             #region Customers
