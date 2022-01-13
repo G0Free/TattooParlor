@@ -32,7 +32,12 @@ namespace TattooParlor.Test
 
         #region TESTS
 
-
+        [TestCase(1,2)]        
+        [TestCase(2,1)]
+        public void CountAllJobsByOneCustomer_ReturnsTheCorrectValue(int index, int correctValue)
+        {
+            Assert.That(this.jobsDoneLogic.CountAllJobsByOneCustomer(index), Is.EqualTo(correctValue));
+        }
 
         #endregion
 
