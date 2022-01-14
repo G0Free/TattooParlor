@@ -1,6 +1,3 @@
-Adatbázis index:
-
-
 
 Clustered index:
 	- A rekordok a clustered index szerint vannak rendezve
@@ -8,6 +5,14 @@ Clustered index:
 	- Egy táblában csak egy clustered index oszlop lehet
 	- Általában az elsődleges kulcs egy clustered index
 	- Nincs szükség extra tárhelyre
+	
+Adatbázis index:
+	- A rekordok több féle képpen is lehetnek rendezve
+	- Az adatbázis indexek külön vannak tárolva az eredeti rekordoktól
+	- Lehetséges ezt is bináris faként implementálni
+	- Egy táblában több oszlop is lehet index
+	- Bármelyik oszlop lehet adatbázis index
+	- Szükség van extra tárhelyre
 	
 -----	
 Entity Framework:
@@ -22,18 +27,23 @@ Entity Framework:
 	- Akár műveletek között is megoszthatóak
 	- Az ORM segítségével a felsőbb réteg képes az adatbázist memóriában lévő objektumgyűjteményként  kezelni, függetlenül a ténylegesen használt fizikai tárolási módtól
 	
+	- Előnyök:
+		A kódban sehol sem használunk dialektus függő SQL utasításokat
+		A string formátumú SQL utasítások helyett a fordítás közben szintaktikailag ellenőrzött lekérdező formátumot használunk
+		A string formátumú SQL paraméterek (string összefűzés) helyett változókat használunk lekérdezés paraméterként
+		Az ORM rétegre +1 réteg elhelyezésével könnyedén megoldható az adatforrás tetszőleges cseréje és a kód tesztelése
+	
 	- Hátrányok:
-	Nehezebb konfiguráció
-	Nagyobb memóriaigény
-	Nagyobb CPU igény
-	Bonyolultabb lekérdezések szegényes/nehéz támogatása
-	Nehéz optimalizáció
+		Nehezebb konfiguráció
+		Nagyobb memóriaigény
+		Nagyobb CPU igény
+		Bonyolultabb lekérdezések szegényes/nehéz támogatása
+		Nehéz optimalizáció
 	
 	A cél: a LINQ query úgy hivatkozzon az adatforrásra, hogy az ne feltétlenül a fizikai adatbázist használja
 	- olyan Logic kódot írni, amelyben futásidőben változtatható, hogy az adatokat honnan szedje	
 
--------------
-
+-----
 Single Responsibility
 	Egy osztálynak egy feladata legyen
 	Pl egy Calculator osztály ne írjon Console-ra vagy fájlba, egyszerűen csak számoljon
