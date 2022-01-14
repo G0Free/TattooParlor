@@ -1,0 +1,10 @@
+Adatbázis index:
+
+
+
+Clustered index:
+	- A rekordok a clustered index szerint vannak rendezve
+	- Általában bináris faként van implementálva
+	- Egy táblában csak egy clustered index oszlop lehet
+	- Általában az elsődleges kulcs egy clustered index
+	- Nincs szükség extra tárhelyre
