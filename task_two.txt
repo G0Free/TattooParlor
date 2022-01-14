@@ -8,3 +8,32 @@ Clustered index:
 	- Egy táblában csak egy clustered index oszlop lehet
 	- Általában az elsődleges kulcs egy clustered index
 	- Nincs szükség extra tárhelyre
+	
+-----	
+Entity Framework:
+	- Az SQL réteg fölé ORM (Object Relational Mapping) réteget helyezünk: a táblákat mint objektumok általános gyűjteményét kezeljük
+	- Connected/Disconnected mode is
+	
+	 ORM = Object Relational Mapping 
+		REJTETT fizikai adatelérés, ami SQL utasításokkal dolgozik
+	- A felső réteg ne SQL nyelvet lásson: Lambda kifejezések (Java Stream Api/C# LINQ) vagy saját lekérdező nyelv (Doctrine) vagy egyszerű CRUD metódusok (Active Record rendszerek)
+	- A felsőbb réteg csak típusos objektumokat lát
+	- A lekérdezés eredmények objektumokká/gyűjteményekké konvertálódnak
+	- Akár műveletek között is megoszthatóak
+	- Az ORM segítségével a felsőbb réteg képes az adatbázist memóriában lévő objektumgyűjteményként  kezelni, függetlenül a ténylegesen használt fizikai tárolási módtól
+	
+	- Hátrányok:
+	Nehezebb konfiguráció
+	Nagyobb memóriaigény
+	Nagyobb CPU igény
+	Bonyolultabb lekérdezések szegényes/nehéz támogatása
+	Nehéz optimalizáció
+	
+	A cél: a LINQ query úgy hivatkozzon az adatforrásra, hogy az ne feltétlenül a fizikai adatbázist használja
+	- olyan Logic kódot írni, amelyben futásidőben változtatható, hogy az adatokat honnan szedje	
+
+-------------
+
+Single Responsibility
+	Egy osztálynak egy feladata legyen
+	Pl egy Calculator osztály ne írjon Console-ra vagy fájlba, egyszerűen csak számoljon
