@@ -80,8 +80,7 @@ namespace TattooParlor.Logic
         }
 
         public int CountAllJobsByOneCustomer(int id)
-        {
-            // IList<JobsDone> alljobsby = GetAllJobsByOneCustomer(id);
+        {            
             var q = from x in jobRepo.GetAll()
                     where x.customerId == id
                     select x;
