@@ -41,6 +41,7 @@ namespace TattooParlor.Repository
             }
             catch (Exception e)
             {
+                //logging
                 logger.LogInformation(e.Message);
                 return null;
             }
