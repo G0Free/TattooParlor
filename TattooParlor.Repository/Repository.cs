@@ -16,7 +16,7 @@ namespace TattooParlor.Repository
         }
         public IQueryable<T> GetAll()
         {
-            return ctx.Set<T>();
+            return ctx.Set<T>();            
         }
 
         public abstract T GetOne(int id);

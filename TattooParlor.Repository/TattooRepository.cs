@@ -18,29 +18,57 @@ namespace TattooParlor.Repository
         //Create
         public void AddNewTatto(Tattoo tattoo)
         {
-            ctx.Add(tattoo);
+            try
+            {
+                ctx.Add(tattoo);
+            }
+            catch (Exception e)
+            {
+                //here we can logging
+            }
             ctx.SaveChanges();
         }
 
         //Read
         public override Tattoo GetOne(int id)
         {
-            return GetAll().FirstOrDefault(x => x.TattoId == id);
+            try
+            {
+                return GetAll().FirstOrDefault(x => x.TattoId == id);
+            }
+            catch (Exception)
+            {
+                //here we can logging
+                return null;
+            }
         }
 
 
         //Update
         public void UpdateTatto(Tattoo tattoo)
         {
-            var toUpdate = GetOne(tattoo.TattoId);
-            toUpdate.FantasyName = tattoo.FantasyName;
-
+            try
+            {
+                var toUpdate = GetOne(tattoo.TattoId);
+                toUpdate.FantasyName = tattoo.FantasyName;
+            }
+            catch (Exception)
+            {
+                //logging                
+            }
             ctx.SaveChanges();
         }
         public void ChangeFantasyName(int id, string newName)
         {
-            var tattoo = GetOne(id);
-            tattoo.FantasyName = newName;
+            try
+            {
+                var tattoo = GetOne(id);
+                tattoo.FantasyName = newName;
+            }
+            catch (Exception)
+            {
+                //logging
+            }
             ctx.SaveChanges();
         }
 
@@ -48,8 +76,15 @@ namespace TattooParlor.Repository
         //Delete
         public void DeleteTatto(int id)
         {
-            var toDelete = GetOne(id);
-            ctx.Remove(toDelete);
+            try
+            {
+                var toDelete = GetOne(id);
+                ctx.Remove(toDelete);
+            }
+            catch (Exception)
+            {
+                //logging
+            }
             ctx.SaveChanges();
         }
     }
