@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +9,9 @@ using TattooParlor.Models;
 
 namespace TattooParlor.Repository
 {
-    public class JobsDoneRepository : Repository<JobsDone>, IJobsDoneRepository
+    public class JobsDoneRepository : Repository<JobsDone>, IJobsDoneRepository, ILogger
     {
+        private readonly ILogger logger;
         public JobsDoneRepository(DbContext ctx): base(ctx)
         {
 
@@ -22,9 +24,10 @@ namespace TattooParlor.Repository
             {
                 ctx.Add(newJobsDone);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 //logging
+                logger.LogInformation(e.Message);
             }
             
             ctx.SaveChanges();
@@ -37,9 +40,10 @@ namespace TattooParlor.Repository
             {
                 return GetAll().FirstOrDefault(x => x.JobsDoneId == id);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 //logging
+                logger.LogInformation(e.Message);
                 return null;
             }
         }
@@ -53,9 +57,10 @@ namespace TattooParlor.Repository
                 toUpdate.Cost = jobsDone.Cost;
                 toUpdate.jobDate = jobsDone.jobDate;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 //logging
+                logger.LogInformation(e.Message);
             }
             ctx.SaveChanges();
         }
@@ -66,9 +71,10 @@ namespace TattooParlor.Repository
                 var tattoo = GetOne(id);
                 tattoo.Cost = newCost;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 //logging
+                logger.LogInformation(e.Message);
             }
             ctx.SaveChanges();
         }
@@ -79,9 +85,10 @@ namespace TattooParlor.Repository
                 var tattoo = GetOne(id);
                 tattoo.jobDate = newJobDate;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 //logging
+                logger.LogInformation(e.Message);
             }
             ctx.SaveChanges();
         }
@@ -94,11 +101,27 @@ namespace TattooParlor.Repository
                 var toDelete = GetOne(id);
                 ctx.Remove(toDelete);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 //logging
+                logger.LogInformation(e.Message);
             }
             ctx.SaveChanges();
+        }
+
+        public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsEnabled(LogLevel logLevel)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IDisposable BeginScope<TState>(TState state)
+        {
+            throw new NotImplementedException();
         }
     }
 }
