@@ -32,52 +32,102 @@ namespace TattooParlor.Repository
         //Read
         public override Customer GetOne(int id)
         {
-            return GetAll().FirstOrDefault(x => x.CustomerId == id);
+            try
+            {
+                return GetAll().FirstOrDefault(x => x.CustomerId == id);
+            }
+            catch (Exception)
+            {
+                //logging
+                return null;
+            }
         }
 
         //Update
         public void UpdateCustomer(Customer customer)
         {
-            var toUpdate = GetOne(customer.CustomerId);
-            toUpdate.FirstName = customer.FirstName;
-            toUpdate.LastName = customer.LastName;
-            toUpdate.BirthYear = customer.BirthYear;
-            toUpdate.Email = customer.Email;
+            try
+            {
+                var toUpdate = GetOne(customer.CustomerId);
+                toUpdate.FirstName = customer.FirstName;
+                toUpdate.LastName = customer.LastName;
+                toUpdate.BirthYear = customer.BirthYear;
+                toUpdate.Email = customer.Email;
+            }
+            catch (Exception)
+            {
+                //logging
+            }
             ctx.SaveChanges();
         }
         public void ChangeBirthYear(int id, int newBirthYear)
         {
-            var customer = GetOne(id);
-            customer.BirthYear = newBirthYear;
+            try
+            {
+                var customer = GetOne(id);
+                customer.BirthYear = newBirthYear;
+            }
+            catch (Exception)
+            {
+                //logging
+            }
             ctx.SaveChanges();
         }
 
         public void ChangeEmail(int id, string newEmail)
         {
-            var customer = GetOne(id);
-            customer.Email = newEmail;
+            try
+            {
+                var customer = GetOne(id);
+                customer.Email = newEmail;
+            }
+            catch (Exception)
+            {
+                //logging
+            }
             ctx.SaveChanges();
         }
 
         public void ChangeFirstName(int id, string newFirstName)
         {
-            var customer = GetOne(id);
-            customer.FirstName = newFirstName;
+            try
+            {
+                var customer = GetOne(id);
+                customer.FirstName = newFirstName;
+            }
+            catch (Exception)
+            {
+                //logging
+            }
             ctx.SaveChanges();
         }
 
         public void ChangeLastName(int id, string newLastName)
         {
-            var customer = GetOne(id);
-            customer.LastName = newLastName;
+            try
+            {
+                var customer = GetOne(id);
+                customer.LastName = newLastName;
+            }
+            catch (Exception)
+            {
+                //logging
+            }
             ctx.SaveChanges();
         }
 
         //Delete
         public void DeleteCustomer(int id)
         {
-            var toDelete = GetOne(id);
-            ctx.Remove(toDelete);
+            try
+            {
+                var toDelete = GetOne(id);
+                ctx.Remove(toDelete);
+            }
+            catch (Exception)
+            {
+                ///logging
+            }
             ctx.SaveChanges();
         }
     }
