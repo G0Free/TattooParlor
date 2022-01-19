@@ -18,42 +18,86 @@ namespace TattooParlor.Repository
         //Create
         public void AddNewJobsDone(JobsDone newJobsDone)
         {
-            ctx.Add(newJobsDone);
+            try
+            {
+                ctx.Add(newJobsDone);
+            }
+            catch (Exception)
+            {
+                //logging
+            }
+            
             ctx.SaveChanges();
         }
 
         //Read
         public override JobsDone GetOne(int id)
         {
-            return GetAll().FirstOrDefault(x => x.JobsDoneId == id);
+            try
+            {
+                return GetAll().FirstOrDefault(x => x.JobsDoneId == id);
+            }
+            catch (Exception)
+            {
+                //logging
+                return null;
+            }
         }
 
         //Update
         public void UpdateJobsDone(JobsDone jobsDone)
         {
-            var toUpdate = GetOne(jobsDone.JobsDoneId);
-            toUpdate.Cost = jobsDone.Cost;
-            toUpdate.jobDate = jobsDone.jobDate;
+            try
+            {
+                var toUpdate = GetOne(jobsDone.JobsDoneId);
+                toUpdate.Cost = jobsDone.Cost;
+                toUpdate.jobDate = jobsDone.jobDate;
+            }
+            catch (Exception)
+            {
+                //logging
+            }
             ctx.SaveChanges();
         }
         public void ChangeCost(int id, int newCost)
         {
-            var tattoo = GetOne(id);
-            tattoo.Cost = newCost;
+            try
+            {
+                var tattoo = GetOne(id);
+                tattoo.Cost = newCost;
+            }
+            catch (Exception)
+            {
+                //logging
+            }
             ctx.SaveChanges();
         }
         public void ChangeJobDate(int id, DateTime newJobDate)
         {
-            var tattoo = GetOne(id);
-            tattoo.jobDate = newJobDate;
+            try
+            {
+                var tattoo = GetOne(id);
+                tattoo.jobDate = newJobDate;
+            }
+            catch (Exception)
+            {
+                //logging
+            }
             ctx.SaveChanges();
         }
 
         //Delete
         public void DeleteJobsDone(int id)
         {
-            var toDelete = GetOne(id);
-            ctx.Remove(toDelete);
+            try
+            {
+                var toDelete = GetOne(id);
+                ctx.Remove(toDelete);
+            }
+            catch (Exception)
+            {
+                //logging
+            }
             ctx.SaveChanges();
         }
     }

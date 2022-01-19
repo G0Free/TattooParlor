@@ -18,7 +18,14 @@ namespace TattooParlor.Repository
         //Create
         public void AddNewCustomer(Customer customer)
         {
-            ctx.Add(customer);
+            try
+            {
+                ctx.Add(customer);
+            }
+            catch (Exception)
+            {
+                //Logging
+            }
             ctx.SaveChanges();
         }
 
