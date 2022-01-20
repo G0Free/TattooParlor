@@ -27,7 +27,7 @@ namespace TattooParlor.Repository
             catch (Exception e)
             {
                 //Logging
-                logger.LogInformation(e.Message);
+                logger.LogError(e.Message, e);
             }
             ctx.SaveChanges();
         }
@@ -39,9 +39,10 @@ namespace TattooParlor.Repository
             {
                 return GetAll().FirstOrDefault(x => x.CustomerId == id);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 //logging
+                logger.LogError(e.Message, e);
                 return null;
             }
         }
@@ -57,9 +58,10 @@ namespace TattooParlor.Repository
                 toUpdate.BirthYear = customer.BirthYear;
                 toUpdate.Email = customer.Email;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 //logging
+                logger.LogError(e.Message, e);
             }
             ctx.SaveChanges();
         }
@@ -70,9 +72,10 @@ namespace TattooParlor.Repository
                 var customer = GetOne(id);
                 customer.BirthYear = newBirthYear;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 //logging
+                logger.LogError(e.Message, e);
             }
             ctx.SaveChanges();
         }
@@ -84,9 +87,10 @@ namespace TattooParlor.Repository
                 var customer = GetOne(id);
                 customer.Email = newEmail;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 //logging
+                logger.LogError(e.Message, e);
             }
             ctx.SaveChanges();
         }
@@ -98,9 +102,10 @@ namespace TattooParlor.Repository
                 var customer = GetOne(id);
                 customer.FirstName = newFirstName;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 //logging
+                logger.LogError(e.Message, e);
             }
             ctx.SaveChanges();
         }
@@ -112,9 +117,10 @@ namespace TattooParlor.Repository
                 var customer = GetOne(id);
                 customer.LastName = newLastName;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 //logging
+                logger.LogError(e.Message, e);
             }
             ctx.SaveChanges();
         }
@@ -127,9 +133,10 @@ namespace TattooParlor.Repository
                 var toDelete = GetOne(id);
                 ctx.Remove(toDelete);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                ///logging
+                //logging
+                logger.LogError(e.Message, e);
             }
             ctx.SaveChanges();
         }

@@ -27,7 +27,7 @@ namespace TattooParlor.Repository
             catch (Exception e)
             {
                 //logging
-                logger.LogInformation(e.Message);
+                logger.LogError(e.Message, e);
             }
             
             ctx.SaveChanges();
@@ -43,7 +43,7 @@ namespace TattooParlor.Repository
             catch (Exception e)
             {
                 //logging
-                logger.LogInformation(e.Message);
+                logger.LogError(e.Message, e);
                 return null;
             }
         }
@@ -60,7 +60,7 @@ namespace TattooParlor.Repository
             catch (Exception e)
             {
                 //logging
-                logger.LogInformation(e.Message);
+                logger.LogError(e.Message, e);
             }
             ctx.SaveChanges();
         }
@@ -74,7 +74,7 @@ namespace TattooParlor.Repository
             catch (Exception e)
             {
                 //logging
-                logger.LogInformation(e.Message);
+                logger.LogError(e.Message, e);
             }
             ctx.SaveChanges();
         }
@@ -88,7 +88,7 @@ namespace TattooParlor.Repository
             catch (Exception e)
             {
                 //logging
-                logger.LogInformation(e.Message);
+                logger.LogError(e.Message, e);
             }
             ctx.SaveChanges();
         }
@@ -104,7 +104,7 @@ namespace TattooParlor.Repository
             catch (Exception e)
             {
                 //logging
-                logger.LogInformation(e.Message);
+                logger.LogError(e.Message, e);
             }
             ctx.SaveChanges();
         }
