@@ -39,7 +39,7 @@ namespace TattooParlor.Logic
             if (id <= customerRepo.GetAll().Count())
             {
                 return customerRepo.GetOne(id);
-            }
+            }            
             throw new IndexOutOfRangeException("Invalid ID");
         }
 

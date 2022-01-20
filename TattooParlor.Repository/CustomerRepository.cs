@@ -16,11 +16,8 @@ namespace TattooParlor.Repository
         public CustomerRepository(DbContext ctx) : base(ctx)
         {
             var factory = new LoggerFactory();
-
-            //logger = factory.CreateLogger("logger");
+            
             logger = factory.CreateLogger(typeof(CustomerRepository).FullName);
-
-            //done
         }
 
         //Create

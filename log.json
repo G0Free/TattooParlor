@@ -105,4 +105,159 @@
             }
         ]
     }
+}{
+    "Timestamp": "2022-01-20T13:01:12.7282382+01:00",
+    "Level": "Information",
+    "MessageTemplate": "Application Starting Up",
+    "Properties": {
+        "MachineName": "DESKTOP-MMS8MI6",
+        "ProcessId": 21644,
+        "ThreadId": 1
+    }
+}
+{
+    "Timestamp": "2022-01-20T13:01:17.1015095+01:00",
+    "Level": "Information",
+    "MessageTemplate": "HTTP {RequestMethod} {RequestPath} responded {StatusCode} in {Elapsed:0.0000} ms",
+    "Properties": {
+        "RequestMethod": "GET",
+        "RequestPath": "/customer",
+        "StatusCode": 200,
+        "Elapsed": 3475.3059,
+        "SourceContext": "Serilog.AspNetCore.RequestLoggingMiddleware",
+        "ActionId": "ab8dfc77-c83c-4774-816b-8d8616217cb0",
+        "ActionName": "TattooParlor.Endpoint.Controllers.CustomerController.Get (TattooParlor.Endpoint)",
+        "RequestId": "8000000e-0002-fd00-b63f-84710c7967bb",
+        "MachineName": "DESKTOP-MMS8MI6",
+        "ProcessId": 21644,
+        "ThreadId": 8
+    },
+    "Renderings": {
+        "Elapsed": [
+            {
+                "Format": "0.0000",
+                "Rendering": "3475.3059"
+            }
+        ]
+    }
+}
+{
+    "Timestamp": "2022-01-20T13:01:17.5018601+01:00",
+    "Level": "Information",
+    "MessageTemplate": "HTTP {RequestMethod} {RequestPath} responded {StatusCode} in {Elapsed:0.0000} ms",
+    "Properties": {
+        "RequestMethod": "GET",
+        "RequestPath": "/",
+        "StatusCode": 404,
+        "Elapsed": 0.131,
+        "SourceContext": "Serilog.AspNetCore.RequestLoggingMiddleware",
+        "RequestId": "80000019-0000-fe00-b63f-84710c7967bb",
+        "MachineName": "DESKTOP-MMS8MI6",
+        "ProcessId": 21644,
+        "ThreadId": 10
+    },
+    "Renderings": {
+        "Elapsed": [
+            {
+                "Format": "0.0000",
+                "Rendering": "0.1310"
+            }
+        ]
+    }
+}
+{
+    "Timestamp": "2022-01-20T13:01:27.3245800+01:00",
+    "Level": "Information",
+    "MessageTemplate": "HTTP {RequestMethod} {RequestPath} responded {StatusCode} in {Elapsed:0.0000} ms",
+    "Properties": {
+        "RequestMethod": "GET",
+        "RequestPath": "/customer/1",
+        "StatusCode": 200,
+        "Elapsed": 202.5582,
+        "SourceContext": "Serilog.AspNetCore.RequestLoggingMiddleware",
+        "RequestId": "8000000e-0003-fd00-b63f-84710c7967bb",
+        "MachineName": "DESKTOP-MMS8MI6",
+        "ProcessId": 21644,
+        "ThreadId": 4
+    },
+    "Renderings": {
+        "Elapsed": [
+            {
+                "Format": "0.0000",
+                "Rendering": "202.5582"
+            }
+        ]
+    }
+}
+{
+    "Timestamp": "2022-01-20T13:01:30.3366574+01:00",
+    "Level": "Information",
+    "MessageTemplate": "HTTP {RequestMethod} {RequestPath} responded {StatusCode} in {Elapsed:0.0000} ms",
+    "Properties": {
+        "RequestMethod": "GET",
+        "RequestPath": "/customer/10",
+        "StatusCode": 204,
+        "Elapsed": 5.0308,
+        "SourceContext": "Serilog.AspNetCore.RequestLoggingMiddleware",
+        "RequestId": "8000000f-0003-fd00-b63f-84710c7967bb",
+        "MachineName": "DESKTOP-MMS8MI6",
+        "ProcessId": 21644,
+        "ThreadId": 10
+    },
+    "Renderings": {
+        "Elapsed": [
+            {
+                "Format": "0.0000",
+                "Rendering": "5.0308"
+            }
+        ]
+    }
+}
+{
+    "Timestamp": "2022-01-20T13:01:41.1989795+01:00",
+    "Level": "Information",
+    "MessageTemplate": "HTTP {RequestMethod} {RequestPath} responded {StatusCode} in {Elapsed:0.0000} ms",
+    "Properties": {
+        "RequestMethod": "GET",
+        "RequestPath": "/customer/2",
+        "StatusCode": 200,
+        "Elapsed": 2.1794,
+        "SourceContext": "Serilog.AspNetCore.RequestLoggingMiddleware",
+        "RequestId": "8000001a-0000-fe00-b63f-84710c7967bb",
+        "MachineName": "DESKTOP-MMS8MI6",
+        "ProcessId": 21644,
+        "ThreadId": 4
+    },
+    "Renderings": {
+        "Elapsed": [
+            {
+                "Format": "0.0000",
+                "Rendering": "2.1794"
+            }
+        ]
+    }
+}
+{
+    "Timestamp": "2022-01-20T13:01:45.0408292+01:00",
+    "Level": "Information",
+    "MessageTemplate": "HTTP {RequestMethod} {RequestPath} responded {StatusCode} in {Elapsed:0.0000} ms",
+    "Properties": {
+        "RequestMethod": "GET",
+        "RequestPath": "/customer/10",
+        "StatusCode": 204,
+        "Elapsed": 1.1921,
+        "SourceContext": "Serilog.AspNetCore.RequestLoggingMiddleware",
+        "RequestId": "8000001b-0000-fe00-b63f-84710c7967bb",
+        "MachineName": "DESKTOP-MMS8MI6",
+        "ProcessId": 21644,
+        "ThreadId": 4
+    },
+    "Renderings": {
+        "Elapsed": [
+            {
+                "Format": "0.0000",
+                "Rendering": "1.1921"
+            }
+        ]
+    }
 }
