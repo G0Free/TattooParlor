@@ -12,11 +12,19 @@ using TattooParlor.Data;
 using TattooParlor.Logic;
 using TattooParlor.Repository;
 using Serilog;
+using Microsoft.Extensions.Configuration;
 
 namespace TattooParlor.Endpoint
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; }
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
@@ -32,8 +40,19 @@ namespace TattooParlor.Endpoint
             services.AddTransient<ITattooRepository, TattooRepository>();
             services.AddTransient<IJobsDoneRepository, JobsDoneRepository>();
 
-            services.AddSingleton<DbContext, CompanyContext>();
+            services.AddTransient<DbContext, CompanyContext>(); //.AddTransient
+                                                    //.AddSingleton
 
+            var configSection = Configuration.GetSection("ConnectionStrings").GetSection("DefaultConnection");
+
+            var settings = new DatabaseSettings();
+            settings.ConnectionString = configSection.Value;
+            configSection.Bind(settings);
+            ;
+            services.AddSingleton(settings);
+            
+            services.AddDbContext<CompanyContext>( opt => opt.UseLazyLoadingProxies().UseSqlServer(settings.ConnectionString));
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,7 +64,7 @@ namespace TattooParlor.Endpoint
             }
 
             app.UseSerilogRequestLogging();
-
+            
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>

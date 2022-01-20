@@ -19,12 +19,12 @@ namespace TattooParlor.Logic
             this.customerRepo = repo;
         }
 
-         public CustomerLogic(ICustomerRepository customerRepo, IJobsDoneRepository jobRepo, ITattooRepository tattooRepo)
-         {
-             this.customerRepo = customerRepo;
-             this.jobRepo = jobRepo;
-             this.tattooRepo = tattooRepo;
-         }
+        public CustomerLogic(ICustomerRepository customerRepo, IJobsDoneRepository jobRepo, ITattooRepository tattooRepo)
+        {
+            this.customerRepo = customerRepo;
+            this.jobRepo = jobRepo;
+            this.tattooRepo = tattooRepo;
+        }
 
         #region CRUD methods
         //Create
@@ -39,8 +39,11 @@ namespace TattooParlor.Logic
             if (id <= customerRepo.GetAll().Count())
             {
                 return customerRepo.GetOne(id);
-            }            
-            throw new IndexOutOfRangeException("Invalid ID");
+            }
+            else
+            {
+                throw new IndexOutOfRangeException("Invalid ID");
+            }
         }
 
         //ReadAll

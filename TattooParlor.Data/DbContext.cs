@@ -25,13 +25,14 @@ namespace TattooParlor.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            /*
             if (!optionsBuilder.IsConfigured)
             {
-                string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\TattooParlor_Database.mdf;Integrated Security=True";
+                //string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\TattooParlor_Database.mdf;Integrated Security=True";
                 optionsBuilder
                     .UseLazyLoadingProxies()
-                    .UseSqlServer(connectionString);
-            }
+                    .UseSqlServer("DefaultConnection");
+            }*/
         }
 
 
