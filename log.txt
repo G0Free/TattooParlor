@@ -1,0 +1,5 @@
+01/20/2022 12:50:04 Application Starting Up
+01/20/2022 12:50:08 HTTP "GET" "/" responded 404 in 0.3104 ms
+01/20/2022 12:50:09 HTTP "GET" "/customer" responded 200 in 3733.3670 ms
+01/20/2022 12:50:15 HTTP "GET" "/customer/2" responded 200 in 248.3371 ms
+01/20/2022 12:50:25 HTTP "GET" "/customer/1" responded 200 in 8.4236 ms

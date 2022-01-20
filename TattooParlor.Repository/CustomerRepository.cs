@@ -42,8 +42,8 @@ namespace TattooParlor.Repository
         public override Customer GetOne(int id)
         {
             try
-            {
-                logger.LogInformation("We just returned a Customer with ID: " +  id);
+            {                
+                logger.LogInformation("We just returned a Customer with ID: " +  id); //this is just for testing
                 return GetAll().FirstOrDefault(x => x.CustomerId == id);
             }
             catch (Exception e)

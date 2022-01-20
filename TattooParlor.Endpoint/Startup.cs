@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using TattooParlor.Data;
 using TattooParlor.Logic;
 using TattooParlor.Repository;
+using Serilog;
 
 namespace TattooParlor.Endpoint
 {
@@ -42,6 +43,8 @@ namespace TattooParlor.Endpoint
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSerilogRequestLogging();
 
             app.UseRouting();
 
