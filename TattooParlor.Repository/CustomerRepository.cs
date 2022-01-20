@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Debug;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,16 @@ using TattooParlor.Models;
 
 namespace TattooParlor.Repository
 {
-    public class CustomerRepository : Repository<Customer>, ICustomerRepository, ILogger
+    public class CustomerRepository : Repository<Customer>, ICustomerRepository
     {
         private readonly ILogger logger;
         public CustomerRepository(DbContext ctx) : base(ctx)
         {
+            var factory = new LoggerFactory();
+
+            //logger = factory.CreateLogger("logger");
+            logger = factory.CreateLogger(typeof(CustomerRepository).FullName);
+
             //done
         }
 
@@ -37,6 +43,7 @@ namespace TattooParlor.Repository
         {
             try
             {
+                logger.LogInformation("We just returned a Customer with ID: " +  id);
                 return GetAll().FirstOrDefault(x => x.CustomerId == id);
             }
             catch (Exception e)
@@ -141,19 +148,19 @@ namespace TattooParlor.Repository
             ctx.SaveChanges();
         }
 
-        public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
-        {
-            throw new NotImplementedException();
-        }
+        //public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        public bool IsEnabled(LogLevel logLevel)
-        {
-            throw new NotImplementedException();
-        }
+        //public bool IsEnabled(LogLevel logLevel)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        public IDisposable BeginScope<TState>(TState state)
-        {
-            throw new NotImplementedException();
-        }
+        //public IDisposable BeginScope<TState>(TState state)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

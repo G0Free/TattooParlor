@@ -9,12 +9,14 @@ using TattooParlor.Models;
 
 namespace TattooParlor.Repository
 {
-    public class TattooRepository : Repository<Tattoo>, ITattooRepository, ILogger
+    public class TattooRepository : Repository<Tattoo>, ITattooRepository
     {
         private readonly ILogger logger;
         public TattooRepository(DbContext ctx) : base(ctx)
         {
+            var factory = new LoggerFactory();
 
+            logger = factory.CreateLogger(typeof(TattooRepository).FullName);
         }
 
         //Create
