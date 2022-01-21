@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TattooParlor.Logic;
 using TattooParlor.Models;
 using Serilog;
+using TattooParlor.Models.DTO;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -58,16 +59,38 @@ namespace TattooParlor.Endpoint.Controllers
 
         // POST: /jobsdone
         [HttpPost]
-        public void Post([FromBody] JobsDone value)
+        public IActionResult Post([FromBody] JobsDoneDto value)
         {
             try
             {
-                jobsDoneLogic.AddNewJobsDone(value);
+                var jobsDoneEntity = new JobsDone
+                {
+                    JobsDoneId = value.JobsDoneId,
+                    customerId = value.customerId,
+                    TattooId = value.TattooId,
+                    jobDate = value.jobDate,
+                    Cost = value.Cost,
+                    IsDeleted = value.IsDeleted
+                };
+
+                var jobsDone = jobsDoneLogic.AddNewJobsDone(jobsDoneEntity);
+
+                //jobsDoneLogic.AddNewJobsDone(value);
+
+                return Ok(new JobsDoneDto
+                {
+                    JobsDoneId = jobsDone.JobsDoneId,
+                    customerId = jobsDone.customerId,
+                    TattooId = jobsDone.TattooId,
+                    jobDate = jobsDone.jobDate,
+                    Cost = jobsDone.Cost,
+                    IsDeleted = jobsDone.IsDeleted
+                });
             }
             catch (Exception e)
-            {
-                //logger.LogError(e, e.Message);
+            {                
                 Log.Error(e, e.Message);
+                return StatusCode(500, null);
             }
         }
 

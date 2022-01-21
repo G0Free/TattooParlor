@@ -11,7 +11,7 @@ namespace TattooParlor.Logic
     {
         #region CRUD methods
         //Create
-        void AddNewJobsDone(JobsDone jobsDone);
+        JobsDone AddNewJobsDone(JobsDone jobsDone);
 
         //Read
         JobsDone GetJobsDoneById(int id);

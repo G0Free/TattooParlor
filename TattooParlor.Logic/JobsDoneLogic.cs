@@ -27,9 +27,11 @@ namespace TattooParlor.Logic
 
         #region CRUD methods
         //Create
-        public void AddNewJobsDone(JobsDone jobsDone)
+        public JobsDone AddNewJobsDone(JobsDone jobsDone)
         {
             jobRepo.AddNewJobsDone(jobsDone);
+
+            return jobsDone;
         }
 
         //Read
