@@ -48,9 +48,9 @@ namespace TattooParlor.Test
             #endregion
 
             #region Tattoos
-            Tattoo tattoo1 = new Tattoo() { TattoId = 1, FantasyName = "BigSpider" };
-            Tattoo tattoo2 = new Tattoo() { TattoId = 2, FantasyName = "SmallHeart" };
-            Tattoo tattoo3 = new Tattoo() { TattoId = 3, FantasyName = "LittleTriangle" };
+            Tattoo tattoo1 = new Tattoo() { TattooId = 1, FantasyName = "BigSpider" };
+            Tattoo tattoo2 = new Tattoo() { TattooId = 2, FantasyName = "SmallHeart" };
+            Tattoo tattoo3 = new Tattoo() { TattooId = 3, FantasyName = "LittleTriangle" };
             #endregion
 
             #region JobsDones
@@ -66,10 +66,10 @@ namespace TattooParlor.Test
             jobsDone3.customerId = customer3.CustomerId;
             jobsDone4.customerId = customer1.CustomerId;
 
-            jobsDone1.TattooId = tattoo2.TattoId;
-            jobsDone2.TattooId = tattoo3.TattoId;
-            jobsDone3.TattooId = tattoo1.TattoId;
-            jobsDone4.TattooId = tattoo3.TattoId;
+            jobsDone1.TattooId = tattoo2.TattooId;
+            jobsDone2.TattooId = tattoo3.TattooId;
+            jobsDone3.TattooId = tattoo1.TattooId;
+            jobsDone4.TattooId = tattoo3.TattooId;
             #endregion
 
             List<Customer> items = new List<Customer>();
@@ -89,9 +89,9 @@ namespace TattooParlor.Test
             #endregion
 
             #region Tattoos
-            Tattoo tattoo1 = new Tattoo() { TattoId = 1, FantasyName = "BigSpider" };
-            Tattoo tattoo2 = new Tattoo() { TattoId = 2, FantasyName = "SmallHeart" };
-            Tattoo tattoo3 = new Tattoo() { TattoId = 3, FantasyName = "LittleTriangle" };
+            Tattoo tattoo1 = new Tattoo() { TattooId = 1, FantasyName = "BigSpider" };
+            Tattoo tattoo2 = new Tattoo() { TattooId = 2, FantasyName = "SmallHeart" };
+            Tattoo tattoo3 = new Tattoo() { TattooId = 3, FantasyName = "LittleTriangle" };
             #endregion
 
             #region JobsDones
@@ -107,10 +107,10 @@ namespace TattooParlor.Test
             jobsDone3.customerId = customer3.CustomerId;
             jobsDone4.customerId = customer1.CustomerId;
 
-            jobsDone1.TattooId = tattoo2.TattoId;
-            jobsDone2.TattooId = tattoo3.TattoId;
-            jobsDone3.TattooId = tattoo1.TattoId;
-            jobsDone4.TattooId = tattoo3.TattoId;
+            jobsDone1.TattooId = tattoo2.TattooId;
+            jobsDone2.TattooId = tattoo3.TattooId;
+            jobsDone3.TattooId = tattoo1.TattooId;
+            jobsDone4.TattooId = tattoo3.TattooId;
             #endregion
 
             List<JobsDone> items = new List<JobsDone>();
@@ -131,9 +131,9 @@ namespace TattooParlor.Test
             #endregion
 
             #region Tattoos
-            Tattoo tattoo1 = new Tattoo() { TattoId = 1, FantasyName = "BigSpider" };
-            Tattoo tattoo2 = new Tattoo() { TattoId = 2, FantasyName = "SmallHeart" };
-            Tattoo tattoo3 = new Tattoo() { TattoId = 3, FantasyName = "LittleTriangle" };
+            Tattoo tattoo1 = new Tattoo() { TattooId = 1, FantasyName = "BigSpider" };
+            Tattoo tattoo2 = new Tattoo() { TattooId = 2, FantasyName = "SmallHeart" };
+            Tattoo tattoo3 = new Tattoo() { TattooId = 3, FantasyName = "LittleTriangle" };
             #endregion
 
             #region JobsDones
@@ -149,10 +149,10 @@ namespace TattooParlor.Test
             jobsDone3.customerId = customer3.CustomerId;
             jobsDone4.customerId = customer1.CustomerId;
 
-            jobsDone1.TattooId = tattoo2.TattoId;
-            jobsDone2.TattooId = tattoo3.TattoId;
-            jobsDone3.TattooId = tattoo1.TattoId;
-            jobsDone4.TattooId = tattoo3.TattoId;
+            jobsDone1.TattooId = tattoo2.TattooId;
+            jobsDone2.TattooId = tattoo3.TattooId;
+            jobsDone3.TattooId = tattoo1.TattooId;
+            jobsDone4.TattooId = tattoo3.TattooId;
             #endregion
 
             List<Tattoo> items = new List<Tattoo>();

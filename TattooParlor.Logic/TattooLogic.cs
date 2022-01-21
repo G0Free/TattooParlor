@@ -30,9 +30,11 @@ namespace TattooParlor.Logic
 
         #region CRUD methods
         //Create
-        public void AddNewTattoo(Tattoo tattoo)
+        public Tattoo AddNewTattoo(Tattoo tattoo)
         {
             tattooRepo.AddNewTatto(tattoo);
+
+            return tattoo;
         }
 
         //Read

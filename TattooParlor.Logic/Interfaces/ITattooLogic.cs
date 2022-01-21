@@ -10,7 +10,7 @@ namespace TattooParlor.Logic
     public interface ITattooLogic
     {
         //Create
-        void AddNewTattoo(Tattoo tattoo);
+        Tattoo AddNewTattoo(Tattoo tattoo);
 
         //Read
         Tattoo GetTattooById(int id);

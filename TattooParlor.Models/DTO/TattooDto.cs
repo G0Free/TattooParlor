@@ -8,7 +8,7 @@ namespace TattooParlor.Models.DTO
 {
     public class TattooDto
     {
-        public int TattoId { get; set; }
+        public int TattooId { get; set; }
         public string FantasyName { get; set; }
         public int? jobsDoneId { get; set; }
         public bool IsDeleted { get; set; }

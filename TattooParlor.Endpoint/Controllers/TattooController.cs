@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TattooParlor.Logic;
 using TattooParlor.Models;
+using TattooParlor.Models.DTO;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -15,13 +16,11 @@ namespace TattooParlor.Endpoint.Controllers
     [ApiController]
     public class TattooController : ControllerBase
     {
-        ITattooLogic tattooLogic;
-        
-       // private readonly ILogger logger;
+        ITattooLogic tattooLogic;        
+      
         public TattooController(ITattooLogic tattooLogic)
         {
-            this.tattooLogic = tattooLogic;
-           // this.logger = Log.Logger;
+            this.tattooLogic = tattooLogic;           
         }
 
 
@@ -61,16 +60,33 @@ namespace TattooParlor.Endpoint.Controllers
 
         // POST: /tattoo
         [HttpPost]
-        public void Post([FromBody] Tattoo value)
+        public IActionResult Post([FromBody] TattooDto value)
         {
             try
             {
-                tattooLogic.AddNewTattoo(value);
+                var tattooEntity = new Tattoo
+                {
+                    TattooId = value.TattooId,
+                    FantasyName = value.FantasyName,
+                    jobsDoneId = value.jobsDoneId,
+                    IsDeleted = value.IsDeleted
+                };
+
+                var tattoo = tattooLogic.AddNewTattoo(tattooEntity);
+
+                return Ok(new TattooDto
+                {
+                    TattooId = tattoo.TattooId,
+                    FantasyName = tattoo.FantasyName,
+                    jobsDoneId = tattoo.jobsDoneId,
+                    IsDeleted = tattoo.IsDeleted
+                });
+                
             }
             catch (Exception e)
-            {
-                // logger.LogError(e, e.Message);
+            {                
                 Log.Error(e, e.Message);
+                return StatusCode(500, null);
             }
         }
 

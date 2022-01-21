@@ -40,7 +40,7 @@ namespace TattooParlor.Repository
         {
             try
             {
-                return GetAll().FirstOrDefault(x => x.TattoId == id);
+                return GetAll().FirstOrDefault(x => x.TattooId == id);
             }
             catch (Exception e)
             {
@@ -56,7 +56,7 @@ namespace TattooParlor.Repository
         {
             try
             {
-                var toUpdate = GetOne(tattoo.TattoId);
+                var toUpdate = GetOne(tattoo.TattooId);
                 toUpdate.FantasyName = tattoo.FantasyName;
             }
             catch (Exception e)

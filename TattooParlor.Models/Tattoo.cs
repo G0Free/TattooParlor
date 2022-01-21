@@ -13,7 +13,7 @@ namespace TattooParlor.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int TattoId { get; set; }
+        public int TattooId { get; set; }
         public string FantasyName { get; set; }
 
         [NotMapped]
@@ -26,6 +26,6 @@ namespace TattooParlor.Models
         public DateTime DeletedAt { get; set; }
 
         [NotMapped]
-        public string MainData => $"[{TattoId}] : Fantasyname: {FantasyName}";
+        public string MainData => $"[{TattooId}] : Fantasyname: {FantasyName}";
     }
 }
