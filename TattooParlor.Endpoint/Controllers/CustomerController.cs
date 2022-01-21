@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using TattooParlor.Logic;
 using TattooParlor.Models;
+using Microsoft.Extensions.Logging;
+using Serilog;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -14,7 +16,8 @@ namespace TattooParlor.Endpoint.Controllers
     [ApiController]
     public class CustomerController : ControllerBase
     {
-        ICustomerLogic customerLogic;
+        private readonly ICustomerLogic customerLogic;
+        private readonly ILogger<TattooController> logger;
         public CustomerController(ICustomerLogic customerLogic)
         {
             this.customerLogic = customerLogic;
@@ -24,35 +27,72 @@ namespace TattooParlor.Endpoint.Controllers
         [HttpGet]
         public IEnumerable<Customer> Get()
         {
-            return customerLogic.GetAllCustomers();
+            try
+            {
+                return customerLogic.GetAllCustomers();
+            }
+            catch (Exception e)
+            {
+                logger.LogError(e, e.Message);
+                return null;
+            }
         }
 
         // GET /customer/5
         [HttpGet("{id}")]
         public Customer Get(int id)
         {
-            return customerLogic.GetCustomerById(id);
+            try
+            {
+                return customerLogic.GetCustomerById(id);
+            }
+            catch (Exception e)
+            {
+                logger.LogError(e, e.Message);
+                return null;
+            }
         }
 
         // POST /customer
         [HttpPost]
         public void Post([FromBody] Customer value)
         {
-            customerLogic.AddNewCustomer(value);
+            try
+            {
+                customerLogic.AddNewCustomer(value);
+            }
+            catch (Exception e)
+            {
+                logger.LogError(e, e.Message);
+            }
         }
 
         // PUT /customer
         [HttpPut]
         public void Put([FromBody] Customer value)
         {
-            customerLogic.UpdateCustomer(value);
+            try
+            {
+                customerLogic.UpdateCustomer(value);
+            }
+            catch (Exception e)
+            {
+                logger.LogError(e, e.Message);
+            }
         }
 
         // DELETE /customer/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            customerLogic.DeleteCustomer(id);
+            try
+            {
+                customerLogic.DeleteCustomer(id);
+            }
+            catch (Exception e)
+            {
+                logger.LogError(e, e.Message);
+            }
         }
     }
 }

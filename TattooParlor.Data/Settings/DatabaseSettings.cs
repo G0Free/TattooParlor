@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace TattooParlor.Data
 {
     public class DatabaseSettings
-    {
+    {        
         public string ConnectionString { get; set; }
     }
 }

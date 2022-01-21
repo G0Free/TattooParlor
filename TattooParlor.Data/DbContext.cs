@@ -23,6 +23,7 @@ namespace TattooParlor.Data
 
         }
 
+        /*
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             /*
@@ -32,8 +33,8 @@ namespace TattooParlor.Data
                 optionsBuilder
                     .UseLazyLoadingProxies()
                     .UseSqlServer("DefaultConnection");
-            }*/
-        }
+            }
+        }*/
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

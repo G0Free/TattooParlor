@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using TattooParlor.Logic;
 using TattooParlor.Models;
+using Microsoft.Extensions.Logging;
+using Serilog;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -15,6 +17,7 @@ namespace TattooParlor.Endpoint.Controllers
     public class JobsDoneController : ControllerBase
     {
         IJobsDoneLogic jobsDoneLogic;
+        private readonly ILogger<JobsDoneController> logger;
 
         public JobsDoneController(IJobsDoneLogic jobsDoneLogic)
         {
@@ -26,35 +29,72 @@ namespace TattooParlor.Endpoint.Controllers
         [HttpGet]
         public IEnumerable<JobsDone> Get()
         {
-            return jobsDoneLogic.GetAllJobsDone();
+            try
+            {
+                return jobsDoneLogic.GetAllJobsDone();
+            }
+            catch (Exception e)
+            {
+                logger.LogError(e, e.Message);
+                return null;
+            }
         }
 
         // GET: /jobsdone/5
         [HttpGet("{id}")]
         public JobsDone Get(int id)
         {
-            return jobsDoneLogic.GetJobsDoneById(id);
+            try
+            {
+                return jobsDoneLogic.GetJobsDoneById(id);
+            }
+            catch (Exception e)
+            {
+                logger.LogError(e, e.Message);
+                return null;
+            }
         }
 
         // POST: /jobsdone
         [HttpPost]
         public void Post([FromBody] JobsDone value)
         {
-            jobsDoneLogic.AddNewJobsDone(value);
+            try
+            {
+                jobsDoneLogic.AddNewJobsDone(value);
+            }
+            catch (Exception e)
+            {
+                logger.LogError(e, e.Message);
+            }
         }
 
         // PUT: /jobsdone
         [HttpPut]
         public void Put([FromBody] JobsDone value)
         {
-            jobsDoneLogic.UpdateJobsDone(value);
+            try
+            {
+                jobsDoneLogic.UpdateJobsDone(value);
+            }
+            catch (Exception e)
+            {
+                logger.LogError(e, e.Message);
+            }
         }
 
         // DELETE: /jobsdone/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            jobsDoneLogic.DeleteJobsDone(id);
+            try
+            {
+                jobsDoneLogic.DeleteJobsDone(id);
+            }
+            catch (Exception e)
+            {
+                logger.LogError(e, e.Message);
+            }
         }
     }
 }

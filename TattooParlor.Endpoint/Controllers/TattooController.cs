@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +17,13 @@ namespace TattooParlor.Endpoint.Controllers
     public class TattooController : ControllerBase
     {
         ITattooLogic tattooLogic;
+        // private readonly ILogger logger;
+        private readonly ILogger<TattooController> logger;
         public TattooController(ITattooLogic tattooLogic)
         {
             this.tattooLogic = tattooLogic;
+           // var factory = new LoggerFactory();
+           // logger = factory.CreateLogger(typeof(TattooController).FullName);
         }
 
 
@@ -25,35 +31,72 @@ namespace TattooParlor.Endpoint.Controllers
         [HttpGet]
         public IEnumerable<Tattoo> Get()
         {
-            return tattooLogic.GetAllTattoes();
+            try
+            {
+                return tattooLogic.GetAllTattoes();
+            }
+            catch (Exception e)
+            {
+                logger.LogError(e, e.Message);
+                return null;
+            }
         }
 
         // GET: /tattoo/5
         [HttpGet("{id}")]
         public Tattoo Get(int id)
         {
-            return tattooLogic.GetTattooById(id);
+            try
+            {
+                return tattooLogic.GetTattooById(id);
+            }
+            catch (Exception e)
+            {
+                logger.LogError(e, e.Message);
+                return null;
+            }
         }
 
         // POST: /tattoo
         [HttpPost]
         public void Post([FromBody] Tattoo value)
-        {            
-            tattooLogic.AddNewTattoo(value);
+        {
+            try
+            {
+                tattooLogic.AddNewTattoo(value);
+            }
+            catch (Exception e)
+            {
+                logger.LogError(e, e.Message);                
+            }
         }
 
         // PUT: /tattoo
         [HttpPut]
         public void Put([FromBody] Tattoo value)
         {
-            tattooLogic.UpdateTattoo(value);
+            try
+            {
+                tattooLogic.UpdateTattoo(value);
+            }
+            catch (Exception e)
+            {
+                
+            }
         }
 
         // DELETE: /tattoo/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            tattooLogic.DeleteTatto(id);
+            try
+            {
+                tattooLogic.DeleteTatto(id);
+            }
+            catch (Exception e)
+            {
+                logger.LogError(e, e.Message);
+            }
         }
     }
 }

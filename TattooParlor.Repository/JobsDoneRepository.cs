@@ -11,12 +11,13 @@ namespace TattooParlor.Repository
 {
     public class JobsDoneRepository : Repository<JobsDone>, IJobsDoneRepository
     {
-        private readonly ILogger logger;
+        //private readonly ILogger logger;
+        private readonly ILogger<JobsDoneRepository> logger;
         public JobsDoneRepository(DbContext ctx): base(ctx)
         {
-            var factory = new LoggerFactory();
+            //var factory = new LoggerFactory();
 
-            logger = factory.CreateLogger(typeof(JobsDoneRepository).FullName);
+           // logger = factory.CreateLogger(typeof(JobsDoneRepository).FullName);
         }
         
         //Create
@@ -29,7 +30,7 @@ namespace TattooParlor.Repository
             catch (Exception e)
             {
                 //logging
-                logger.LogError(e.Message, e);
+                logger.LogError(e, e.Message);
             }
             
             ctx.SaveChanges();
@@ -45,7 +46,7 @@ namespace TattooParlor.Repository
             catch (Exception e)
             {
                 //logging
-                logger.LogError(e.Message, e);
+                logger.LogError(e, e.Message);
                 return null;
             }
         }
@@ -62,7 +63,7 @@ namespace TattooParlor.Repository
             catch (Exception e)
             {
                 //logging
-                logger.LogError(e.Message, e);
+                logger.LogError(e, e.Message);
             }
             ctx.SaveChanges();
         }
@@ -76,7 +77,7 @@ namespace TattooParlor.Repository
             catch (Exception e)
             {
                 //logging
-                logger.LogError(e.Message, e);
+                logger.LogError(e, e.Message);
             }
             ctx.SaveChanges();
         }
@@ -90,7 +91,7 @@ namespace TattooParlor.Repository
             catch (Exception e)
             {
                 //logging
-                logger.LogError(e.Message, e);
+                logger.LogError(e, e.Message);
             }
             ctx.SaveChanges();
         }
@@ -106,24 +107,9 @@ namespace TattooParlor.Repository
             catch (Exception e)
             {
                 //logging
-                logger.LogError(e.Message, e);
+                logger.LogError(e, e.Message);
             }
             ctx.SaveChanges();
-        }
-
-        public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool IsEnabled(LogLevel logLevel)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IDisposable BeginScope<TState>(TState state)
-        {
-            throw new NotImplementedException();
         }
     }
 }

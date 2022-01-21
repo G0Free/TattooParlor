@@ -48,11 +48,11 @@ namespace TattooParlor.Endpoint
             var settings = new DatabaseSettings();
             settings.ConnectionString = configSection.Value;
             configSection.Bind(settings);
-            ;
+            
             services.AddSingleton(settings);
-            
-            services.AddDbContext<CompanyContext>( opt => opt.UseLazyLoadingProxies().UseSqlServer(settings.ConnectionString));
-            
+            ;
+            services.AddDbContext<CompanyContext>( opt => opt.UseSqlServer(settings.ConnectionString)); //settings.ConnectionString
+            ;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
