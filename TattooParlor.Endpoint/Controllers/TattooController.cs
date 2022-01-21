@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+//using Microsoft.Extensions.Logging;
 using Serilog;
 using System;
 using System.Collections.Generic;
@@ -18,10 +18,11 @@ namespace TattooParlor.Endpoint.Controllers
     {
         ITattooLogic tattooLogic;
         
-        private readonly ILogger<TattooController> logger;
+       // private readonly ILogger logger;
         public TattooController(ITattooLogic tattooLogic)
         {
-            this.tattooLogic = tattooLogic;         
+            this.tattooLogic = tattooLogic;
+           // this.logger = Log.Logger;
         }
 
 
@@ -35,7 +36,8 @@ namespace TattooParlor.Endpoint.Controllers
             }
             catch (Exception e)
             {
-                logger.LogError(e, e.Message);
+                Log.Error(e, e.Message);
+                //logger.LogError(e, e.Message);
                 return null;
             }
         }
@@ -46,11 +48,14 @@ namespace TattooParlor.Endpoint.Controllers
         {
             try
             {
+                Log.Information("A tattoo was returned with id: {id}", id);
+                //logger.LogInformation("A tattoo was returned with id: {id}", id);
                 return tattooLogic.GetTattooById(id);
             }
             catch (Exception e)
             {
-                logger.LogError(e, e.Message);
+                //logger.LogError(e, e.Message);
+                Log.Error(e, e.Message);
                 return null;
             }
         }
@@ -65,7 +70,8 @@ namespace TattooParlor.Endpoint.Controllers
             }
             catch (Exception e)
             {
-                logger.LogError(e, e.Message);                
+                // logger.LogError(e, e.Message);
+                Log.Error(e, e.Message);
             }
         }
 
@@ -79,7 +85,8 @@ namespace TattooParlor.Endpoint.Controllers
             }
             catch (Exception e)
             {
-                
+                //logger.LogError(e, e.Message);
+                Log.Error(e, e.Message);
             }
         }
 
@@ -93,7 +100,7 @@ namespace TattooParlor.Endpoint.Controllers
             }
             catch (Exception e)
             {
-                logger.LogError(e, e.Message);
+                Log.Error(e, e.Message);
             }
         }
     }

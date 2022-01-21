@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TattooParlor.Logic;
 using TattooParlor.Models;
-using Microsoft.Extensions.Logging;
+//using Microsoft.Extensions.Logging;
 using Serilog;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -19,7 +19,7 @@ namespace TattooParlor.Endpoint.Controllers
         ICustomerLogic customerLogic;
         IJobsDoneLogic jobLogic;
         ITattooLogic tattooLogic;
-        private readonly ILogger<StatController> logger;
+        //private readonly ILogger<StatController> logger;
         public StatController(ICustomerLogic customerLogic, IJobsDoneLogic jobLogic, ITattooLogic tattooLogic)
         {
             this.customerLogic = customerLogic;
@@ -37,7 +37,8 @@ namespace TattooParlor.Endpoint.Controllers
             }
             catch (Exception e)
             {
-                logger.LogError(e, e.Message);
+                //logger.LogError(e, e.Message);
+                Log.Error(e, e.Message);
                 return null;
             }
         }
@@ -52,7 +53,8 @@ namespace TattooParlor.Endpoint.Controllers
             }
             catch (Exception e)
             {
-                logger.LogError(e, e.Message);
+                //logger.LogError(e, e.Message);
+                Log.Error(e, e.Message);
                 return -1;
             }
         }        

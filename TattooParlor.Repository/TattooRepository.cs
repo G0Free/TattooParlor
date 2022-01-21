@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
+//using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +11,11 @@ using Serilog;
 namespace TattooParlor.Repository
 {
     public class TattooRepository : Repository<Tattoo>, ITattooRepository
-    {        
-        private readonly ILogger<TattooRepository> logger;
+    {
+        //private readonly ILogger<TattooRepository> logger;
         public TattooRepository(DbContext ctx) : base(ctx)
         {
-           
+
         }
 
         //Create
@@ -28,7 +28,8 @@ namespace TattooParlor.Repository
             catch (Exception e)
             {
                 //here we can logging
-                logger.LogError(e, e.Message); //LogInformation(e.Message);
+                //logger.LogError(e, e.Message); //LogInformation(e.Message);
+                Log.Error(e, e.Message);
             }
             ctx.SaveChanges();
         }
@@ -43,11 +44,11 @@ namespace TattooParlor.Repository
             catch (Exception e)
             {
                 //logging
-                logger.LogError(e, e.Message);
+               // logger.LogError(e, e.Message);
+                Log.Error(e, e.Message);
                 return null;
             }
         }
-
 
         //Update
         public void UpdateTatto(Tattoo tattoo)
@@ -60,7 +61,8 @@ namespace TattooParlor.Repository
             catch (Exception e)
             {
                 //logging
-                logger.LogError(e, e.Message);
+                Log.Error(e, e.Message);
+                //logger.LogError(e, e.Message);
             }
             ctx.SaveChanges();
         }
@@ -74,11 +76,11 @@ namespace TattooParlor.Repository
             catch (Exception e)
             {
                 //logging
-                logger.LogError(e, e.Message);
+                //logger.LogError(e, e.Message);
+                Log.Error(e, e.Message);
             }
             ctx.SaveChanges();
         }
-
 
         //Delete
         public void DeleteTatto(int id)
@@ -91,9 +93,9 @@ namespace TattooParlor.Repository
             catch (Exception e)
             {
                 //logging
-                logger.LogError(e, e.Message);
+                Log.Error(e, e.Message);
             }
             ctx.SaveChanges();
-        }        
+        }
     }
 }

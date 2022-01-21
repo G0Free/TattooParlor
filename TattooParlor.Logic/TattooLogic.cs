@@ -1,4 +1,6 @@
-﻿using System;
+﻿//using Microsoft.Extensions.Logging;
+using Serilog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,9 +15,10 @@ namespace TattooParlor.Logic
         ICustomerRepository customerRepo;
         IJobsDoneRepository jobRepo;
         ITattooRepository tattooRepo;
+
         public TattooLogic(ITattooRepository tattooRepo)
         {
-            this.tattooRepo = tattooRepo;
+            this.tattooRepo = tattooRepo;          
         }
 
         public TattooLogic(ICustomerRepository customerRepo, IJobsDoneRepository jobRepo, ITattooRepository tattooRepo)

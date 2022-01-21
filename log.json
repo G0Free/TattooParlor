@@ -5155,7 +5155,419 @@
             }
         ]
     }
-}{"Timestamp":"2022-01-21T13:04:31.9306499+01:00","Level":"Information","MessageTemplate":"Application Starting Up","Properties":{"MachineName":"DESKTOP-MMS8MI6","ProcessId":20460,"ThreadId":1}}
-{"Timestamp":"2022-01-21T13:04:37.7429324+01:00","Level":"Information","MessageTemplate":"HTTP {RequestMethod} {RequestPath} responded {StatusCode} in {Elapsed:0.0000} ms","Properties":{"RequestMethod":"GET","RequestPath":"/customer","StatusCode":200,"Elapsed":4755.9707,"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","ActionId":"cd95f87b-a0cc-45d3-ba95-4d898970fd57","ActionName":"TattooParlor.Endpoint.Controllers.CustomerController.Get (TattooParlor.Endpoint)","RequestId":"80000053-0002-ff00-b63f-84710c7967bb","MachineName":"DESKTOP-MMS8MI6","ProcessId":20460,"ThreadId":10},"Renderings":{"Elapsed":[{"Format":"0.0000","Rendering":"4755.9707"}]}}
-{"Timestamp":"2022-01-21T13:04:45.6086879+01:00","Level":"Information","MessageTemplate":"HTTP {RequestMethod} {RequestPath} responded {StatusCode} in {Elapsed:0.0000} ms","Properties":{"RequestMethod":"GET","RequestPath":"/customer/1","StatusCode":200,"Elapsed":289.1717,"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"80000041-0003-fe00-b63f-84710c7967bb","MachineName":"DESKTOP-MMS8MI6","ProcessId":20460,"ThreadId":5},"Renderings":{"Elapsed":[{"Format":"0.0000","Rendering":"289.1717"}]}}
-{"Timestamp":"2022-01-21T13:04:50.6528504+01:00","Level":"Information","MessageTemplate":"HTTP {RequestMethod} {RequestPath} responded {StatusCode} in {Elapsed:0.0000} ms","Properties":{"RequestMethod":"GET","RequestPath":"/customer/10","StatusCode":204,"Elapsed":14.0376,"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"80000042-0003-fe00-b63f-84710c7967bb","MachineName":"DESKTOP-MMS8MI6","ProcessId":20460,"ThreadId":5},"Renderings":{"Elapsed":[{"Format":"0.0000","Rendering":"14.0376"}]}}
+}{
+    "Timestamp": "2022-01-21T13:04:31.9306499+01:00",
+    "Level": "Information",
+    "MessageTemplate": "Application Starting Up",
+    "Properties": {
+        "MachineName": "DESKTOP-MMS8MI6",
+        "ProcessId": 20460,
+        "ThreadId": 1
+    }
+}
+{
+    "Timestamp": "2022-01-21T13:04:37.7429324+01:00",
+    "Level": "Information",
+    "MessageTemplate": "HTTP {RequestMethod} {RequestPath} responded {StatusCode} in {Elapsed:0.0000} ms",
+    "Properties": {
+        "RequestMethod": "GET",
+        "RequestPath": "/customer",
+        "StatusCode": 200,
+        "Elapsed": 4755.9707,
+        "SourceContext": "Serilog.AspNetCore.RequestLoggingMiddleware",
+        "ActionId": "cd95f87b-a0cc-45d3-ba95-4d898970fd57",
+        "ActionName": "TattooParlor.Endpoint.Controllers.CustomerController.Get (TattooParlor.Endpoint)",
+        "RequestId": "80000053-0002-ff00-b63f-84710c7967bb",
+        "MachineName": "DESKTOP-MMS8MI6",
+        "ProcessId": 20460,
+        "ThreadId": 10
+    },
+    "Renderings": {
+        "Elapsed": [
+            {
+                "Format": "0.0000",
+                "Rendering": "4755.9707"
+            }
+        ]
+    }
+}
+{
+    "Timestamp": "2022-01-21T13:04:45.6086879+01:00",
+    "Level": "Information",
+    "MessageTemplate": "HTTP {RequestMethod} {RequestPath} responded {StatusCode} in {Elapsed:0.0000} ms",
+    "Properties": {
+        "RequestMethod": "GET",
+        "RequestPath": "/customer/1",
+        "StatusCode": 200,
+        "Elapsed": 289.1717,
+        "SourceContext": "Serilog.AspNetCore.RequestLoggingMiddleware",
+        "RequestId": "80000041-0003-fe00-b63f-84710c7967bb",
+        "MachineName": "DESKTOP-MMS8MI6",
+        "ProcessId": 20460,
+        "ThreadId": 5
+    },
+    "Renderings": {
+        "Elapsed": [
+            {
+                "Format": "0.0000",
+                "Rendering": "289.1717"
+            }
+        ]
+    }
+}
+{
+    "Timestamp": "2022-01-21T13:04:50.6528504+01:00",
+    "Level": "Information",
+    "MessageTemplate": "HTTP {RequestMethod} {RequestPath} responded {StatusCode} in {Elapsed:0.0000} ms",
+    "Properties": {
+        "RequestMethod": "GET",
+        "RequestPath": "/customer/10",
+        "StatusCode": 204,
+        "Elapsed": 14.0376,
+        "SourceContext": "Serilog.AspNetCore.RequestLoggingMiddleware",
+        "RequestId": "80000042-0003-fe00-b63f-84710c7967bb",
+        "MachineName": "DESKTOP-MMS8MI6",
+        "ProcessId": 20460,
+        "ThreadId": 5
+    },
+    "Renderings": {
+        "Elapsed": [
+            {
+                "Format": "0.0000",
+                "Rendering": "14.0376"
+            }
+        ]
+    }
+}{
+    "Timestamp": "2022-01-21T13:18:43.9333119+01:00",
+    "Level": "Information",
+    "MessageTemplate": "Application Starting Up",
+    "Properties": {
+        "MachineName": "DESKTOP-MMS8MI6",
+        "ProcessId": 17264,
+        "ThreadId": 1
+    }
+}
+{
+    "Timestamp": "2022-01-21T13:18:48.3386425+01:00",
+    "Level": "Information",
+    "MessageTemplate": "HTTP {RequestMethod} {RequestPath} responded {StatusCode} in {Elapsed:0.0000} ms",
+    "Properties": {
+        "RequestMethod": "GET",
+        "RequestPath": "/customer",
+        "StatusCode": 200,
+        "Elapsed": 3589.6102,
+        "SourceContext": "Serilog.AspNetCore.RequestLoggingMiddleware",
+        "ActionId": "05e0324e-04e0-48c4-bf4e-3cc147193d56",
+        "ActionName": "TattooParlor.Endpoint.Controllers.CustomerController.Get (TattooParlor.Endpoint)",
+        "RequestId": "80000057-0002-ff00-b63f-84710c7967bb",
+        "MachineName": "DESKTOP-MMS8MI6",
+        "ProcessId": 17264,
+        "ThreadId": 7
+    },
+    "Renderings": {
+        "Elapsed": [
+            {
+                "Format": "0.0000",
+                "Rendering": "3589.6102"
+            }
+        ]
+    }
+}
+{
+    "Timestamp": "2022-01-21T13:53:09.9988835+01:00",
+    "Level": "Information",
+    "MessageTemplate": "Application Starting Up",
+    "Properties": {
+        "MachineName": "DESKTOP-MMS8MI6",
+        "ProcessId": 24332,
+        "ThreadId": 1
+    }
+}
+{
+    "Timestamp": "2022-01-21T13:53:14.5030585+01:00",
+    "Level": "Information",
+    "MessageTemplate": "HTTP {RequestMethod} {RequestPath} responded {StatusCode} in {Elapsed:0.0000} ms",
+    "Properties": {
+        "RequestMethod": "GET",
+        "RequestPath": "/customer",
+        "StatusCode": 200,
+        "Elapsed": 3659.5549,
+        "SourceContext": "Serilog.AspNetCore.RequestLoggingMiddleware",
+        "ActionId": "2152c477-a4bc-486c-a40f-cfad7092836c",
+        "ActionName": "TattooParlor.Endpoint.Controllers.CustomerController.Get (TattooParlor.Endpoint)",
+        "RequestId": "80000041-0001-fd00-b63f-84710c7967bb",
+        "MachineName": "DESKTOP-MMS8MI6",
+        "ProcessId": 24332,
+        "ThreadId": 5
+    },
+    "Renderings": {
+        "Elapsed": [
+            {
+                "Format": "0.0000",
+                "Rendering": "3659.5549"
+            }
+        ]
+    }
+}
+{
+    "Timestamp": "2022-01-21T13:53:19.5385132+01:00",
+    "Level": "Information",
+    "MessageTemplate": "A tattoo was returned with id: {id}",
+    "Properties": {
+        "id": 2,
+        "ActionId": "9f63f95b-d8ca-444d-a5ca-49e86adc12f6",
+        "ActionName": "TattooParlor.Endpoint.Controllers.TattooController.Get (TattooParlor.Endpoint)",
+        "RequestId": "8000003a-0001-fc00-b63f-84710c7967bb",
+        "RequestPath": "/tattoo/2",
+        "MachineName": "DESKTOP-MMS8MI6",
+        "ProcessId": 24332,
+        "ThreadId": 4
+    }
+}
+{
+    "Timestamp": "2022-01-21T13:53:19.6493340+01:00",
+    "Level": "Information",
+    "MessageTemplate": "HTTP {RequestMethod} {RequestPath} responded {StatusCode} in {Elapsed:0.0000} ms",
+    "Properties": {
+        "RequestMethod": "GET",
+        "RequestPath": "/tattoo/2",
+        "StatusCode": 200,
+        "Elapsed": 175.5674,
+        "SourceContext": "Serilog.AspNetCore.RequestLoggingMiddleware",
+        "RequestId": "8000003a-0001-fc00-b63f-84710c7967bb",
+        "MachineName": "DESKTOP-MMS8MI6",
+        "ProcessId": 24332,
+        "ThreadId": 4
+    },
+    "Renderings": {
+        "Elapsed": [
+            {
+                "Format": "0.0000",
+                "Rendering": "175.5674"
+            }
+        ]
+    }
+}{
+    "Timestamp": "2022-01-21T13:56:50.5252857+01:00",
+    "Level": "Information",
+    "MessageTemplate": "Application Starting Up",
+    "Properties": {
+        "MachineName": "DESKTOP-MMS8MI6",
+        "ProcessId": 1812,
+        "ThreadId": 1
+    }
+}
+{
+    "Timestamp": "2022-01-21T13:56:54.0703379+01:00",
+    "Level": "Information",
+    "MessageTemplate": "HTTP {RequestMethod} {RequestPath} responded {StatusCode} in {Elapsed:0.0000} ms",
+    "Properties": {
+        "RequestMethod": "GET",
+        "RequestPath": "/customer",
+        "StatusCode": 200,
+        "Elapsed": 2580.725,
+        "SourceContext": "Serilog.AspNetCore.RequestLoggingMiddleware",
+        "ActionId": "45a6168f-f712-4a91-b29a-827edeaaa7d6",
+        "ActionName": "TattooParlor.Endpoint.Controllers.CustomerController.Get (TattooParlor.Endpoint)",
+        "RequestId": "80000045-0003-fe00-b63f-84710c7967bb",
+        "MachineName": "DESKTOP-MMS8MI6",
+        "ProcessId": 1812,
+        "ThreadId": 5
+    },
+    "Renderings": {
+        "Elapsed": [
+            {
+                "Format": "0.0000",
+                "Rendering": "2580.7250"
+            }
+        ]
+    }
+}
+{
+    "Timestamp": "2022-01-21T13:57:02.6803684+01:00",
+    "Level": "Information",
+    "MessageTemplate": "A tattoo was returned with id: {id}",
+    "Properties": {
+        "id": 2,
+        "ActionId": "b0d70a4f-7f05-4489-a4d2-44adaa09b3e8",
+        "ActionName": "TattooParlor.Endpoint.Controllers.TattooController.Get (TattooParlor.Endpoint)",
+        "RequestId": "80000021-0002-fd00-b63f-84710c7967bb",
+        "RequestPath": "/tattoo/2",
+        "MachineName": "DESKTOP-MMS8MI6",
+        "ProcessId": 1812,
+        "ThreadId": 7
+    }
+}
+{
+    "Timestamp": "2022-01-21T13:57:02.7905905+01:00",
+    "Level": "Information",
+    "MessageTemplate": "HTTP {RequestMethod} {RequestPath} responded {StatusCode} in {Elapsed:0.0000} ms",
+    "Properties": {
+        "RequestMethod": "GET",
+        "RequestPath": "/tattoo/2",
+        "StatusCode": 200,
+        "Elapsed": 172.7216,
+        "SourceContext": "Serilog.AspNetCore.RequestLoggingMiddleware",
+        "RequestId": "80000021-0002-fd00-b63f-84710c7967bb",
+        "MachineName": "DESKTOP-MMS8MI6",
+        "ProcessId": 1812,
+        "ThreadId": 7
+    },
+    "Renderings": {
+        "Elapsed": [
+            {
+                "Format": "0.0000",
+                "Rendering": "172.7216"
+            }
+        ]
+    }
+}{
+    "Timestamp": "2022-01-21T14:06:02.3770497+01:00",
+    "Level": "Information",
+    "MessageTemplate": "Application Starting Up",
+    "Properties": {
+        "MachineName": "DESKTOP-MMS8MI6",
+        "ProcessId": 16820,
+        "ThreadId": 1
+    }
+}
+{
+    "Timestamp": "2022-01-21T14:06:07.0791039+01:00",
+    "Level": "Information",
+    "MessageTemplate": "HTTP {RequestMethod} {RequestPath} responded {StatusCode} in {Elapsed:0.0000} ms",
+    "Properties": {
+        "RequestMethod": "GET",
+        "RequestPath": "/customer",
+        "StatusCode": 200,
+        "Elapsed": 3468.0206,
+        "SourceContext": "Serilog.AspNetCore.RequestLoggingMiddleware",
+        "ActionId": "f661dec1-9d70-4dac-83c1-be1d4de291d5",
+        "ActionName": "TattooParlor.Endpoint.Controllers.CustomerController.Get (TattooParlor.Endpoint)",
+        "RequestId": "8000004f-0003-ff00-b63f-84710c7967bb",
+        "MachineName": "DESKTOP-MMS8MI6",
+        "ProcessId": 16820,
+        "ThreadId": 4
+    },
+    "Renderings": {
+        "Elapsed": [
+            {
+                "Format": "0.0000",
+                "Rendering": "3468.0206"
+            }
+        ]
+    }
+}
+{
+    "Timestamp": "2022-01-21T14:06:13.5795513+01:00",
+    "Level": "Information",
+    "MessageTemplate": "A tattoo was returned with id: {id}",
+    "Properties": {
+        "id": 2,
+        "ActionId": "ae98e415-0cc8-492f-aee9-5ddf67768ec8",
+        "ActionName": "TattooParlor.Endpoint.Controllers.TattooController.Get (TattooParlor.Endpoint)",
+        "RequestId": "80000023-0002-fd00-b63f-84710c7967bb",
+        "RequestPath": "/tattoo/2",
+        "MachineName": "DESKTOP-MMS8MI6",
+        "ProcessId": 16820,
+        "ThreadId": 5
+    }
+}
+{
+    "Timestamp": "2022-01-21T14:06:13.6915334+01:00",
+    "Level": "Information",
+    "MessageTemplate": "HTTP {RequestMethod} {RequestPath} responded {StatusCode} in {Elapsed:0.0000} ms",
+    "Properties": {
+        "RequestMethod": "GET",
+        "RequestPath": "/tattoo/2",
+        "StatusCode": 200,
+        "Elapsed": 156.9979,
+        "SourceContext": "Serilog.AspNetCore.RequestLoggingMiddleware",
+        "RequestId": "80000023-0002-fd00-b63f-84710c7967bb",
+        "MachineName": "DESKTOP-MMS8MI6",
+        "ProcessId": 16820,
+        "ThreadId": 5
+    },
+    "Renderings": {
+        "Elapsed": [
+            {
+                "Format": "0.0000",
+                "Rendering": "156.9979"
+            }
+        ]
+    }
+}{
+    "Timestamp": "2022-01-21T14:08:45.4796073+01:00",
+    "Level": "Information",
+    "MessageTemplate": "Application Starting Up",
+    "Properties": {
+        "MachineName": "DESKTOP-MMS8MI6",
+        "ProcessId": 15272,
+        "ThreadId": 1
+    }
+}
+{
+    "Timestamp": "2022-01-21T14:08:49.7459934+01:00",
+    "Level": "Information",
+    "MessageTemplate": "HTTP {RequestMethod} {RequestPath} responded {StatusCode} in {Elapsed:0.0000} ms",
+    "Properties": {
+        "RequestMethod": "GET",
+        "RequestPath": "/customer",
+        "StatusCode": 200,
+        "Elapsed": 2578.0134,
+        "SourceContext": "Serilog.AspNetCore.RequestLoggingMiddleware",
+        "ActionId": "8b174662-be7a-4f49-9b82-f88e51565db8",
+        "ActionName": "TattooParlor.Endpoint.Controllers.CustomerController.Get (TattooParlor.Endpoint)",
+        "RequestId": "80000025-0002-fd00-b63f-84710c7967bb",
+        "MachineName": "DESKTOP-MMS8MI6",
+        "ProcessId": 15272,
+        "ThreadId": 4
+    },
+    "Renderings": {
+        "Elapsed": [
+            {
+                "Format": "0.0000",
+                "Rendering": "2578.0134"
+            }
+        ]
+    }
+}
+{
+    "Timestamp": "2022-01-21T14:08:58.5121926+01:00",
+    "Level": "Information",
+    "MessageTemplate": "A tattoo was returned with id: {id}",
+    "Properties": {
+        "id": 2,
+        "ActionId": "d99bf94f-5036-4701-9960-39dcb99cdeab",
+        "ActionName": "TattooParlor.Endpoint.Controllers.TattooController.Get (TattooParlor.Endpoint)",
+        "RequestId": "80000018-0002-fe00-b63f-84710c7967bb",
+        "RequestPath": "/tattoo/2",
+        "MachineName": "DESKTOP-MMS8MI6",
+        "ProcessId": 15272,
+        "ThreadId": 6
+    }
+}
+{
+    "Timestamp": "2022-01-21T14:08:58.6681260+01:00",
+    "Level": "Information",
+    "MessageTemplate": "HTTP {RequestMethod} {RequestPath} responded {StatusCode} in {Elapsed:0.0000} ms",
+    "Properties": {
+        "RequestMethod": "GET",
+        "RequestPath": "/tattoo/2",
+        "StatusCode": 200,
+        "Elapsed": 215.5274,
+        "SourceContext": "Serilog.AspNetCore.RequestLoggingMiddleware",
+        "RequestId": "80000018-0002-fe00-b63f-84710c7967bb",
+        "MachineName": "DESKTOP-MMS8MI6",
+        "ProcessId": 15272,
+        "ThreadId": 6
+    },
+    "Renderings": {
+        "Elapsed": [
+            {
+                "Format": "0.0000",
+                "Rendering": "215.5274"
+            }
+        ]
+    }
+}

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
+//using Microsoft.Extensions.Logging;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace TattooParlor.Repository
     public abstract class Repository<T> : IRepository<T> where T : class
     {
         protected DbContext ctx;
-        private readonly ILogger<Repository<T>> logger;
+        //private readonly ILogger<Repository<T>> logger;
         protected Repository(DbContext ctx)
         {
             this.ctx = ctx;
@@ -24,7 +25,8 @@ namespace TattooParlor.Repository
             }
             catch (Exception e)
             {
-                logger.LogError(e, e.Message);
+                //logger.LogError(e, e.Message);
+                Log.Error(e, e.Message);
                 return null;
             }
         }

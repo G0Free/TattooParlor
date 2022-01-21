@@ -40,8 +40,8 @@ namespace TattooParlor.Endpoint
             services.AddTransient<ITattooRepository, TattooRepository>();
             services.AddTransient<IJobsDoneRepository, JobsDoneRepository>();
 
-            services.AddTransient<DbContext, CompanyContext>(); //.AddTransient
-                                                    //.AddSingleton
+            services.AddTransient<DbContext, CompanyContext>(); 
+                                                    
 
             var configSection = Configuration.GetSection("ConnectionStrings").GetSection("DefaultConnection");
 

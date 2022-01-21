@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
+//using Microsoft.Extensions.Logging;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace TattooParlor.Repository
 {
     public class JobsDoneRepository : Repository<JobsDone>, IJobsDoneRepository
     {        
-        private readonly ILogger<JobsDoneRepository> logger;
+       // private readonly ILogger<JobsDoneRepository> logger;
         public JobsDoneRepository(DbContext ctx): base(ctx)
         {
             
@@ -27,7 +28,8 @@ namespace TattooParlor.Repository
             catch (Exception e)
             {
                 //logging
-                logger.LogError(e, e.Message);
+               // logger.LogError(e, e.Message);
+                Log.Error(e, e.Message);
             }
             
             ctx.SaveChanges();
@@ -43,7 +45,8 @@ namespace TattooParlor.Repository
             catch (Exception e)
             {
                 //logging
-                logger.LogError(e, e.Message);
+                //logger.LogError(e, e.Message);
+                Log.Error(e, e.Message);
                 return null;
             }
         }
@@ -60,7 +63,8 @@ namespace TattooParlor.Repository
             catch (Exception e)
             {
                 //logging
-                logger.LogError(e, e.Message);
+                //logger.LogError(e, e.Message);
+                Log.Error(e, e.Message);
             }
             ctx.SaveChanges();
         }
@@ -74,7 +78,8 @@ namespace TattooParlor.Repository
             catch (Exception e)
             {
                 //logging
-                logger.LogError(e, e.Message);
+                //logger.LogError(e, e.Message);
+                Log.Error(e, e.Message);
             }
             ctx.SaveChanges();
         }
@@ -88,7 +93,8 @@ namespace TattooParlor.Repository
             catch (Exception e)
             {
                 //logging
-                logger.LogError(e, e.Message);
+                //logger.LogError(e, e.Message);
+                Log.Error(e, e.Message);
             }
             ctx.SaveChanges();
         }
@@ -104,7 +110,8 @@ namespace TattooParlor.Repository
             catch (Exception e)
             {
                 //logging
-                logger.LogError(e, e.Message);
+                //logger.LogError(e, e.Message);
+                Log.Error(e, e.Message);
             }
             ctx.SaveChanges();
         }
