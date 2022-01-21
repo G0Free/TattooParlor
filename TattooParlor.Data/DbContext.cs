@@ -22,13 +22,8 @@ namespace TattooParlor.Data
         public CompanyContext(DbContextOptions<CompanyContext> options) : base(options)
         {
             this.Database.EnsureCreated();
-        }
-
-        
-        //public static string GetConnectionString()
-        //{
-        //    return null;
-        //} 
+        }       
+       
         
         
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -40,8 +35,6 @@ namespace TattooParlor.Data
         //        /* optionsBuilder
         //             .UseLazyLoadingProxies()
         //             .UseSqlServer("DefaultConnection");*/
-
-        //        optionsBuilder.UseSqlServer(optionsBuilder.Options.);
         //    }
         //}
 
