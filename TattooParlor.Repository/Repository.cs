@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-//using Microsoft.Extensions.Logging;
 using Serilog;
 using System;
 using System.Collections.Generic;
