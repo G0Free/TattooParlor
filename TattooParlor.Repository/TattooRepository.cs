@@ -28,9 +28,7 @@ namespace TattooParlor.Repository
             }
             catch (Exception e)
             {
-                //here we can logging
-                //logger.LogError(e, e.Message); //LogInformation(e.Message);
-                Log.Error(e, e.Message);
+               Log.Error(e, e.Message);
             }
             ctx.SaveChanges();
         }
@@ -43,9 +41,7 @@ namespace TattooParlor.Repository
                 return GetAll().FirstOrDefault(x => x.TattooId == id);
             }
             catch (Exception e)
-            {
-                //logging
-               // logger.LogError(e, e.Message);
+            {                
                 Log.Error(e, e.Message);
                 return null;
             }

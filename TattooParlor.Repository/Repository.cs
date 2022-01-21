@@ -23,8 +23,7 @@ namespace TattooParlor.Repository
                 return ctx.Set<T>();
             }
             catch (Exception e)
-            {
-                //logger.LogError(e, e.Message);
+            {                
                 Log.Error(e, e.Message);
                 return null;
             }
