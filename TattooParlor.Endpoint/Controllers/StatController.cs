@@ -28,33 +28,33 @@ namespace TattooParlor.Endpoint.Controllers
 
         // GET: stat/GetAllJobsByOneCustomer
         [HttpGet("{id}")]
-        public IList<JobsDone> GetAllJobsByOneCustomer(int id)
+        //public IList<JobsDone> GetAllJobsByOneCustomer(int id)
+        public IActionResult GetAllJobsByOneCustomer(int id)
         {
             try
             {
-                return jobLogic.GetAllJobsByOneCustomer(id);
+                return Ok(jobLogic.GetAllJobsByOneCustomer(id));
             }
             catch (Exception e)
-            {
-                //logger.LogError(e, e.Message);
+            {                
                 Log.Error(e, e.Message);
-                return null;
+                return StatusCode(500, null);
+                //return null;
             }
         }
 
         // GET: stat/CountAllJobsByOneCustomer
         [HttpGet("{id}")]
-        public int CountAllJobsByOneCustomer(int id)
+        public IActionResult CountAllJobsByOneCustomer(int id)
         {
             try
             {
-                return jobLogic.CountAllJobsByOneCustomer(id);
+                return Ok(jobLogic.CountAllJobsByOneCustomer(id));
             }
             catch (Exception e)
             {
-                //logger.LogError(e, e.Message);
                 Log.Error(e, e.Message);
-                return -1;
+                return StatusCode(500,-1);
             }
         }        
     }

@@ -26,17 +26,18 @@ namespace TattooParlor.Endpoint.Controllers
 
         // GET: /tattoo
         [HttpGet]
-        public IEnumerable<Tattoo> Get()
+        //public IEnumerable<Tattoo> Get()
+        public IActionResult Get()
         {
             try
             {
-                return tattooLogic.GetAllTattoes();
+                return Ok(tattooLogic.GetAllTattoes());
             }
             catch (Exception e)
             {
                 Log.Error(e, e.Message);
-                //logger.LogError(e, e.Message);
-                return null;
+                return StatusCode(500, null);
+                //return null;
             }
         }
 
