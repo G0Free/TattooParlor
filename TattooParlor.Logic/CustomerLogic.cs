@@ -28,9 +28,10 @@ namespace TattooParlor.Logic
 
         #region CRUD methods
         //Create
-        public void AddNewCustomer(Customer customer)
+        public Customer AddNewCustomer(Customer customer)
         {
             customerRepo.AddNewCustomer(customer);
+            return customer;
         }
 
         //Read

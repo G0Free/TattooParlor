@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TattooParlor.Logic;
 using TattooParlor.Models;
 using Serilog;
+using TattooParlor.Models.DTO;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -16,10 +17,10 @@ namespace TattooParlor.Endpoint.Controllers
     public class CustomerController : ControllerBase
     {
         private readonly ICustomerLogic customerLogic;
-       // private readonly ILogger<TattooController> logger;
+
         public CustomerController(ICustomerLogic customerLogic)
         {
-            this.customerLogic = customerLogic;           
+            this.customerLogic = customerLogic;
         }
 
         // GET: /customer
@@ -32,7 +33,6 @@ namespace TattooParlor.Endpoint.Controllers
             }
             catch (Exception e)
             {
-                //logger.LogError(e, e.Message);
                 Log.Error(e, e.Message);
                 return base.StatusCode(500, null);
             }
@@ -50,23 +50,46 @@ namespace TattooParlor.Endpoint.Controllers
             {
                 //logger.LogError(e, e.Message);
                 Log.Error(e, e.Message);
-                
+
                 return null;
             }
         }
 
         // POST /customer
         [HttpPost]
-        public void Post([FromBody] Customer value)
+        public IActionResult Post([FromBody] CustomerDto value)
         {
             try
             {
-                customerLogic.AddNewCustomer(value);
+                var customerEntity = new Customer
+                {
+                    CustomerId = value.CustomerId,
+                    FirstName = value.FirstName,
+                    LastName = value.LastName,
+                    Email = value.Email,
+                    BirthYear = value.BirthYear,
+                    JobsDoneId = value.JobsDoneId,
+                    IsDeleted = value.IsDeleted
+                };
+
+                var customer = customerLogic.AddNewCustomer(customerEntity);
+
+                return Ok(new CustomerDto
+                {
+                    CustomerId = customer.CustomerId,
+                    FirstName = customer.FirstName,
+                    LastName = customer.LastName,
+                    Email = customer.Email,
+                    BirthYear = customer.BirthYear,
+                    JobsDoneId = customer.JobsDoneId,
+                    IsDeleted = customer.IsDeleted
+
+                });
             }
             catch (Exception e)
-            {
-                //logger.LogError(e, e.Message);
+            {                
                 Log.Error(e, e.Message);
+                return StatusCode(500, null);
             }
         }
 
@@ -80,7 +103,7 @@ namespace TattooParlor.Endpoint.Controllers
             }
             catch (Exception e)
             {
-               // logger.LogError(e, e.Message);
+                // logger.LogError(e, e.Message);
                 Log.Error(e, e.Message);
             }
         }

@@ -10,7 +10,7 @@ namespace TattooParlor.Logic
     public interface ICustomerLogic
     {
         //Create
-        void AddNewCustomer(Customer customer);
+        Customer AddNewCustomer(Customer customer);
 
         //Read
         Customer GetCustomerById(int id);
