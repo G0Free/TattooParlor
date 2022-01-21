@@ -19,6 +19,10 @@ namespace TattooParlor.Models
         public string Email { get; set; }
         public int BirthYear { get; set; }
 
+        public DateTime CreatedAt { get; set; }
+        public  bool IsDeleted { get; set; }
+        public DateTime DeletedAt { get; set; }
+
         [NotMapped]
         public virtual JobsDone JobsDone { get; set; }
         [ForeignKey(nameof(JobsDone))]

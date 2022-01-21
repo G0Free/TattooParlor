@@ -22,6 +22,8 @@ namespace TattooParlor.Repository
         {
             try
             {
+                tattoo.CreatedAt = DateTime.UtcNow;
+
                 ctx.Add(tattoo);
             }
             catch (Exception e)
@@ -87,7 +89,11 @@ namespace TattooParlor.Repository
             try
             {
                 var toDelete = GetOne(id);
-                ctx.Remove(toDelete);
+
+                toDelete.IsDeleted = true;
+                toDelete.DeletedAt = DateTime.UtcNow;
+
+                //ctx.Remove(toDelete);
             }
             catch (Exception e)
             {

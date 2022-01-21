@@ -24,17 +24,17 @@ namespace TattooParlor.Endpoint.Controllers
 
         // GET: /customer
         [HttpGet]
-        public IEnumerable<Customer> Get()
+        public IActionResult Get()
         {
             try
             {
-                return customerLogic.GetAllCustomers();
+                return base.Ok(customerLogic.GetAllCustomers());
             }
             catch (Exception e)
             {
                 //logger.LogError(e, e.Message);
                 Log.Error(e, e.Message);
-                return null;
+                return base.StatusCode(500, null);
             }
         }
 

@@ -21,6 +21,10 @@ namespace TattooParlor.Models
         [ForeignKey(nameof(jobsDone))]
         public int? jobsDoneId { get; set; }
 
+        public DateTime CreatedAt { get; set; }
+        public bool IsDeleted { get; set; }
+        public DateTime DeletedAt { get; set; }
+
         [NotMapped]
         public string MainData => $"[{TattoId}] : Fantasyname: {FantasyName}";
     }
