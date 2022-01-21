@@ -12,13 +12,10 @@ namespace TattooParlor.Repository
 {
     public class CustomerRepository : Repository<Customer>, ICustomerRepository
     {
-        private readonly ILogger<CustomerRepository> logger;
-       // private readonly ILogger logger;
+        private readonly ILogger<CustomerRepository> logger;     
         public CustomerRepository(DbContext ctx) : base(ctx)
         {
-            //var factory = new LoggerFactory();
-            
-           // logger = factory.CreateLogger(typeof(CustomerRepository).FullName);
+           
         }
 
         //Create

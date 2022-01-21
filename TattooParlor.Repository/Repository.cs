@@ -11,7 +11,7 @@ namespace TattooParlor.Repository
     public abstract class Repository<T> : IRepository<T> where T : class
     {
         protected DbContext ctx;
-        //private readonly ILogger<Repository<T>> logger;
+        private readonly ILogger<Repository<T>> logger;
         protected Repository(DbContext ctx)
         {
             this.ctx = ctx;
@@ -24,12 +24,12 @@ namespace TattooParlor.Repository
             }
             catch (Exception e)
             {
-              //  logger.LogError(e.Message, e);
+                logger.LogError(e, e.Message);
                 return null;
-            }            
+            }
         }
 
         public abstract T GetOne(int id);
-        
+
     }
 }

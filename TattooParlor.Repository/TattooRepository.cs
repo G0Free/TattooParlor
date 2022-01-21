@@ -11,15 +11,11 @@ using Serilog;
 namespace TattooParlor.Repository
 {
     public class TattooRepository : Repository<Tattoo>, ITattooRepository
-    {
-        //private readonly ILogger logger;
+    {        
         private readonly ILogger<TattooRepository> logger;
         public TattooRepository(DbContext ctx) : base(ctx)
         {
-           // var factory = new LoggerFactory();
-
-            //logger = Log;
-            //logger = factory.CreateLogger(typeof(TattooRepository).FullName);
+           
         }
 
         //Create

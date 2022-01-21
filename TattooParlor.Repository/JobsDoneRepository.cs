@@ -10,14 +10,11 @@ using TattooParlor.Models;
 namespace TattooParlor.Repository
 {
     public class JobsDoneRepository : Repository<JobsDone>, IJobsDoneRepository
-    {
-        //private readonly ILogger logger;
+    {        
         private readonly ILogger<JobsDoneRepository> logger;
         public JobsDoneRepository(DbContext ctx): base(ctx)
         {
-            //var factory = new LoggerFactory();
-
-           // logger = factory.CreateLogger(typeof(JobsDoneRepository).FullName);
+            
         }
         
         //Create

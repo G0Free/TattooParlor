@@ -17,13 +17,11 @@ namespace TattooParlor.Endpoint.Controllers
     public class TattooController : ControllerBase
     {
         ITattooLogic tattooLogic;
-        // private readonly ILogger logger;
+        
         private readonly ILogger<TattooController> logger;
         public TattooController(ITattooLogic tattooLogic)
         {
-            this.tattooLogic = tattooLogic;
-           // var factory = new LoggerFactory();
-           // logger = factory.CreateLogger(typeof(TattooController).FullName);
+            this.tattooLogic = tattooLogic;         
         }
 
 
