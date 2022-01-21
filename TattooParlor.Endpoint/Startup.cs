@@ -51,7 +51,7 @@ namespace TattooParlor.Endpoint
             
             services.AddSingleton(settings);
             ;
-            services.AddDbContext<CompanyContext>( opt => opt.UseSqlServer(settings.ConnectionString));
+            services.AddDbContext<CompanyContext>( opt => opt.UseLazyLoadingProxies().UseSqlServer(settings.ConnectionString));
             ;
         }
 

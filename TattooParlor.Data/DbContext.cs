@@ -18,23 +18,32 @@ namespace TattooParlor.Data
         {
             this.Database.EnsureCreated();
         }
+       
         public CompanyContext(DbContextOptions<CompanyContext> options) : base(options)
         {
-
+            this.Database.EnsureCreated();
         }
 
-        /*
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            /*
-            if (!optionsBuilder.IsConfigured)
-            {
-                //string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\TattooParlor_Database.mdf;Integrated Security=True";
-                optionsBuilder
-                    .UseLazyLoadingProxies()
-                    .UseSqlServer("DefaultConnection");
-            }
-        }*/
+        
+        //public static string GetConnectionString()
+        //{
+        //    return null;
+        //} 
+        
+        
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+            
+        //    if (!optionsBuilder.IsConfigured)
+        //    {
+        //        //string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\TattooParlor_Database.mdf;Integrated Security=True";
+        //        /* optionsBuilder
+        //             .UseLazyLoadingProxies()
+        //             .UseSqlServer("DefaultConnection");*/
+
+        //        optionsBuilder.UseSqlServer(optionsBuilder.Options.);
+        //    }
+        //}
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
