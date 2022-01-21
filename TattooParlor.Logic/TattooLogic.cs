@@ -35,11 +35,14 @@ namespace TattooParlor.Logic
         //Read
         public Tattoo GetTattooById(int id)
         {
+            return tattooRepo.GetOne(id);
+            /*
             if (id <= tattooRepo.GetAll().Count())
             {
                 return tattooRepo.GetOne(id);
             }
             throw new IndexOutOfRangeException("Invalid ID");
+            */
         }
         //ReadAll
         public IEnumerable<Tattoo> GetAllTattoes()

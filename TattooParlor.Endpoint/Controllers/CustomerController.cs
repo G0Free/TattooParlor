@@ -34,6 +34,7 @@ namespace TattooParlor.Endpoint.Controllers
             catch (Exception e)
             {
                 logger.LogError(e, e.Message);
+                
                 return null;
             }
         }
@@ -49,6 +50,7 @@ namespace TattooParlor.Endpoint.Controllers
             catch (Exception e)
             {
                 logger.LogError(e, e.Message);
+                
                 return null;
             }
         }

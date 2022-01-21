@@ -36,6 +36,8 @@ namespace TattooParlor.Logic
         //Read
         public Customer GetCustomerById(int id)
         {
+            return customerRepo.GetOne(id);
+            /*
             if (id <= customerRepo.GetAll().Count())
             {
                 return customerRepo.GetOne(id);
@@ -44,6 +46,7 @@ namespace TattooParlor.Logic
             {
                 throw new IndexOutOfRangeException("Invalid ID");
             }
+            */
         }
 
         //ReadAll
