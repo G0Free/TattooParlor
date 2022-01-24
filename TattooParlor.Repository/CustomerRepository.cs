@@ -47,9 +47,7 @@ namespace TattooParlor.Repository
                 return ((CompanyContext)ctx).Customers.FirstOrDefault(x => x.CustomerId == id);
             }
             catch (Exception e)
-            {
-                //logging
-                //logger.LogError(e, e.Message);
+            {                
                 Log.Error(e, e.Message);
                 return null;
             }
@@ -165,9 +163,7 @@ namespace TattooParlor.Repository
                 //ctx.Remove(toDelete);
             }
             catch (Exception e)
-            {
-                //logging
-                //logger.LogError(e, e.Message);
+            {                
                 Log.Error(e, e.Message);
             }
             ctx.SaveChanges();

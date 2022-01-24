@@ -111,7 +111,6 @@ namespace TattooParlor.Repository
             }
             catch (Exception e)
             {
-                //logging
                 Log.Error(e, e.Message);
             }
             ctx.SaveChanges();

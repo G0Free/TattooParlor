@@ -6382,4 +6382,4 @@
         "ProcessId": 21064,
         "ThreadId": 1
     }
-}
+}{"Timestamp":"2022-01-24T09:56:34.9109754+01:00","Level":"Information","MessageTemplate":"Application Starting Up","Properties":{"MachineName":"DESKTOP-MMS8MI6","ProcessId":5532,"ThreadId":1}}
