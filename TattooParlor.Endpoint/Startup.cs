@@ -40,8 +40,9 @@ namespace TattooParlor.Endpoint
             services.AddTransient<ITattooRepository, TattooRepository>();
             services.AddTransient<IJobsDoneRepository, JobsDoneRepository>();
 
-            services.AddTransient<DbContext, CompanyContext>(); 
-                                                    
+            services.AddTransient<DbContext, CompanyContext>();
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             var configSection = Configuration.GetSection("ConnectionStrings").GetSection("DefaultConnection");
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Serilog;
 using System;
 using System.Collections.Generic;
@@ -16,11 +17,13 @@ namespace TattooParlor.Endpoint.Controllers
     [ApiController]
     public class TattooController : ControllerBase
     {
-        ITattooLogic tattooLogic;        
-      
-        public TattooController(ITattooLogic tattooLogic)
+        private readonly ITattooLogic tattooLogic;
+        public readonly IMapper mapper;
+
+        public TattooController(IMapper mapper, ITattooLogic tattooLogic)
         {
-            this.tattooLogic = tattooLogic;           
+            this.mapper = mapper;
+            this.tattooLogic = tattooLogic;
         }
 
 
@@ -64,27 +67,33 @@ namespace TattooParlor.Endpoint.Controllers
         {
             try
             {
+                /*
                 var tattooEntity = new Tattoo
                 {
                     TattooId = value.TattooId,
                     FantasyName = value.FantasyName,
                     jobsDoneId = value.jobsDoneId,
                     IsDeleted = value.IsDeleted
-                };
+                };*/
+                var mappedTattoo = mapper.Map<Tattoo>(value);
 
-                var tattoo = tattooLogic.AddNewTattoo(tattooEntity);
+                var tattoo = tattooLogic.AddNewTattoo(mappedTattoo);
 
+                //var tattoo = tattooLogic.AddNewTattoo(tattooEntity);
+                /*
                 return Ok(new TattooDto
                 {
                     TattooId = tattoo.TattooId,
                     FantasyName = tattoo.FantasyName,
                     jobsDoneId = tattoo.jobsDoneId,
                     IsDeleted = tattoo.IsDeleted
-                });
-                
+                });*/
+
+                return Ok(tattoo);
+
             }
             catch (Exception e)
-            {                
+            {
                 Log.Error(e, e.Message);
                 return StatusCode(500, null);
             }
@@ -96,15 +105,21 @@ namespace TattooParlor.Endpoint.Controllers
         {
             try
             {
+                /*
                 var tattooEntity = new Tattoo
                 {
                     TattooId = value.TattooId,
                     FantasyName = value.FantasyName,
                     jobsDoneId = value.jobsDoneId,
                     IsDeleted = value.IsDeleted
-                };
+                };*/
 
-                var tattoo = tattooLogic.UpdateTattoo(tattooEntity);
+                var mappedTattoo = mapper.Map<Tattoo>(value);
+
+                var tattoo = tattooLogic.UpdateTattoo(mappedTattoo);
+
+
+                //var tattoo = tattooLogic.UpdateTattoo(tattooEntity);
 
                 return Ok(new TattooDto
                 {

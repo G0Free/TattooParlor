@@ -49,6 +49,7 @@ namespace TattooParlor.Endpoint
                 {                    
                     logging.ClearProviders();
                     logging.AddConsole();
-                });
+                })            
+            ;
     }
 }

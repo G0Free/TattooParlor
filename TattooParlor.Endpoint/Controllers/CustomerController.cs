@@ -7,6 +7,7 @@ using TattooParlor.Logic;
 using TattooParlor.Models;
 using Serilog;
 using TattooParlor.Models.DTO;
+using AutoMapper;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -17,9 +18,11 @@ namespace TattooParlor.Endpoint.Controllers
     public class CustomerController : ControllerBase
     {
         private readonly ICustomerLogic customerLogic;
+        public readonly IMapper mapper;
 
-        public CustomerController(ICustomerLogic customerLogic)
+        public CustomerController(IMapper mapper, ICustomerLogic customerLogic)
         {
+            this.mapper = mapper;
             this.customerLogic = customerLogic;
         }
 
@@ -61,6 +64,7 @@ namespace TattooParlor.Endpoint.Controllers
         {
             try
             {
+                /*
                 var customerEntity = new Customer
                 {
                     CustomerId = value.CustomerId,
@@ -70,11 +74,15 @@ namespace TattooParlor.Endpoint.Controllers
                     BirthYear = value.BirthYear,
                     JobsDoneId = value.JobsDoneId,
                     IsDeleted = value.IsDeleted
-                };
+                };*/
+                var mappedCustomer = mapper.Map<Customer>(value);
 
-                var customer = customerLogic.AddNewCustomer(customerEntity);
 
-                return Ok(new CustomerDto
+                var customer = customerLogic.AddNewCustomer(mappedCustomer);
+                /*var customer = customerLogic.AddNewCustomer(customerEntity);
+
+                */
+                return Ok(new CustomerDto 
                 {
                     CustomerId = customer.CustomerId,
                     FirstName = customer.FirstName,
@@ -83,7 +91,6 @@ namespace TattooParlor.Endpoint.Controllers
                     BirthYear = customer.BirthYear,
                     JobsDoneId = customer.JobsDoneId,
                     IsDeleted = customer.IsDeleted
-
                 });
             }
             catch (Exception e)
@@ -99,6 +106,7 @@ namespace TattooParlor.Endpoint.Controllers
         {
             try
             {
+                /*
                 var customerEntity = new Customer
                 {
                     CustomerId = value.CustomerId,
@@ -108,9 +116,11 @@ namespace TattooParlor.Endpoint.Controllers
                     BirthYear = value.BirthYear,
                     JobsDoneId = value.JobsDoneId,
                     IsDeleted = value.IsDeleted
-                };
+                };*/
+                var mappedCustomer = mapper.Map<Customer>(value);
 
-                var customer = customerLogic.UpdateCustomer(customerEntity);
+                var customer = customerLogic.UpdateCustomer(mappedCustomer);
+                //var customer = customerLogic.UpdateCustomer(customerEntity);
 
                 return Ok(new CustomerDto
                 {

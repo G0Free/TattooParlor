@@ -7,6 +7,7 @@ using TattooParlor.Logic;
 using TattooParlor.Models;
 using Serilog;
 using TattooParlor.Models.DTO;
+using AutoMapper;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -17,10 +18,11 @@ namespace TattooParlor.Endpoint.Controllers
     public class JobsDoneController : ControllerBase
     {
         IJobsDoneLogic jobsDoneLogic;
-       // private readonly ILogger<JobsDoneController> logger;
+        public readonly IMapper mapper;
 
-        public JobsDoneController(IJobsDoneLogic jobsDoneLogic)
+        public JobsDoneController(IMapper mapper, IJobsDoneLogic jobsDoneLogic)
         {
+            this.mapper = mapper;
             this.jobsDoneLogic = jobsDoneLogic;
         }
 
@@ -52,7 +54,7 @@ namespace TattooParlor.Endpoint.Controllers
             }
             catch (Exception e)
             {
-               // logger.LogError(e, e.Message);
+                // logger.LogError(e, e.Message);
                 Log.Error(e, e.Message);
                 return null;
             }
@@ -64,6 +66,7 @@ namespace TattooParlor.Endpoint.Controllers
         {
             try
             {
+                /*
                 var jobsDoneEntity = new JobsDone
                 {
                     JobsDoneId = value.JobsDoneId,
@@ -72,9 +75,14 @@ namespace TattooParlor.Endpoint.Controllers
                     jobDate = value.jobDate,
                     Cost = value.Cost,
                     IsDeleted = value.IsDeleted
-                };
+                };*/
+                var mappedJobsDone = mapper.Map<JobsDone>(value);
 
-                var jobsDone = jobsDoneLogic.AddNewJobsDone(jobsDoneEntity);
+                var jobsDone = jobsDoneLogic.AddNewJobsDone(mappedJobsDone);
+
+
+
+                //var jobsDone = jobsDoneLogic.AddNewJobsDone(jobsDoneEntity);
 
                 //jobsDoneLogic.AddNewJobsDone(value);
 
@@ -89,7 +97,7 @@ namespace TattooParlor.Endpoint.Controllers
                 });
             }
             catch (Exception e)
-            {                
+            {
                 Log.Error(e, e.Message);
                 return StatusCode(500, null);
             }
@@ -101,6 +109,7 @@ namespace TattooParlor.Endpoint.Controllers
         {
             try
             {
+                /*
                 var jobsDoneEntity = new JobsDone
                 {
                     JobsDoneId = value.JobsDoneId,
@@ -109,12 +118,17 @@ namespace TattooParlor.Endpoint.Controllers
                     jobDate = value.jobDate,
                     Cost = value.Cost,
                     IsDeleted = value.IsDeleted
-                };
+                };*/
 
-                var jobsDone = jobsDoneLogic.UpdateJobsDone(jobsDoneEntity);
+                var mappedJobsDone = mapper.Map<JobsDone>(value);
+
+
+                var jobsDone = jobsDoneLogic.AddNewJobsDone(mappedJobsDone);
+                //var jobsDone = jobsDoneLogic.UpdateJobsDone(jobsDoneEntity);
 
                 //jobsDoneLogic.AddNewJobsDone(value);
 
+                
                 return Ok(new JobsDoneDto
                 {
                     JobsDoneId = jobsDone.JobsDoneId,
