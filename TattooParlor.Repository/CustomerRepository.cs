@@ -24,14 +24,12 @@ namespace TattooParlor.Repository
                 customer.CreatedAt = DateTime.UtcNow;
 
                 ctx.Add(customer);
+                ctx.SaveChanges();
             }
             catch (Exception e)
             {
-                //Logging
-               // logger.LogError(e, e.Message);
                 Log.Error(e, e.Message);
-            }
-            ctx.SaveChanges();
+            }            
         }
 
         //Read
@@ -39,8 +37,6 @@ namespace TattooParlor.Repository
         {
             try
             {
-                //logger.LogInformation("We just returned a Customer with ID: " +  id); //this is just for testing
-                //return GetAll().FirstOrDefault(x => x.CustomerId == id);
                 return ((CompanyContext)ctx).Customers.FirstOrDefault(x => x.CustomerId == id);
             }
             catch (Exception e)
@@ -74,14 +70,12 @@ namespace TattooParlor.Repository
                 toUpdate.LastName = customer.LastName;
                 toUpdate.BirthYear = customer.BirthYear;
                 toUpdate.Email = customer.Email;
+                ctx.SaveChanges();
             }
             catch (Exception e)
             {
-                //logging
-                //logger.LogError(e, e.Message);
                 Log.Error(e, e.Message);
-            }
-            ctx.SaveChanges();
+            }            
         }
         public void ChangeBirthYear(int id, int newBirthYear)
         {
@@ -89,14 +83,12 @@ namespace TattooParlor.Repository
             {
                 var customer = GetOne(id);
                 customer.BirthYear = newBirthYear;
+                ctx.SaveChanges();
             }
             catch (Exception e)
-            {
-                //logging
-                //logger.LogError(e, e.Message);
+            {                
                 Log.Error(e, e.Message);
-            }
-            ctx.SaveChanges();
+            }            
         }
 
         public void ChangeEmail(int id, string newEmail)
@@ -105,14 +97,12 @@ namespace TattooParlor.Repository
             {
                 var customer = GetOne(id);
                 customer.Email = newEmail;
+                ctx.SaveChanges();
             }
             catch (Exception e)
-            {
-                //logging
-                //logger.LogError(e, e.Message);
+            {                
                 Log.Error(e, e.Message);
-            }
-            ctx.SaveChanges();
+            }            
         }
 
         public void ChangeFirstName(int id, string newFirstName)
@@ -121,14 +111,12 @@ namespace TattooParlor.Repository
             {
                 var customer = GetOne(id);
                 customer.FirstName = newFirstName;
+                ctx.SaveChanges();
             }
             catch (Exception e)
             {
-                //logging
-                //logger.LogError(e, e.Message);
                 Log.Error(e, e.Message);
-            }
-            ctx.SaveChanges();
+            }            
         }
 
         public void ChangeLastName(int id, string newLastName)
@@ -137,14 +125,12 @@ namespace TattooParlor.Repository
             {
                 var customer = GetOne(id);
                 customer.LastName = newLastName;
+                ctx.SaveChanges();
             }
             catch (Exception e)
             {
-                //logging
-                //logger.LogError(e, e.Message);
                 Log.Error(e, e.Message);
-            }
-            ctx.SaveChanges();
+            }            
         }
 
         //Delete
@@ -156,15 +142,13 @@ namespace TattooParlor.Repository
 
                 toDelete.IsDeleted = true;
                 toDelete.DeletedAt = DateTime.UtcNow;
-
-                //ctx.Remove(toDelete);
+                
+                ctx.SaveChanges();
             }
             catch (Exception e)
             {                
                 Log.Error(e, e.Message);
-            }
-            ctx.SaveChanges();
+            }            
         }
-
     }
 }

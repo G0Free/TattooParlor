@@ -24,12 +24,12 @@ namespace TattooParlor.Repository
                 tattoo.CreatedAt = DateTime.UtcNow;
 
                 ctx.Add(tattoo);
+                ctx.SaveChanges();
             }
             catch (Exception e)
             {
                Log.Error(e, e.Message);
-            }
-            ctx.SaveChanges();
+            }            
         }
 
         //Read
@@ -37,7 +37,6 @@ namespace TattooParlor.Repository
         {
             try
             {
-                // return GetAll().FirstOrDefault(x => x.TattooId == id);
                 return ((CompanyContext)ctx).Tattoos.FirstOrDefault(x => x.TattooId == id);
             }
             catch (Exception e)
@@ -68,14 +67,13 @@ namespace TattooParlor.Repository
             {
                 var toUpdate = GetOne(tattoo.TattooId);
                 toUpdate.FantasyName = tattoo.FantasyName;
+                ctx.SaveChanges();
             }
             catch (Exception e)
             {
-                //logging
-                Log.Error(e, e.Message);
-                //logger.LogError(e, e.Message);
+                Log.Error(e, e.Message);                
             }
-            ctx.SaveChanges();
+            
         }
         public void ChangeFantasyName(int id, string newName)
         {
@@ -83,14 +81,13 @@ namespace TattooParlor.Repository
             {
                 var tattoo = GetOne(id);
                 tattoo.FantasyName = newName;
+
+                ctx.SaveChanges();
             }
             catch (Exception e)
             {
-                //logging
-                //logger.LogError(e, e.Message);
                 Log.Error(e, e.Message);
             }
-            ctx.SaveChanges();
         }
 
         //Delete
@@ -103,13 +100,12 @@ namespace TattooParlor.Repository
                 toDelete.IsDeleted = true;
                 toDelete.DeletedAt = DateTime.UtcNow;
 
-                //ctx.Remove(toDelete);
+                ctx.SaveChanges();
             }
             catch (Exception e)
             {
                 Log.Error(e, e.Message);
-            }
-            ctx.SaveChanges();
+            }            
         }
     }
 }

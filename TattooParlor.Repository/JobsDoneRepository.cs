@@ -11,11 +11,11 @@ using TattooParlor.Models;
 namespace TattooParlor.Repository
 {
     public class JobsDoneRepository : Repository<JobsDone>, IJobsDoneRepository
-    {        
-        public JobsDoneRepository(DbContext ctx): base(ctx)
-        {          
+    {
+        public JobsDoneRepository(DbContext ctx) : base(ctx)
+        {
         }
-        
+
         //Create
         public void AddNewJobsDone(JobsDone newJobsDone)
         {
@@ -24,15 +24,12 @@ namespace TattooParlor.Repository
                 newJobsDone.CreatedAt = DateTime.UtcNow;
 
                 ctx.Add(newJobsDone);
+                ctx.SaveChanges();
             }
             catch (Exception e)
             {
-                //logging
-               // logger.LogError(e, e.Message);
                 Log.Error(e, e.Message);
             }
-            
-            ctx.SaveChanges();
         }
 
         //Read
@@ -40,11 +37,10 @@ namespace TattooParlor.Repository
         {
             try
             {
-                //return GetAll().FirstOrDefault(x => x.JobsDoneId == id);
                 return ((CompanyContext)ctx).JobsDones.FirstOrDefault(x => x.JobsDoneId == id);
             }
             catch (Exception e)
-            {                
+            {
                 Log.Error(e, e.Message);
                 return null;
             }
@@ -54,7 +50,7 @@ namespace TattooParlor.Repository
         public override IQueryable<JobsDone> GetAll()
         {
             try
-            {                
+            {
                 return ((CompanyContext)ctx).JobsDones.Where(x => x.IsDeleted == false);
             }
             catch (Exception e)
@@ -72,14 +68,13 @@ namespace TattooParlor.Repository
                 var toUpdate = GetOne(jobsDone.JobsDoneId);
                 toUpdate.Cost = jobsDone.Cost;
                 toUpdate.jobDate = jobsDone.jobDate;
+                ctx.SaveChanges();
             }
             catch (Exception e)
             {
-                //logging
-                //logger.LogError(e, e.Message);
                 Log.Error(e, e.Message);
             }
-            ctx.SaveChanges();
+
         }
         public void ChangeCost(int id, int newCost)
         {
@@ -87,14 +82,13 @@ namespace TattooParlor.Repository
             {
                 var tattoo = GetOne(id);
                 tattoo.Cost = newCost;
+                ctx.SaveChanges();
             }
             catch (Exception e)
             {
-                //logging
-                //logger.LogError(e, e.Message);
                 Log.Error(e, e.Message);
             }
-            ctx.SaveChanges();
+
         }
         public void ChangeJobDate(int id, DateTime newJobDate)
         {
@@ -102,14 +96,13 @@ namespace TattooParlor.Repository
             {
                 var tattoo = GetOne(id);
                 tattoo.jobDate = newJobDate;
+                ctx.SaveChanges();
             }
             catch (Exception e)
             {
-                //logging
-                //logger.LogError(e, e.Message);
                 Log.Error(e, e.Message);
             }
-            ctx.SaveChanges();
+
         }
 
         //Delete
@@ -122,13 +115,12 @@ namespace TattooParlor.Repository
                 toDelete.IsDeleted = true;
                 toDelete.DeletedAt = DateTime.UtcNow;
 
-                //ctx.Remove(toDelete);
+                ctx.SaveChanges();
             }
             catch (Exception e)
-            {               
+            {
                 Log.Error(e, e.Message);
             }
-            ctx.SaveChanges();
         }
     }
 }
