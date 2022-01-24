@@ -32,7 +32,7 @@ namespace TattooParlor.Logic
         //Create
         public Tattoo AddNewTattoo(Tattoo tattoo)
         {
-            tattooRepo.AddNewTatto(tattoo);
+            tattooRepo.AddNewTattoo(tattoo);
 
             return tattoo;
         }
@@ -59,7 +59,7 @@ namespace TattooParlor.Logic
         //Update
         public Tattoo UpdateTattoo(Tattoo tattoo)
         {
-            tattooRepo.UpdateTatto(tattoo);
+            tattooRepo.UpdateTattoo(tattoo);
 
             return tattoo;
         }
@@ -71,7 +71,7 @@ namespace TattooParlor.Logic
         //Delete
         public void DeleteTatto(int id)
         {
-            tattooRepo.DeleteTatto(id);
+            tattooRepo.DeleteTattoo(id);
         }
         #endregion
 

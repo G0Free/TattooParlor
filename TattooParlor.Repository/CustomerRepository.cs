@@ -3,10 +3,12 @@ using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using TattooParlor.Data;
 using TattooParlor.Models;
+using TattooParlor.Models.Attributes;
 
 namespace TattooParlor.Repository
 {
@@ -21,10 +23,17 @@ namespace TattooParlor.Repository
         {
             try
             {
-                customer.CreatedAt = DateTime.UtcNow;
+                if (Validator.CheckEmail(customer))
+                {
+                    customer.CreatedAt = DateTime.UtcNow;
 
-                ctx.Add(customer);
-                ctx.SaveChanges();
+                    ctx.Add(customer);
+                    ctx.SaveChanges();
+                }
+                else
+                {
+                    throw new Exception("Invalid Email format!");
+                }
             }
             catch (Exception e)
             {
@@ -150,5 +159,6 @@ namespace TattooParlor.Repository
                 Log.Error(e, e.Message);
             }            
         }
+
     }
 }

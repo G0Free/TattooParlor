@@ -10,13 +10,13 @@ namespace TattooParlor.Repository
     public interface ITattooRepository : IRepository<Tattoo>
     {
         //Create
-        void AddNewTatto(Tattoo tattoo);
+        void AddNewTattoo(Tattoo tattoo);
 
         //Update
-        void UpdateTatto(Tattoo tattoo);
+        void UpdateTattoo(Tattoo tattoo);
         void ChangeFantasyName(int id, string newName);
         
         //Delete
-        void DeleteTatto(int id);
+        void DeleteTattoo(int id);
     }
 }

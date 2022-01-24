@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TattooParlor.Models.Attributes;
 
 namespace TattooParlor.Models
 {
@@ -14,9 +15,17 @@ namespace TattooParlor.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CustomerId { get; set; }
+
+        [Required]
         public string FirstName { get; set; }
+
+        [Required]
         public string LastName { get; set; }
+
+        [EmailValidator('@',25)]
         public string Email { get; set; }
+
+        [Required]        
         public int BirthYear { get; set; }
 
         public DateTime CreatedAt { get; set; }

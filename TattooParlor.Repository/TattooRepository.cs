@@ -17,7 +17,7 @@ namespace TattooParlor.Repository
         }
 
         //Create
-        public void AddNewTatto(Tattoo tattoo)
+        public void AddNewTattoo(Tattoo tattoo)
         {
             try
             {
@@ -61,7 +61,7 @@ namespace TattooParlor.Repository
         }
 
         //Update
-        public void UpdateTatto(Tattoo tattoo)
+        public void UpdateTattoo(Tattoo tattoo)
         {
             try
             {
@@ -91,7 +91,7 @@ namespace TattooParlor.Repository
         }
 
         //Delete
-        public void DeleteTatto(int id)
+        public void DeleteTattoo(int id)
         {
             try
             {
