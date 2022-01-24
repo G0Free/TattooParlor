@@ -14,7 +14,7 @@ using TattooParlor.Models.Exceptions;
 namespace TattooParlor.Repository
 {
     public class CustomerRepository : Repository<Customer>, ICustomerRepository
-    {       
+    {
         public CustomerRepository(DbContext ctx) : base(ctx)
         {
         }
@@ -31,23 +31,15 @@ namespace TattooParlor.Repository
                     ctx.Add(customer);
                     ctx.SaveChanges();
                 }
-                else
-                {
-                    throw new InvalidEmailException();
-                }
-            }
-            catch (Exception e)
-            {
-                Log.Error(e, e.Message);
-                //if (!(e is InvalidEmailException))
-                //{
-                //    Log.Error(e, e.Message);
-                //}
                 //else
                 //{
                 //    throw new InvalidEmailException();
                 //}
-            }            
+            }
+            catch (Exception e)
+            {
+                Log.Error(e, e.Message);
+            }
         }
 
         //Read
@@ -58,7 +50,7 @@ namespace TattooParlor.Repository
                 return ((CompanyContext)ctx).Customers.FirstOrDefault(x => x.CustomerId == id);
             }
             catch (Exception e)
-            {                
+            {
                 Log.Error(e, e.Message);
                 return null;
             }
@@ -68,7 +60,7 @@ namespace TattooParlor.Repository
         public override IQueryable<Customer> GetAll()
         {
             try
-            {               
+            {
                 return ((CompanyContext)ctx).Customers.Where(x => x.IsDeleted == false);
             }
             catch (Exception e)
@@ -93,7 +85,7 @@ namespace TattooParlor.Repository
             catch (Exception e)
             {
                 Log.Error(e, e.Message);
-            }            
+            }
         }
         public void ChangeBirthYear(int id, int newBirthYear)
         {
@@ -104,9 +96,9 @@ namespace TattooParlor.Repository
                 ctx.SaveChanges();
             }
             catch (Exception e)
-            {                
+            {
                 Log.Error(e, e.Message);
-            }            
+            }
         }
 
         public void ChangeEmail(int id, string newEmail)
@@ -118,9 +110,9 @@ namespace TattooParlor.Repository
                 ctx.SaveChanges();
             }
             catch (Exception e)
-            {                
+            {
                 Log.Error(e, e.Message);
-            }            
+            }
         }
 
         public void ChangeFirstName(int id, string newFirstName)
@@ -134,7 +126,7 @@ namespace TattooParlor.Repository
             catch (Exception e)
             {
                 Log.Error(e, e.Message);
-            }            
+            }
         }
 
         public void ChangeLastName(int id, string newLastName)
@@ -148,7 +140,7 @@ namespace TattooParlor.Repository
             catch (Exception e)
             {
                 Log.Error(e, e.Message);
-            }            
+            }
         }
 
         //Delete
@@ -160,13 +152,13 @@ namespace TattooParlor.Repository
 
                 toDelete.IsDeleted = true;
                 toDelete.DeletedAt = DateTime.UtcNow;
-                
+
                 ctx.SaveChanges();
             }
             catch (Exception e)
-            {                
+            {
                 Log.Error(e, e.Message);
-            }            
+            }
         }
 
     }
