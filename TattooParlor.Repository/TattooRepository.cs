@@ -42,7 +42,7 @@ namespace TattooParlor.Repository
             try
             {
                 // return GetAll().FirstOrDefault(x => x.TattooId == id);
-                return (Tattoo)ctx.Tattoos.FirstOrDefault(x => x.TattooId == id);
+                return ctx.Tattoos.FirstOrDefault(x => x.TattooId == id);
             }
             catch (Exception e)
             {                

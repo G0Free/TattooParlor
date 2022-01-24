@@ -44,7 +44,7 @@ namespace TattooParlor.Repository
             try
             {
                 //return GetAll().FirstOrDefault(x => x.JobsDoneId == id);
-                return (JobsDone)ctx.JobsDones.FirstOrDefault(x => x.JobsDoneId == id);
+                return ctx.JobsDones.FirstOrDefault(x => x.JobsDoneId == id);
             }
             catch (Exception e)
             {

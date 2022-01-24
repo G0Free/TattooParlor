@@ -44,7 +44,7 @@ namespace TattooParlor.Repository
             {
                 //logger.LogInformation("We just returned a Customer with ID: " +  id); //this is just for testing
                 //return GetAll().FirstOrDefault(x => x.CustomerId == id);
-                return (Customer)ctx.Customers.FirstOrDefault(x => x.CustomerId == id);
+                return ctx.Customers.FirstOrDefault(x => x.CustomerId == id);
             }
             catch (Exception e)
             {
