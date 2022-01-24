@@ -11,13 +11,9 @@ using TattooParlor.Data;
 namespace TattooParlor.Repository
 {
     public class TattooRepository : Repository<Tattoo>, ITattooRepository
-    {
-        //private readonly ILogger<TattooRepository> logger;
-
-        //private readonly CompanyContext ctx;
+    {       
         public TattooRepository(DbContext ctx) : base(ctx)
-        {
-            this.ctx = ctx;
+        {            
         }
 
         //Create
@@ -55,8 +51,8 @@ namespace TattooParlor.Repository
         public override IQueryable<Tattoo> GetAll()
         {
             try
-            {
-                return GetAll().Where(x => x.IsDeleted == false);
+            {                
+                return ((CompanyContext)ctx).Tattoos.Where(x => x.IsDeleted == false);
             }
             catch (Exception e)
             {
