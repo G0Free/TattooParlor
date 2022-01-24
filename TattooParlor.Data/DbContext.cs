@@ -42,22 +42,22 @@ namespace TattooParlor.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             #region Customers
-            Customer customer1 = new Customer() { CustomerId = 1, FirstName = "Adam", LastName = "Test", Email = "adam.test@testemail.com", BirthYear = 1998 };
-            Customer customer2 = new Customer() { CustomerId = 2, FirstName = "Ben", LastName = "Smith", Email = "ben.smith@gmail.com", BirthYear = 1983 };
-            Customer customer3 = new Customer() { CustomerId = 3, FirstName = "Elliot", LastName = "Alderson", Email = "fsociety@ecorp.com", BirthYear = 1986 };
+            Customer customer1 = new Customer() { CustomerId = 1, FirstName = "Adam", LastName = "Test", Email = "adam.test@testemail.com", BirthYear = 1998, IsDeleted = false };
+            Customer customer2 = new Customer() { CustomerId = 2, FirstName = "Ben", LastName = "Smith", Email = "ben.smith@gmail.com", BirthYear = 1983, IsDeleted = false };
+            Customer customer3 = new Customer() { CustomerId = 3, FirstName = "Elliot", LastName = "Alderson", Email = "fsociety@ecorp.com", BirthYear = 1986, IsDeleted = false};
             #endregion
 
             #region Tattoos
-            Tattoo tattoo1 = new Tattoo() { TattooId = 1,  FantasyName = "BigSpider" };
-            Tattoo tattoo2 = new Tattoo() { TattooId = 2, FantasyName = "SmallHeart" };
-            Tattoo tattoo3 = new Tattoo() { TattooId = 3, FantasyName = "LittleTriangle" };
+            Tattoo tattoo1 = new Tattoo() { TattooId = 1,  FantasyName = "BigSpider", IsDeleted = false };
+            Tattoo tattoo2 = new Tattoo() { TattooId = 2, FantasyName = "SmallHeart", IsDeleted = false };
+            Tattoo tattoo3 = new Tattoo() { TattooId = 3, FantasyName = "LittleTriangle", IsDeleted = false };
             #endregion
 
             #region JobsDones
-            JobsDone jobsDone1 = new JobsDone() { JobsDoneId = 1, Cost = 14000, jobDate = new DateTime(2021, 01, 04) };
-            JobsDone jobsDone2 = new JobsDone() { JobsDoneId = 2, Cost = 10000, jobDate = new DateTime(2021, 05, 12) };
-            JobsDone jobsDone3 = new JobsDone() { JobsDoneId = 3, Cost = 25000, jobDate = new DateTime(2021, 05, 23) };
-            JobsDone jobsDone4 = new JobsDone() { JobsDoneId = 4, Cost = 12000, jobDate = new DateTime(2021, 10, 11) };
+            JobsDone jobsDone1 = new JobsDone() { JobsDoneId = 1, Cost = 14000, jobDate = new DateTime(2021, 01, 04), IsDeleted = false };
+            JobsDone jobsDone2 = new JobsDone() { JobsDoneId = 2, Cost = 10000, jobDate = new DateTime(2021, 05, 12), IsDeleted = false };
+            JobsDone jobsDone3 = new JobsDone() { JobsDoneId = 3, Cost = 25000, jobDate = new DateTime(2021, 05, 23), IsDeleted = false };
+            JobsDone jobsDone4 = new JobsDone() { JobsDoneId = 4, Cost = 12000, jobDate = new DateTime(2021, 10, 11), IsDeleted = false };
             #endregion
 
             #region ForeignKeySet

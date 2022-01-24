@@ -10,5 +10,6 @@ namespace TattooParlor.Repository
     {
         T GetOne(int id);
         IQueryable<T> GetAll();
+        
     }
 }

@@ -13,10 +13,10 @@ namespace TattooParlor.Repository
     public class CustomerRepository : Repository<Customer>, ICustomerRepository
     {
         //private readonly ILogger<CustomerRepository> logger;
-        private readonly CompanyContext ctx;
-        public CustomerRepository(CompanyContext ctx) : base(ctx)
+       // private readonly CompanyContext ctx;
+        public CustomerRepository(DbContext ctx) : base(ctx)
         {
-            this.ctx = ctx;
+           // this.ctx = ctx;
         }
 
         //Create
@@ -44,12 +44,26 @@ namespace TattooParlor.Repository
             {
                 //logger.LogInformation("We just returned a Customer with ID: " +  id); //this is just for testing
                 //return GetAll().FirstOrDefault(x => x.CustomerId == id);
-                return ctx.Customers.FirstOrDefault(x => x.CustomerId == id);
+                return ((CompanyContext)ctx).Customers.FirstOrDefault(x => x.CustomerId == id);
             }
             catch (Exception e)
             {
                 //logging
                 //logger.LogError(e, e.Message);
+                Log.Error(e, e.Message);
+                return null;
+            }
+        }
+
+        //ReadAll
+        public override IQueryable<Customer> GetAll()
+        {
+            try
+            {
+                return GetAll().Where(x => x.IsDeleted == false);
+            }
+            catch (Exception e)
+            {
                 Log.Error(e, e.Message);
                 return null;
             }

@@ -16,18 +16,21 @@ namespace TattooParlor.Repository
         {
             this.ctx = ctx;
         }
+        /*
         public IQueryable<T> GetAll()
         {
             try
             {
                 return ctx.Set<T>();
+                //return ctx.Set<T>().Where(x => x.IsDeleted == false);
             }
             catch (Exception e)
             {                
                 Log.Error(e, e.Message);
                 return null;
             }
-        }
+        }*/
+        public abstract IQueryable<T> GetAll();
 
         public abstract T GetOne(int id);
 

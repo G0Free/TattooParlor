@@ -14,8 +14,8 @@ namespace TattooParlor.Repository
     {
         //private readonly ILogger<TattooRepository> logger;
 
-        private readonly CompanyContext ctx;
-        public TattooRepository(CompanyContext ctx) : base(ctx)
+        //private readonly CompanyContext ctx;
+        public TattooRepository(DbContext ctx) : base(ctx)
         {
             this.ctx = ctx;
         }
@@ -42,10 +42,24 @@ namespace TattooParlor.Repository
             try
             {
                 // return GetAll().FirstOrDefault(x => x.TattooId == id);
-                return ctx.Tattoos.FirstOrDefault(x => x.TattooId == id);
+                return ((CompanyContext)ctx).Tattoos.FirstOrDefault(x => x.TattooId == id);
             }
             catch (Exception e)
             {                
+                Log.Error(e, e.Message);
+                return null;
+            }
+        }
+
+        //ReadAll
+        public override IQueryable<Tattoo> GetAll()
+        {
+            try
+            {
+                return GetAll().Where(x => x.IsDeleted == false);
+            }
+            catch (Exception e)
+            {
                 Log.Error(e, e.Message);
                 return null;
             }

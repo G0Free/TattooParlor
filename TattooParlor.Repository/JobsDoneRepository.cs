@@ -13,10 +13,10 @@ namespace TattooParlor.Repository
     public class JobsDoneRepository : Repository<JobsDone>, IJobsDoneRepository
     {
         // private readonly ILogger<JobsDoneRepository> logger;
-        private readonly CompanyContext ctx;
-        public JobsDoneRepository(CompanyContext ctx): base(ctx)
+       // private readonly CompanyContext ctx;
+        public JobsDoneRepository(DbContext ctx): base(ctx)
         {
-            this.ctx = ctx;
+            //this.ctx = ctx;
         }
         
         //Create
@@ -44,12 +44,26 @@ namespace TattooParlor.Repository
             try
             {
                 //return GetAll().FirstOrDefault(x => x.JobsDoneId == id);
-                return ctx.JobsDones.FirstOrDefault(x => x.JobsDoneId == id);
+                return ((CompanyContext)ctx).JobsDones.FirstOrDefault(x => x.JobsDoneId == id);
             }
             catch (Exception e)
             {
                 //logging
                 //logger.LogError(e, e.Message);
+                Log.Error(e, e.Message);
+                return null;
+            }
+        }
+
+        //ReadAll
+        public override IQueryable<JobsDone> GetAll()
+        {
+            try
+            {
+                return GetAll().Where(x => x.IsDeleted == false);
+            }
+            catch (Exception e)
+            {
                 Log.Error(e, e.Message);
                 return null;
             }
