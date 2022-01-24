@@ -95,16 +95,38 @@ namespace TattooParlor.Endpoint.Controllers
 
         // PUT /customer
         [HttpPut]
-        public void Put([FromBody] Customer value)
+        public IActionResult Put([FromBody] Customer value)
         {
             try
             {
-                customerLogic.UpdateCustomer(value);
+                var customerEntity = new Customer
+                {
+                    CustomerId = value.CustomerId,
+                    FirstName = value.FirstName,
+                    LastName = value.LastName,
+                    Email = value.Email,
+                    BirthYear = value.BirthYear,
+                    JobsDoneId = value.JobsDoneId,
+                    IsDeleted = value.IsDeleted
+                };
+
+                var customer = customerLogic.UpdateCustomer(customerEntity);
+
+                return Ok(new CustomerDto
+                {
+                    CustomerId = customer.CustomerId,
+                    FirstName = customer.FirstName,
+                    LastName = customer.LastName,
+                    Email = customer.Email,
+                    BirthYear = customer.BirthYear,
+                    JobsDoneId = customer.JobsDoneId,
+                    IsDeleted = customer.IsDeleted
+                });
             }
             catch (Exception e)
             {
-                // logger.LogError(e, e.Message);
                 Log.Error(e, e.Message);
+                return StatusCode(500, null);
             }
         }
 

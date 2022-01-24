@@ -93,16 +93,33 @@ namespace TattooParlor.Endpoint.Controllers
 
         // PUT: /tattoo
         [HttpPut]
-        public void Put([FromBody] Tattoo value)
+        public IActionResult Put([FromBody] Tattoo value)
         {
             try
             {
-                tattooLogic.UpdateTattoo(value);
+                var tattooEntity = new Tattoo
+                {
+                    TattooId = value.TattooId,
+                    FantasyName = value.FantasyName,
+                    jobsDoneId = value.jobsDoneId,
+                    IsDeleted = value.IsDeleted
+                };
+
+                var tattoo = tattooLogic.UpdateTattoo(tattooEntity);
+
+                return Ok(new TattooDto
+                {
+                    TattooId = tattoo.TattooId,
+                    FantasyName = tattoo.FantasyName,
+                    jobsDoneId = tattoo.jobsDoneId,
+                    IsDeleted = tattoo.IsDeleted
+                });
+
             }
             catch (Exception e)
             {
-                //logger.LogError(e, e.Message);
                 Log.Error(e, e.Message);
+                return StatusCode(500, null);
             }
         }
 

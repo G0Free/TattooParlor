@@ -97,16 +97,38 @@ namespace TattooParlor.Endpoint.Controllers
 
         // PUT: /jobsdone
         [HttpPut]
-        public void Put([FromBody] JobsDone value)
+        public IActionResult Put([FromBody] JobsDone value)
         {
             try
             {
-                jobsDoneLogic.UpdateJobsDone(value);
+                var jobsDoneEntity = new JobsDone
+                {
+                    JobsDoneId = value.JobsDoneId,
+                    customerId = value.customerId,
+                    TattooId = value.TattooId,
+                    jobDate = value.jobDate,
+                    Cost = value.Cost,
+                    IsDeleted = value.IsDeleted
+                };
+
+                var jobsDone = jobsDoneLogic.UpdateJobsDone(jobsDoneEntity);
+
+                //jobsDoneLogic.AddNewJobsDone(value);
+
+                return Ok(new JobsDoneDto
+                {
+                    JobsDoneId = jobsDone.JobsDoneId,
+                    customerId = jobsDone.customerId,
+                    TattooId = jobsDone.TattooId,
+                    jobDate = jobsDone.jobDate,
+                    Cost = jobsDone.Cost,
+                    IsDeleted = jobsDone.IsDeleted
+                });
             }
             catch (Exception e)
             {
-               // logger.LogError(e, e.Message);
                 Log.Error(e, e.Message);
+                return StatusCode(500, null);
             }
         }
 
