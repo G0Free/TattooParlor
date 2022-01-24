@@ -5,16 +5,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TattooParlor.Data;
 using TattooParlor.Models;
 
 namespace TattooParlor.Repository
 {
     public class CustomerRepository : Repository<Customer>, ICustomerRepository
     {
-        //private readonly ILogger<CustomerRepository> logger;     
-        public CustomerRepository(DbContext ctx) : base(ctx)
+        //private readonly ILogger<CustomerRepository> logger;
+        private readonly CompanyContext ctx;
+        public CustomerRepository(CompanyContext ctx) : base(ctx)
         {
-           
+            this.ctx = ctx;
         }
 
         //Create
@@ -39,9 +41,10 @@ namespace TattooParlor.Repository
         public override Customer GetOne(int id)
         {
             try
-            {                
+            {
                 //logger.LogInformation("We just returned a Customer with ID: " +  id); //this is just for testing
-                return GetAll().FirstOrDefault(x => x.CustomerId == id);
+                //return GetAll().FirstOrDefault(x => x.CustomerId == id);
+                return (Customer)ctx.Customers.FirstOrDefault(x => x.CustomerId == id);
             }
             catch (Exception e)
             {

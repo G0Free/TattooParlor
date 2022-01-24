@@ -6,15 +6,18 @@ using System.Text;
 using System.Threading.Tasks;
 using TattooParlor.Models;
 using Serilog;
+using TattooParlor.Data;
 
 namespace TattooParlor.Repository
 {
     public class TattooRepository : Repository<Tattoo>, ITattooRepository
     {
         //private readonly ILogger<TattooRepository> logger;
-        public TattooRepository(DbContext ctx) : base(ctx)
-        {
 
+        private readonly CompanyContext ctx;
+        public TattooRepository(CompanyContext ctx) : base(ctx)
+        {
+            this.ctx = ctx;
         }
 
         //Create
@@ -38,7 +41,8 @@ namespace TattooParlor.Repository
         {
             try
             {
-                return GetAll().FirstOrDefault(x => x.TattooId == id);
+                // return GetAll().FirstOrDefault(x => x.TattooId == id);
+                return (Tattoo)ctx.Tattoos.FirstOrDefault(x => x.TattooId == id);
             }
             catch (Exception e)
             {                

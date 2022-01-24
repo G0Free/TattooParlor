@@ -5,16 +5,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TattooParlor.Data;
 using TattooParlor.Models;
 
 namespace TattooParlor.Repository
 {
     public class JobsDoneRepository : Repository<JobsDone>, IJobsDoneRepository
-    {        
-       // private readonly ILogger<JobsDoneRepository> logger;
-        public JobsDoneRepository(DbContext ctx): base(ctx)
+    {
+        // private readonly ILogger<JobsDoneRepository> logger;
+        private readonly CompanyContext ctx;
+        public JobsDoneRepository(CompanyContext ctx): base(ctx)
         {
-            
+            this.ctx = ctx;
         }
         
         //Create
@@ -41,7 +43,8 @@ namespace TattooParlor.Repository
         {
             try
             {
-                return GetAll().FirstOrDefault(x => x.JobsDoneId == id);
+                //return GetAll().FirstOrDefault(x => x.JobsDoneId == id);
+                return (JobsDone)ctx.JobsDones.FirstOrDefault(x => x.JobsDoneId == id);
             }
             catch (Exception e)
             {

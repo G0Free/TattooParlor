@@ -47,8 +47,7 @@ namespace TattooParlor.Endpoint.Controllers
         {
             try
             {
-                Log.Information("A tattoo was returned with id: {id}", id);
-                //logger.LogInformation("A tattoo was returned with id: {id}", id);
+                //Log.Information("A tattoo was returned with id: {id}", id);                
                 return tattooLogic.GetTattooById(id);
             }
             catch (Exception e)
