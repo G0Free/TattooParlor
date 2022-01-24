@@ -32,7 +32,9 @@ namespace TattooParlor.Endpoint.Controllers
         {
             try
             {
-                return base.Ok(customerLogic.GetAllCustomers());
+                //return base.Ok(customerLogic.GetAllCustomers());
+                var mappedCustomers = mapper.Map<IEnumerable<CustomerDto>>(customerLogic.GetAllCustomers());                
+                return Ok(mappedCustomers);
             }
             catch (Exception e)
             {
@@ -43,16 +45,20 @@ namespace TattooParlor.Endpoint.Controllers
 
         // GET /customer/5
         [HttpGet("{id}")]
-        public Customer Get(int id)
+       // public Customer Get(int id)
+        public IActionResult Get(int id)
         {
             try
             {
-                return customerLogic.GetCustomerById(id);
+                // return customerLogic.GetCustomerById(id);
+
+                var mappedCustomer = mapper.Map<CustomerDto>(customerLogic.GetCustomerById(id));
+                return Ok(mappedCustomer);
             }
             catch (Exception e)
             {
                 Log.Error(e, e.Message);
-                return null;
+                return StatusCode(500,null);
             }
         }
 

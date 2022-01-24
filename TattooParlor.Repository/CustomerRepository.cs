@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using TattooParlor.Data;
 using TattooParlor.Models;
 using TattooParlor.Models.Attributes;
+using TattooParlor.Models.Exceptions;
 
 namespace TattooParlor.Repository
 {
@@ -32,12 +33,20 @@ namespace TattooParlor.Repository
                 }
                 else
                 {
-                    throw new Exception("Invalid Email format!");
+                    throw new InvalidEmailException();
                 }
             }
             catch (Exception e)
             {
                 Log.Error(e, e.Message);
+                //if (!(e is InvalidEmailException))
+                //{
+                //    Log.Error(e, e.Message);
+                //}
+                //else
+                //{
+                //    throw new InvalidEmailException();
+                //}
             }            
         }
 

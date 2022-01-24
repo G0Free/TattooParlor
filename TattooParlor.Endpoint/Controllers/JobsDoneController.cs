@@ -33,27 +33,31 @@ namespace TattooParlor.Endpoint.Controllers
         {
             try
             {
-                return Ok(jobsDoneLogic.GetAllJobsDone());
+                //return Ok(jobsDoneLogic.GetAllJobsDone());
+                var mappedJobsDone = mapper.Map<IEnumerable<JobsDone>>(jobsDoneLogic.GetAllJobsDone());
+                return Ok(mappedJobsDone);
             }
             catch (Exception e)
             {
                 Log.Error(e, e.Message);
-                return StatusCode(500, null);                
+                return StatusCode(500, null);
             }
         }
 
         // GET: /jobsdone/5
         [HttpGet("{id}")]
-        public JobsDone Get(int id)
+        public IActionResult Get(int id)
         {
             try
             {
-                return jobsDoneLogic.GetJobsDoneById(id);
+                //return jobsDoneLogic.GetJobsDoneById(id);
+                var mappedJobsDone = mapper.Map<JobsDoneDto>(jobsDoneLogic.GetJobsDoneById(id));
+                return Ok(mappedJobsDone);
             }
             catch (Exception e)
             {
                 Log.Error(e, e.Message);
-                return null;
+                return StatusCode(500, null);
             }
         }
 
@@ -62,7 +66,7 @@ namespace TattooParlor.Endpoint.Controllers
         public IActionResult Post([FromBody] JobsDoneDto value)
         {
             try
-            {                
+            {
                 var mappedJobsDone = mapper.Map<JobsDone>(value);
 
                 var jobsDone = jobsDoneLogic.AddNewJobsDone(mappedJobsDone);

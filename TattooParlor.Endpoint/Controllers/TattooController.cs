@@ -28,32 +28,37 @@ namespace TattooParlor.Endpoint.Controllers
 
 
         // GET: /tattoo
-        [HttpGet]       
+        [HttpGet]
         public IActionResult Get()
         {
             try
             {
-                return Ok(tattooLogic.GetAllTattoes());
+                // return Ok(tattooLogic.GetAllTattoes());
+                var mappedTattoos = mapper.Map<IEnumerable<TattooDto>>(tattooLogic.GetAllTattoes());
+                return Ok(mappedTattoos);
             }
             catch (Exception e)
             {
                 Log.Error(e, e.Message);
-                return StatusCode(500, null);                
+                return StatusCode(500, null);
             }
         }
 
         // GET: /tattoo/5
         [HttpGet("{id}")]
-        public Tattoo Get(int id)
+        //public Tattoo Get(int id)
+        public IActionResult Get(int id)
         {
             try
-            {                
-                return tattooLogic.GetTattooById(id);
+            {
+                // return tattooLogic.GetTattooById(id);
+                var mappedTattoo = mapper.Map<TattooDto>(tattooLogic.GetTattooById(id));
+                return Ok(mappedTattoo);
             }
             catch (Exception e)
-            {               
+            {
                 Log.Error(e, e.Message);
-                return null;
+                return StatusCode(500, null);
             }
         }
 
@@ -62,12 +67,12 @@ namespace TattooParlor.Endpoint.Controllers
         public IActionResult Post([FromBody] TattooDto value)
         {
             try
-            {                
+            {
                 var mappedTattoo = mapper.Map<Tattoo>(value);
 
                 var tattoo = tattooLogic.AddNewTattoo(mappedTattoo);
 
-                return Ok(mapper.Map<TattooDto>(tattoo));               
+                return Ok(mapper.Map<TattooDto>(tattoo));
             }
             catch (Exception e)
             {
@@ -81,7 +86,7 @@ namespace TattooParlor.Endpoint.Controllers
         public IActionResult Put([FromBody] Tattoo value)
         {
             try
-            {                
+            {
 
                 var mappedTattoo = mapper.Map<Tattoo>(value);
 
