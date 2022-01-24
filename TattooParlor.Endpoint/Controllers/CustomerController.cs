@@ -51,9 +51,7 @@ namespace TattooParlor.Endpoint.Controllers
             }
             catch (Exception e)
             {
-                //logger.LogError(e, e.Message);
                 Log.Error(e, e.Message);
-
                 return null;
             }
         }
@@ -63,35 +61,12 @@ namespace TattooParlor.Endpoint.Controllers
         public IActionResult Post([FromBody] CustomerDto value)
         {
             try
-            {
-                /*
-                var customerEntity = new Customer
-                {
-                    CustomerId = value.CustomerId,
-                    FirstName = value.FirstName,
-                    LastName = value.LastName,
-                    Email = value.Email,
-                    BirthYear = value.BirthYear,
-                    JobsDoneId = value.JobsDoneId,
-                    IsDeleted = value.IsDeleted
-                };*/
+            {               
                 var mappedCustomer = mapper.Map<Customer>(value);
 
-
                 var customer = customerLogic.AddNewCustomer(mappedCustomer);
-                /*var customer = customerLogic.AddNewCustomer(customerEntity);
 
-                */
-                return Ok(new CustomerDto 
-                {
-                    CustomerId = customer.CustomerId,
-                    FirstName = customer.FirstName,
-                    LastName = customer.LastName,
-                    Email = customer.Email,
-                    BirthYear = customer.BirthYear,
-                    JobsDoneId = customer.JobsDoneId,
-                    IsDeleted = customer.IsDeleted
-                });
+                return Ok(mapper.Map<CustomerDto>(customer));
             }
             catch (Exception e)
             {                
@@ -105,33 +80,12 @@ namespace TattooParlor.Endpoint.Controllers
         public IActionResult Put([FromBody] Customer value)
         {
             try
-            {
-                /*
-                var customerEntity = new Customer
-                {
-                    CustomerId = value.CustomerId,
-                    FirstName = value.FirstName,
-                    LastName = value.LastName,
-                    Email = value.Email,
-                    BirthYear = value.BirthYear,
-                    JobsDoneId = value.JobsDoneId,
-                    IsDeleted = value.IsDeleted
-                };*/
+            {                
                 var mappedCustomer = mapper.Map<Customer>(value);
 
                 var customer = customerLogic.UpdateCustomer(mappedCustomer);
-                //var customer = customerLogic.UpdateCustomer(customerEntity);
 
-                return Ok(new CustomerDto
-                {
-                    CustomerId = customer.CustomerId,
-                    FirstName = customer.FirstName,
-                    LastName = customer.LastName,
-                    Email = customer.Email,
-                    BirthYear = customer.BirthYear,
-                    JobsDoneId = customer.JobsDoneId,
-                    IsDeleted = customer.IsDeleted
-                });
+                return Ok(mapper.Map<CustomerDto>(customer));
             }
             catch (Exception e)
             {
@@ -150,7 +104,6 @@ namespace TattooParlor.Endpoint.Controllers
             }
             catch (Exception e)
             {
-                //logger.LogError(e, e.Message);
                 Log.Error(e, e.Message);
             }
         }

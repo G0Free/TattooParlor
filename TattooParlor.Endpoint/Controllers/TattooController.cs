@@ -28,8 +28,7 @@ namespace TattooParlor.Endpoint.Controllers
 
 
         // GET: /tattoo
-        [HttpGet]
-        //public IEnumerable<Tattoo> Get()
+        [HttpGet]       
         public IActionResult Get()
         {
             try
@@ -39,8 +38,7 @@ namespace TattooParlor.Endpoint.Controllers
             catch (Exception e)
             {
                 Log.Error(e, e.Message);
-                return StatusCode(500, null);
-                //return null;
+                return StatusCode(500, null);                
             }
         }
 
@@ -49,13 +47,11 @@ namespace TattooParlor.Endpoint.Controllers
         public Tattoo Get(int id)
         {
             try
-            {
-                //Log.Information("A tattoo was returned with id: {id}", id);                
+            {                
                 return tattooLogic.GetTattooById(id);
             }
             catch (Exception e)
-            {
-                //logger.LogError(e, e.Message);
+            {               
                 Log.Error(e, e.Message);
                 return null;
             }
@@ -66,31 +62,12 @@ namespace TattooParlor.Endpoint.Controllers
         public IActionResult Post([FromBody] TattooDto value)
         {
             try
-            {
-                /*
-                var tattooEntity = new Tattoo
-                {
-                    TattooId = value.TattooId,
-                    FantasyName = value.FantasyName,
-                    jobsDoneId = value.jobsDoneId,
-                    IsDeleted = value.IsDeleted
-                };*/
+            {                
                 var mappedTattoo = mapper.Map<Tattoo>(value);
 
                 var tattoo = tattooLogic.AddNewTattoo(mappedTattoo);
 
-                //var tattoo = tattooLogic.AddNewTattoo(tattooEntity);
-                /*
-                return Ok(new TattooDto
-                {
-                    TattooId = tattoo.TattooId,
-                    FantasyName = tattoo.FantasyName,
-                    jobsDoneId = tattoo.jobsDoneId,
-                    IsDeleted = tattoo.IsDeleted
-                });*/
-
-                return Ok(tattoo);
-
+                return Ok(mapper.Map<TattooDto>(tattoo));               
             }
             catch (Exception e)
             {
@@ -104,30 +81,13 @@ namespace TattooParlor.Endpoint.Controllers
         public IActionResult Put([FromBody] Tattoo value)
         {
             try
-            {
-                /*
-                var tattooEntity = new Tattoo
-                {
-                    TattooId = value.TattooId,
-                    FantasyName = value.FantasyName,
-                    jobsDoneId = value.jobsDoneId,
-                    IsDeleted = value.IsDeleted
-                };*/
+            {                
 
                 var mappedTattoo = mapper.Map<Tattoo>(value);
 
                 var tattoo = tattooLogic.UpdateTattoo(mappedTattoo);
 
-
-                //var tattoo = tattooLogic.UpdateTattoo(tattooEntity);
-
-                return Ok(new TattooDto
-                {
-                    TattooId = tattoo.TattooId,
-                    FantasyName = tattoo.FantasyName,
-                    jobsDoneId = tattoo.jobsDoneId,
-                    IsDeleted = tattoo.IsDeleted
-                });
+                return Ok(mapper.Map<TattooDto>(tattoo));
 
             }
             catch (Exception e)

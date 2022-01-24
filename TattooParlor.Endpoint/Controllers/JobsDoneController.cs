@@ -29,7 +29,6 @@ namespace TattooParlor.Endpoint.Controllers
 
         // GET: /jobsdone
         [HttpGet]
-        //public IEnumerable<JobsDone> Get()
         public IActionResult Get()
         {
             try
@@ -39,8 +38,7 @@ namespace TattooParlor.Endpoint.Controllers
             catch (Exception e)
             {
                 Log.Error(e, e.Message);
-                return StatusCode(500, null);
-                //return null;
+                return StatusCode(500, null);                
             }
         }
 
@@ -54,7 +52,6 @@ namespace TattooParlor.Endpoint.Controllers
             }
             catch (Exception e)
             {
-                // logger.LogError(e, e.Message);
                 Log.Error(e, e.Message);
                 return null;
             }
@@ -65,36 +62,13 @@ namespace TattooParlor.Endpoint.Controllers
         public IActionResult Post([FromBody] JobsDoneDto value)
         {
             try
-            {
-                /*
-                var jobsDoneEntity = new JobsDone
-                {
-                    JobsDoneId = value.JobsDoneId,
-                    customerId = value.customerId,
-                    TattooId = value.TattooId,
-                    jobDate = value.jobDate,
-                    Cost = value.Cost,
-                    IsDeleted = value.IsDeleted
-                };*/
+            {                
                 var mappedJobsDone = mapper.Map<JobsDone>(value);
 
                 var jobsDone = jobsDoneLogic.AddNewJobsDone(mappedJobsDone);
 
 
-
-                //var jobsDone = jobsDoneLogic.AddNewJobsDone(jobsDoneEntity);
-
-                //jobsDoneLogic.AddNewJobsDone(value);
-
-                return Ok(new JobsDoneDto
-                {
-                    JobsDoneId = jobsDone.JobsDoneId,
-                    customerId = jobsDone.customerId,
-                    TattooId = jobsDone.TattooId,
-                    jobDate = jobsDone.jobDate,
-                    Cost = jobsDone.Cost,
-                    IsDeleted = jobsDone.IsDeleted
-                });
+                return Ok(mapper.Map<JobsDoneDto>(jobsDone));
             }
             catch (Exception e)
             {
@@ -109,35 +83,11 @@ namespace TattooParlor.Endpoint.Controllers
         {
             try
             {
-                /*
-                var jobsDoneEntity = new JobsDone
-                {
-                    JobsDoneId = value.JobsDoneId,
-                    customerId = value.customerId,
-                    TattooId = value.TattooId,
-                    jobDate = value.jobDate,
-                    Cost = value.Cost,
-                    IsDeleted = value.IsDeleted
-                };*/
-
                 var mappedJobsDone = mapper.Map<JobsDone>(value);
 
-
                 var jobsDone = jobsDoneLogic.AddNewJobsDone(mappedJobsDone);
-                //var jobsDone = jobsDoneLogic.UpdateJobsDone(jobsDoneEntity);
 
-                //jobsDoneLogic.AddNewJobsDone(value);
-
-                
-                return Ok(new JobsDoneDto
-                {
-                    JobsDoneId = jobsDone.JobsDoneId,
-                    customerId = jobsDone.customerId,
-                    TattooId = jobsDone.TattooId,
-                    jobDate = jobsDone.jobDate,
-                    Cost = jobsDone.Cost,
-                    IsDeleted = jobsDone.IsDeleted
-                });
+                return Ok(mapper.Map<JobsDoneDto>(jobsDone));
             }
             catch (Exception e)
             {
@@ -156,7 +106,6 @@ namespace TattooParlor.Endpoint.Controllers
             }
             catch (Exception e)
             {
-                //logger.LogError(e, e.Message);
                 Log.Error(e, e.Message);
             }
         }
