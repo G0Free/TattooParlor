@@ -54,9 +54,11 @@ namespace TattooParlor.Logic
         }
 
         //Update
-        public void UpdateJobsDone(JobsDone jobsDone)
+        public JobsDone UpdateJobsDone(JobsDone jobsDone)
         {
             jobRepo.UpdateJobsDone(jobsDone);
+
+            return jobsDone;
         }
         public void ChangeCost(int id, int newCost)
         {

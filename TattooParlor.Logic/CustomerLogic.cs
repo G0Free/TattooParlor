@@ -57,9 +57,11 @@ namespace TattooParlor.Logic
         }
 
         //Update
-        public void UpdateCustomer(Customer customer)
+        public Customer UpdateCustomer(Customer customer)
         {
             customerRepo.UpdateCustomer(customer);
+
+            return customer;
         }
         public void ChangeBirthYear(int id, int newBirthYear)
         {

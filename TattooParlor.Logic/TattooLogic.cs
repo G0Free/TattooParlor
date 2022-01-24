@@ -57,9 +57,11 @@ namespace TattooParlor.Logic
 
         
         //Update
-        public void UpdateTattoo(Tattoo tattoo)
+        public Tattoo UpdateTattoo(Tattoo tattoo)
         {
             tattooRepo.UpdateTatto(tattoo);
+
+            return tattoo;
         }
         public void ChangeFantasyName(int id, string newName)
         {

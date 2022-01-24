@@ -19,7 +19,7 @@ namespace TattooParlor.Logic
         IEnumerable<Customer> GetAllCustomers();
 
         //Update
-        void UpdateCustomer(Customer customer);
+        Customer UpdateCustomer(Customer customer);
         void ChangeBirthYear(int id, int newBirthYear);
         void ChangeEmail(int id, string newEmail);
         void ChangeFirstName(int id, string newFirstName);

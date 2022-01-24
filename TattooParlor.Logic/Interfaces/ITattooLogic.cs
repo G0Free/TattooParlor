@@ -19,7 +19,7 @@ namespace TattooParlor.Logic
         IEnumerable<Tattoo> GetAllTattoes();
 
         //Update
-        void UpdateTattoo(Tattoo tattoo);
+        Tattoo UpdateTattoo(Tattoo tattoo);
         void ChangeFantasyName(int id, string newName);
 
         //Delete

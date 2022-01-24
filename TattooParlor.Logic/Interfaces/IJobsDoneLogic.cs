@@ -20,7 +20,7 @@ namespace TattooParlor.Logic
         IEnumerable<JobsDone> GetAllJobsDone();
 
         //Update
-        void UpdateJobsDone(JobsDone jobsDone);
+        JobsDone UpdateJobsDone(JobsDone jobsDone);
         void ChangeCost(int id, int newCost);
         void ChangeJobDate(int id, DateTime newJobDate);
 
