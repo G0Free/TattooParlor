@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using TattooParlor.Data;
 using TattooParlor.Models;
 using TattooParlor.Models.Attributes;
-using TattooParlor.Models.Exceptions;
 
 namespace TattooParlor.Repository
 {
@@ -23,18 +22,11 @@ namespace TattooParlor.Repository
         public void AddNewCustomer(Customer customer)
         {
             try
-            {
-                if (Validator.CheckEmail(customer))
-                {
+            {              
                     customer.CreatedAt = DateTime.UtcNow;
 
                     ctx.Add(customer);
-                    ctx.SaveChanges();
-                }
-                //else
-                //{
-                //    throw new InvalidEmailException();
-                //}
+                    ctx.SaveChanges();               
             }
             catch (Exception e)
             {

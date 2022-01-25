@@ -22,7 +22,7 @@ namespace TattooParlor.Models
         [Required]
         public string LastName { get; set; }
 
-        [EmailValidator('@',50)]
+        
         public string Email { get; set; }
 
         [Required]        

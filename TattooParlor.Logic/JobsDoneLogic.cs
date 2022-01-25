@@ -37,14 +37,7 @@ namespace TattooParlor.Logic
         //Read
         public JobsDone GetJobsDoneById(int id)
         {
-            return jobRepo.GetOne(id);
-            /*
-            if (id <= jobRepo.GetAll().Count())
-            {
-                return jobRepo.GetOne(id);
-            }
-            throw new IndexOutOfRangeException("Invalid ID");
-            */
+            return jobRepo.GetOne(id);           
         }
 
         //ReadAll
