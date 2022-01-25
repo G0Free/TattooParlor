@@ -10,7 +10,7 @@ namespace TattooParlor.Models.Attributes
     [AttributeUsage(AttributeTargets.Property)]
     public class EmailValidatorAttribute : ValidationAttribute
     {        
-        private string allowedEmailFormat { get; set; }
+        public string allowedEmailFormat { get; set; }
         public EmailValidatorAttribute(string allowedDomain)
         {
             this.allowedEmailFormat = allowedDomain;
