@@ -33,7 +33,6 @@ namespace TattooParlor.Endpoint.Controllers
         {
             try
             {
-                //return Ok(jobsDoneLogic.GetAllJobsDone());
                 var mappedJobsDone = mapper.Map<IEnumerable<JobsDone>>(jobsDoneLogic.GetAllJobsDone());
                 return Ok(mappedJobsDone);
             }
@@ -50,7 +49,6 @@ namespace TattooParlor.Endpoint.Controllers
         {
             try
             {
-                //return jobsDoneLogic.GetJobsDoneById(id);
                 var mappedJobsDone = mapper.Map<JobsDoneDto>(jobsDoneLogic.GetJobsDoneById(id));
                 return Ok(mappedJobsDone);
             }

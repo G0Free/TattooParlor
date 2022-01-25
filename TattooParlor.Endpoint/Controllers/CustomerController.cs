@@ -31,8 +31,7 @@ namespace TattooParlor.Endpoint.Controllers
         public IActionResult Get()
         {
             try
-            {
-                //return base.Ok(customerLogic.GetAllCustomers());
+            {                
                 var mappedCustomers = mapper.Map<IEnumerable<CustomerDto>>(customerLogic.GetAllCustomers());                
                 return Ok(mappedCustomers);
             }
@@ -44,8 +43,7 @@ namespace TattooParlor.Endpoint.Controllers
         }
 
         // GET /customer/5
-        [HttpGet("{id}")]
-       // public Customer Get(int id)
+        [HttpGet("{id}")]       
         public IActionResult Get(int id)
         {
             try

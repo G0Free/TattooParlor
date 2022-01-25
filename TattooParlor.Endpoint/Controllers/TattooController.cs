@@ -33,7 +33,6 @@ namespace TattooParlor.Endpoint.Controllers
         {
             try
             {
-                // return Ok(tattooLogic.GetAllTattoes());
                 var mappedTattoos = mapper.Map<IEnumerable<TattooDto>>(tattooLogic.GetAllTattoes());
                 return Ok(mappedTattoos);
             }
@@ -46,12 +45,10 @@ namespace TattooParlor.Endpoint.Controllers
 
         // GET: /tattoo/5
         [HttpGet("{id}")]
-        //public Tattoo Get(int id)
         public IActionResult Get(int id)
         {
             try
             {
-                // return tattooLogic.GetTattooById(id);
                 var mappedTattoo = mapper.Map<TattooDto>(tattooLogic.GetTattooById(id));
                 return Ok(mappedTattoo);
             }
@@ -87,13 +84,11 @@ namespace TattooParlor.Endpoint.Controllers
         {
             try
             {
-
                 var mappedTattoo = mapper.Map<Tattoo>(value);
 
                 var tattoo = tattooLogic.UpdateTattoo(mappedTattoo);
 
                 return Ok(mapper.Map<TattooDto>(tattoo));
-
             }
             catch (Exception e)
             {

@@ -17,8 +17,7 @@ namespace TattooParlor.Endpoint.Controllers
     {
         ICustomerLogic customerLogic;
         IJobsDoneLogic jobLogic;
-        ITattooLogic tattooLogic;
-        //private readonly ILogger<StatController> logger;
+        ITattooLogic tattooLogic;       
         public StatController(ICustomerLogic customerLogic, IJobsDoneLogic jobLogic, ITattooLogic tattooLogic)
         {
             this.customerLogic = customerLogic;
@@ -27,8 +26,7 @@ namespace TattooParlor.Endpoint.Controllers
         }
 
         // GET: stat/GetAllJobsByOneCustomer
-        [HttpGet("{id}")]
-        //public IList<JobsDone> GetAllJobsByOneCustomer(int id)
+        [HttpGet("{id}")]        
         public IActionResult GetAllJobsByOneCustomer(int id)
         {
             try
@@ -39,7 +37,6 @@ namespace TattooParlor.Endpoint.Controllers
             {                
                 Log.Error(e, e.Message);
                 return StatusCode(500, null);
-                //return null;
             }
         }
 
